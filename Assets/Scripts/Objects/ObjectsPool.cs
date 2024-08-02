@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectsPool : MonoBehaviour
+public class ObjectsPool
 {
     private Dictionary<PoolObjectType, List<IPoolObject>> pools = new ();
 
@@ -17,7 +17,7 @@ public class ObjectsPool : MonoBehaviour
 
     public IPoolObject Spawn(IPoolObject prefab, Transform container, Vector3 position)
     {
-        var gameObject = Instantiate(prefab as MonoBehaviour, container);
+        var gameObject = Object.Instantiate(prefab as MonoBehaviour, container);
         gameObject.transform.position = position;
         var poolObject = gameObject as IPoolObject;
         AddToPool(poolObject);

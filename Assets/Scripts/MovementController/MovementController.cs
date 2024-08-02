@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class MovementController
 {
     public static MovementController instance;
 
     private List<MoveUnit> moveUnits;
-    private float jumpY = 3f;
+    private float speedModify = 1;
 
     private Vector3[] points =
     {
@@ -15,31 +15,30 @@ public class MovementController : MonoBehaviour
         new Vector3(2, 0, 0)
     };
 
-    private void Awake()
+    public void SetInstance()
     {
         instance = this;
     }
 
-    private void Update()
+    public void Update()
     {
         foreach (var unit in moveUnits)
         {
             if (unit.Transform.gameObject.activeSelf)
             {
-                //MoveToPositionUpdate(unit);
-                MoveToPositionForwardUpdate(unit);
-                PatrolMoveUpdate(unit);
+                MoveToPositionForwardTransformUpdate(unit);
+                PatrolMoveTransformUpdate(unit);
             }
         }
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         foreach (var unit in moveUnits)
         {
             if (unit.Transform.gameObject.activeSelf)
             {
-                MoveToPositionFixedUpdate(unit);
+                MoveToPositionRBFixedUpdate(unit);
             }
         }
     }
@@ -51,7 +50,7 @@ public class MovementController : MonoBehaviour
         moveUnits.Add(moveUnit);
     }
 
-    public void MoveToPositionFixedUpdate(MoveUnit unit)
+    public void MoveToPositionRBFixedUpdate(MoveUnit unit)
     {
         switch (unit.MoveType)
         {
@@ -59,16 +58,18 @@ public class MovementController : MonoBehaviour
                 Vector3 movePosition = unit.Rb.position;
 
                 movePosition.x = Mathf.MoveTowards(unit.Rb.position.x, points[unit.PointNumber].x, unit.SpeedX * Time.fixedDeltaTime);
-                if (unit.Rb.position.y >= jumpY - 0.5f)
-                    unit.jump = false;
+                
                 if (unit.jump)
-                    movePosition.y = Mathf.MoveTowards(unit.Rb.position.y, jumpY, unit.SpeedY * Time.fixedDeltaTime);
+                {
+                    unit.Rb.AddForce(Vector3.up * unit.SpeedY, ForceMode.Impulse);
+                    unit.jump = false;
+                }    
                 unit.Rb.MovePosition(movePosition);
                 break;
         }
     }
 
-    public void MoveToPositionUpdate(MoveUnit unit)
+    public void MoveToPositionTransformUpdate(MoveUnit unit)
     {
         if (unit.isPatrol)
             return;
@@ -92,19 +93,29 @@ public class MovementController : MonoBehaviour
         movePosition.x = points[unit.PointNumber].x;
         unit.Transform.position = movePosition;
     }
-
-    public void MoveToPositionForwardUpdate(MoveUnit unit)
+    
+    public void TeleportToPosition(MoveUnit unit, float posY)
     {
+        Vector3 movePosition = unit.Transform.position;
+
+        movePosition.x = points[unit.PointNumber].x;
+        movePosition.y = posY;
+        unit.Transform.position = movePosition;
+    }
+
+    public void MoveToPositionForwardTransformUpdate(MoveUnit unit)
+    {
+        
         switch (unit.MoveType)
         {
             case MoveType.Transform:
                 unit.Transform.position = Vector3.MoveTowards(unit.Transform.position, unit.Transform.position - Vector3.forward,
-                    unit.SpeedZ * Time.deltaTime);
+                    unit.SpeedZ * Time.deltaTime * speedModify);
                 break;
         }
     }
 
-    public void PatrolMoveUpdate(MoveUnit unit)
+    public void PatrolMoveTransformUpdate(MoveUnit unit)
     {
         if (!unit.isPatrol)
             return;
@@ -121,4 +132,10 @@ public class MovementController : MonoBehaviour
             unit.SpeedX * Time.deltaTime);
         unit.Transform.position = movePosition;
     }
+
+    public void ChangeSpeedModify(float value)
+    {
+        speedModify = Mathf.Clamp(value + 1, 1, 5);
+    }
+
 }

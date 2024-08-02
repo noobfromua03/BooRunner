@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IPoolObject
 {
-    [field: SerializeField] public MoveUnit MoveUnit { get; private set; }
-
     [SerializeField] private PoolObjectType objectType;
+    [SerializeField] private int boldLevel;
+    [field: SerializeField] public MoveUnit MoveUnit { get; private set; }
     public PoolObjectType ObjectType { get => objectType; }
+    public int BoldLevel { get => boldLevel; }
+
+    public bool actionDone;
 
     private void Start()
     {
@@ -22,6 +25,7 @@ public class Enemy : MonoBehaviour, IPoolObject
     private void OnEnable()
     {
         TeleportToPosition();
+        actionDone = false;
     }
 
     public void TeleportToPosition()
@@ -61,4 +65,24 @@ public class Enemy : MonoBehaviour, IPoolObject
         else if (line == 2 && lines[0])
             MoveUnit.currentPatrolLine = 1;
     }
+
+    public bool CompareBold(int essence)
+    {
+        return essence >= boldLevel;
+    }
+
+    public void ActionHandler()
+    {
+        if (CompareBold(PlayerData.instance.FearEssence) || PlayerData.instance.IsTownLegend)
+            PlayerData.instance.RemoveEssence(BoldLevel);
+        else
+        {
+            if (CompareBold(PlayerData.instance.FearEssence) == false && PlayerData.instance.IsPhantomOfTheOpera)
+                return;
+            PlayerData.instance.RemoveLIfe(1);
+        }
+        actionDone = true;
+    }
+    public bool ActionDone()
+        => actionDone;
 }

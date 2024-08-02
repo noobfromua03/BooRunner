@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public class SwipeManager : MonoBehaviour
+public class SwipeController
 {
-    [SerializeField] private PlayerController playerController;
-
+    private PlayerController playerController;
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
 
-    private void Update()
+    public void UpdateSwipes()
     {
         var inputData = new InputData();
 
@@ -29,6 +28,11 @@ public class SwipeManager : MonoBehaviour
         }
 
         playerController.ProcessInput(inputData);
+    }
+
+    public void SetPlayerController(PlayerController controller)
+    {
+        playerController = controller;
     }
 }
 

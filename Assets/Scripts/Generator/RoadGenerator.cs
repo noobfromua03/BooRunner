@@ -1,17 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class RoadGenerator : MonoBehaviour
+[System.Serializable]
+public class RoadGenerator
 {
-    [SerializeField] private List<RoadPart> roadPartsPrefabs;
-    [SerializeField] private Transform container;
-
+    private List<RoadPart> roadPartsPrefabs;
+    
     private List<RoadPart> road = new();
     private RoadPart lastRoadPart;
+    private Transform container;
 
-    private void Awake()
+    public void Initialize(List<RoadPart> roadParts)
     {
-        CreateFullRoad(50);
+        roadPartsPrefabs = roadParts;
     }
 
     public void CreateFullRoad(int leng)
@@ -19,7 +20,7 @@ public class RoadGenerator : MonoBehaviour
         for (int i = 0; i < leng; i++)
         {
             var prefab = GetRandomRoadPartPrefab();
-            var roadPart = Instantiate(prefab, container);
+            var roadPart = Object.Instantiate(prefab, container);
             roadPart.transform.position = (lastRoadPart == null) ? container.position : lastRoadPart.FinishPoint.position;
             lastRoadPart = roadPart;
             roadPart.onFinish += MoveOnTop;
@@ -36,6 +37,11 @@ public class RoadGenerator : MonoBehaviour
     {
         roadPart.transform.position = lastRoadPart.FinishPoint.position;
         lastRoadPart = roadPart;
+    }
+
+    public void SetContainer(Transform container)
+    {
+        this.container = container;
     }
 }
 

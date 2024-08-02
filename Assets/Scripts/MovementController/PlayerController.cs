@@ -3,6 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     [field: SerializeField] public MoveUnit MoveUnit { get; private set; }
+    [field: SerializeField] public Transform CameraLookAt { get; private set; }
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
 
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public InputData inputData = new InputData();
 
-    private const float GROUND_CHECK_RADIUS = 0.3f;
+    private const float GROUND_CHECK_RADIUS = 0.001f;
 
     private void Awake()
     {
