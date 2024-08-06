@@ -50,7 +50,7 @@ MonoBehaviour:
     MoveType: 0
     Rb: {fileID: 0}
     Transform: {fileID: 1566693248540551351}
-    PointNumber: 0
+    PointNumber: 1
     SpeedX: 0
     SpeedY: 0
     SpeedZ: 10

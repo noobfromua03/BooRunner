@@ -37,5 +37,7 @@ public class TownLegend : MonoBehaviour, IPoolObject
     }
     public bool ActionDone()
         => actionDone;
+    public bool ActiveStatus()
+        => gameObject.activeSelf;
 }
 

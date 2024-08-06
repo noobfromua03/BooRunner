@@ -73,11 +73,11 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        if (CompareBold(PlayerData.instance.FearEssence) || PlayerData.instance.IsTownLegend)
+        if (CompareBold(PlayerData.instance.FearEssence) || PlayerData.instance.IsTownLegend.Status)
             PlayerData.instance.RemoveEssence(BoldLevel);
         else
         {
-            if (CompareBold(PlayerData.instance.FearEssence) == false && PlayerData.instance.IsPhantomOfTheOpera)
+            if (CompareBold(PlayerData.instance.FearEssence) == false && PlayerData.instance.IsPhantomOfTheOpera.Status)
                 return;
             PlayerData.instance.RemoveLIfe(1);
         }
@@ -85,4 +85,6 @@ public class Enemy : MonoBehaviour, IPoolObject
     }
     public bool ActionDone()
         => actionDone;
+    public bool ActiveStatus()
+        => gameObject.activeSelf;
 }

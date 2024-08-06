@@ -167,26 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e60c8fda911226c43991e2afb37e38ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ObjectGenerator>k__BackingField:
-    obstaclePrefabs:
-    - {fileID: 4604428588632158031, guid: 806e9f9a9baa1654fb3519d0b652c33a, type: 3}
-    - {fileID: 4604428588632158031, guid: c5bf000e3b40de64a846f42b1dc02e09, type: 3}
-    - {fileID: 5070416640557695480, guid: 7b39b5a24b86eb0468dd1e47a0258aa2, type: 3}
-    - {fileID: 5796987672305416087, guid: 02b82e7b707ea7a448633002a8b808d9, type: 3}
-    collectablePrefabs:
-    - {fileID: 6182444934587262213, guid: d66e47b58e46cb54993a9b665191179d, type: 3}
-    - {fileID: 6997331554744277936, guid: 6123520bdcf0ce447b3ee95f518a693b, type: 3}
-    - {fileID: 3150416002738746303, guid: 0a79c6b8d448e5f408323e15f5d88567, type: 3}
-    - {fileID: 7600386778281866110, guid: af4711057ad98a2419f2c30037f24ca7, type: 3}
-    - {fileID: 217293199513067904, guid: 0d71b40da1fd04942922034371634693, type: 3}
-    - {fileID: 3238373808922110557, guid: 12037fb11facb82449b844bbe3310198, type: 3}
-    - {fileID: 4507167958805883313, guid: f99d6be6d941f7c4399d95805cc25986, type: 3}
-  <RoadGenerator>k__BackingField:
-    roadPartsPrefabs:
-    - {fileID: 83461669510976166, guid: ab4ff752f24038c4c8796d511fc1dfb4, type: 3}
-  <DecorationGenerator>k__BackingField:
-    roadPartsPrefabs:
-    - {fileID: 83461669510976166, guid: 2ccd0d1f809bda148a4d6b8d5e7a9039, type: 3}
   PlayerPrefab: {fileID: 1331820225938346750, guid: 6bb30782f271f9e428ee78ed0ed593df,
     type: 3}
   CameraPrefab: {fileID: 6956615689246550266, guid: 9cb3fdc34c7219040b45ef1981d2f13d,

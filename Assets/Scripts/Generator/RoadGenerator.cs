@@ -20,7 +20,7 @@ public class RoadGenerator
         for (int i = 0; i < leng; i++)
         {
             var prefab = GetRandomRoadPartPrefab();
-            var roadPart = Object.Instantiate(prefab, container);
+            var roadPart = GameObject.Instantiate(prefab, container);
             roadPart.transform.position = (lastRoadPart == null) ? container.position : lastRoadPart.FinishPoint.position;
             lastRoadPart = roadPart;
             roadPart.onFinish += MoveOnTop;

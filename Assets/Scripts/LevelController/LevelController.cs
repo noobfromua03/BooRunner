@@ -121,12 +121,13 @@ public class LevelController : MonoBehaviour
         playerData.UpdatePlayerScore += playerHUD.UpdateScore;
         playerData.UpdateStreak += playerHUD.UpdateStreak;
         playerData.UpdateFearEssence += playerHUD.UpdateFearEssence;
+        playerData.UpdateBoosterIcon += playerHUD.UpdateBoosterIcon;
 
     }
 
     private void ChangeSpeed(int streak)
     {
-        if (playerData.IsSlowMotion)
+        if (playerData.IsSlowMotion.Status)
             movementController.ChangeSpeedModify(streak != 0 ? streak * SPEED_MODIFY_MULTIPLIER / 2 : 0);
         else
             movementController.ChangeSpeedModify(streak != 0 ? streak * SPEED_MODIFY_MULTIPLIER : 0);
@@ -134,7 +135,7 @@ public class LevelController : MonoBehaviour
 
     private void ChangeSpawnTime(int streak)
     {
-        if (playerData.IsSlowMotion)
+        if (playerData.IsSlowMotion.Status)
             ObjectGenerator.ChangeSpawnTime(streak != 0 ? streak * SPAWN_MODIFY_MULTIPLIER / 2 : 0);
         else
             ObjectGenerator.ChangeSpawnTime(streak != 0 ? streak * SPAWN_MODIFY_MULTIPLIER : 0);

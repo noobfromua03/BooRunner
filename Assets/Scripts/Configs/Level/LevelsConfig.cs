@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelsConfig : AbstractConfig<LevelsConfig>
 {
     [field: SerializeField] public List<LevelData> Levels { get; private set; }
+
 }
 
 [System.Serializable]

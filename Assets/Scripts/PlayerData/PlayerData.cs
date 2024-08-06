@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
@@ -20,18 +22,31 @@ public class PlayerData : MonoBehaviour
     public int Score { get => score; }
     public int ScaredEnemiesStreak { get => scaredEnemiesStreak; }
 
-    [field: SerializeField] public bool IsInvincible { get; private set; }
-    [field: SerializeField] public bool IsSlowMotion { get; private set; }
-    [field: SerializeField] public bool IsDarkCloud { get; private set; }
-    [field: SerializeField] public bool IsLightsOFF { get; private set; }
-    [field: SerializeField] public bool IsPhantomOfTheOpera { get; private set; }
-    [field: SerializeField] public bool IsTownLegend { get; private set; }
+    public bool IsInvincible { get; private set; }
+    //public bool IsImmateriality { get; private set; }
+    //public bool IsSlowMotion { get; private set; }
+    //public bool IsDarkCloud { get; private set; }
+    //public bool IsLightsOFF { get; private set; }
+    //public bool IsPhantomOfTheOpera { get; private set; }
+    //public bool IsTownLegend { get; private set; }
+
+    public BoosterStatus IsImmateriality = new();
+    public BoosterStatus IsSlowMotion = new();
+    public BoosterStatus IsDarkCloud = new();
+    public BoosterStatus IsLightsOFF = new();
+    public BoosterStatus IsPhantomOfTheOpera = new();
+    public BoosterStatus IsTownLegend = new();
 
     public Action<int> UpdatePlayerLifes;
     public Action<int> UpdatePlayerScore;
     public Action<int> UpdateStreak;
     public Action<int> UpdateFearEssence;
+    public Action<IconType, float> UpdateBoosterIcon;
     public Action GameOver;
+
+    private Coroutine[] activeBoosters = new Coroutine[3];
+
+    private const float BOOSTERS_TIME = 9f;
 
     private void Start()
     {
@@ -46,7 +61,7 @@ public class PlayerData : MonoBehaviour
 
     public void RemoveLIfe(int value)
     {
-        if (IsInvincible)
+        if (IsInvincible || IsImmateriality.Status)
             return;
 
         life -= value;
@@ -66,7 +81,7 @@ public class PlayerData : MonoBehaviour
 
     public void AddFearEssence(int value)
     {
-        if (IsDarkCloud)
+        if (IsDarkCloud.Status)
             fearEssence += value;
 
         fearEssence = Mathf.Clamp(fearEssence += value, 0, maxEssence);
@@ -76,17 +91,17 @@ public class PlayerData : MonoBehaviour
 
     public void RemoveEssence(int value)
     {
-        if (IsLightsOFF)
+        if (IsLightsOFF.Status)
             value /= 2;
 
-        if(IsPhantomOfTheOpera)
+        if (IsPhantomOfTheOpera.Status)
         {
             if (value > fearEssence)
                 return;
             value /= 2;
         }
 
-        if (IsTownLegend == false)
+        if (IsTownLegend.Status == false)
             fearEssence = Mathf.Clamp(fearEssence -= value, 0, maxEssence);
         AddScore(scaredEnemiesStreak != 0 ? 20 * scaredEnemiesStreak : 20);
         scaredEnemiesStreak++;
@@ -111,67 +126,81 @@ public class PlayerData : MonoBehaviour
 
     public void ImmaterialityBooster()
     {
-        if (IsInvincible)
-            return;
+        if (IsImmateriality.Status)
+            StopCoroutine(IsImmateriality.Coroutine);
 
-        SetInvincible(6);
+        IsImmateriality.Status = true;
+
+        UpdateBoosterIcon(IconType.Immateriality, BOOSTERS_TIME);
+        IsImmateriality.Coroutine = StartCoroutine(BoosterDuration(() => IsImmateriality.Status = false));
     }
 
     public void SlowMotionsON()
     {
-        if (IsSlowMotion)
-            return;
+        if (IsSlowMotion.Status)
+            StopCoroutine(IsSlowMotion.Coroutine);
 
-        IsSlowMotion = true;
+        IsSlowMotion.Status = true;
         UpdateStreak?.Invoke(scaredEnemiesStreak);
-        StartCoroutine(BoosterDuration(6, () => IsSlowMotion = false, UpdateStreak, scaredEnemiesStreak));
+        UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
+        IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false, UpdateStreak, scaredEnemiesStreak));
     }
 
     public void DarkCloudON()
     {
-        if (IsDarkCloud)
-            return;
+        if (IsDarkCloud.Status)
+            StopCoroutine(IsDarkCloud.Coroutine);
 
-        IsDarkCloud = true;
-        StartCoroutine(BoosterDuration(10, () => IsDarkCloud = false));
+        IsDarkCloud.Status = true;
+        UpdateBoosterIcon(IconType.DarkCloud, BOOSTERS_TIME);
+        IsDarkCloud.Coroutine = StartCoroutine(BoosterDuration(() => IsDarkCloud.Status = false));
     }
 
-    public void SetLightsOFF()
+    public void LightsOFF()
     {
-        if (IsLightsOFF)
-            return;
+        if (IsLightsOFF.Status)
+            StopCoroutine(IsLightsOFF.Coroutine);
 
-        IsLightsOFF = true;
-        StartCoroutine(BoosterDuration(10, () => IsLightsOFF = false));
+        IsLightsOFF.Status = true;
+        UpdateBoosterIcon(IconType.LightsOff, BOOSTERS_TIME);
+        IsLightsOFF.Coroutine = StartCoroutine(BoosterDuration(() => IsLightsOFF.Status = false));
     }
 
     public void PhantomOfTheOperaON()
     {
-        if (IsPhantomOfTheOpera)
-            return;
+        if (IsPhantomOfTheOpera.Status)
+            StopCoroutine(IsPhantomOfTheOpera.Coroutine);
 
-        IsPhantomOfTheOpera = true;
-        StartCoroutine(BoosterDuration(8, () => IsPhantomOfTheOpera = false));
+        IsPhantomOfTheOpera.Status = true;
+        UpdateBoosterIcon(IconType.PhantomOfTheOpera, BOOSTERS_TIME);
+        IsPhantomOfTheOpera.Coroutine = StartCoroutine(BoosterDuration(() => IsPhantomOfTheOpera.Status = false));
     }
 
     public void TownLegendON()
     {
-        if (IsTownLegend)
-            return;
+        if (IsTownLegend.Status)
+            StopCoroutine(IsTownLegend.Coroutine);
 
-        IsTownLegend = true;
-        StartCoroutine(BoosterDuration(10, () => IsTownLegend = false));
+        IsTownLegend.Status = true;
+        UpdateBoosterIcon(IconType.TownLegend, BOOSTERS_TIME);
+
+        IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false));
     }
 
+    public IEnumerator BoosterDuration(Action boosterStatus)
+    {
+        yield return new WaitForSeconds(BOOSTERS_TIME);
+        boosterStatus?.Invoke();
+    }
     public IEnumerator BoosterDuration(float time, Action boosterStatus)
     {
         yield return new WaitForSeconds(time);
         boosterStatus?.Invoke();
 
     }
-    public IEnumerator BoosterDuration(float time, Action boosterStatus, Action<int> action, int value)
+    public IEnumerator BoosterDuration(Action boosterStatus, Action<int> action, int value)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(BOOSTERS_TIME);
         boosterStatus?.Invoke();
         action?.Invoke(value);
     }

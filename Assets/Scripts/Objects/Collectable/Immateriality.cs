@@ -37,5 +37,8 @@ public class Immateriality : MonoBehaviour, IPoolObject
 
     public bool ActionDone()
         => actionDone;
+
+    public bool ActiveStatus()
+        => gameObject.activeSelf;
 }
 

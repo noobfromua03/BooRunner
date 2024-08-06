@@ -31,12 +31,15 @@ public class LightsOff : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.SetLightsOFF();
+        PlayerData.instance.LightsOFF();
         actionDone = true;
         gameObject.SetActive(false);
         // додати вимкнення світла
     }
     public bool ActionDone()
         => actionDone;
+
+    public bool ActiveStatus()
+        => gameObject.activeSelf;
 }
 

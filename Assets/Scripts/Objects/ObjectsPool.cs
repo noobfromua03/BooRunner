@@ -8,16 +8,14 @@ public class ObjectsPool
     public void AddToPool(IPoolObject poolObject)
     {
         if (pools.ContainsKey(poolObject.ObjectType) == false)
-        {
             pools.Add(poolObject.ObjectType, new List<IPoolObject>());
-        }
 
         pools[poolObject.ObjectType].Add(poolObject);
     }
 
     public IPoolObject Spawn(IPoolObject prefab, Transform container, Vector3 position)
     {
-        var gameObject = Object.Instantiate(prefab as MonoBehaviour, container);
+        var gameObject = GameObject.Instantiate(prefab as MonoBehaviour, container);
         gameObject.transform.position = position;
         var poolObject = gameObject as IPoolObject;
         AddToPool(poolObject);
@@ -30,13 +28,8 @@ public class ObjectsPool
             return null;
 
         var pool = pools[type];
-
-        foreach (var item in pool)
-        {
-            var monoBehaviourItem = item as MonoBehaviour;
-            if (monoBehaviourItem != null && monoBehaviourItem.gameObject.activeSelf == false)
-                return monoBehaviourItem.gameObject;
-        }
-        return null;
+        var poolItem = pool.Find(o => o.ActiveStatus() == false) as MonoBehaviour;
+        
+        return poolItem != null ? poolItem.gameObject : null;
     }
 }

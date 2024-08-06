@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
@@ -17,27 +18,13 @@ public class CollisionManager : MonoBehaviour
     {
         var poolObjects = PlayerCollisionCheck();
 
-        if (poolObjects != null)
-        {
-            foreach (var obj in poolObjects)
-            {
-                if (obj.ActionDone() == false)
-                    obj.ActionHandler();
-            }
-        }
+        poolObjects?.FindAll(o => o.ActionDone() == false).ForEach(o => o.ActionHandler());
 
-        if (PlayerData.instance.IsPhantomOfTheOpera)
+        if (PlayerData.instance.IsPhantomOfTheOpera.Status)
         {
             var enemies = PhantomOfTheOperaCollisionCheck();
 
-            if (enemies != null)
-            {
-                foreach (var enemy in enemies)
-                {
-                    if (enemy.ActionDone() == false)
-                        enemy.ActionHandler();
-                }
-            }
+            enemies?.FindAll(o => o.ActionDone() == false).ForEach(o => o.ActionHandler());
         }
 
     }
@@ -45,33 +32,15 @@ public class CollisionManager : MonoBehaviour
     private List<IPoolObject> PlayerCollisionCheck()
     {
         var ColliderHits = Physics.OverlapSphere(playerCollisionPoint.position, OVERLAP_RADIUS, objectsMask);
-        List<IPoolObject> poolObjects = new();
 
-        if (ColliderHits.Length > 0)
-        {
-            foreach (var poolObject in ColliderHits)
-            {
-                poolObjects.Add(poolObject.GetComponent<IPoolObject>());
-            }
-            return poolObjects;
-        }
-        return null;
+        return ColliderHits.Length > 0 ? ColliderHits.Select(po => po.GetComponent<IPoolObject>()).ToList() : null;
     }
 
     private List<Enemy> PhantomOfTheOperaCollisionCheck()
     {
         var ColliderHits = Physics.OverlapSphere(playerCollisionPoint.position, PHANTOM_OF_THE_OPERA_OVERLAP_RADIUS, objectsMask);
-        List<Enemy> enemies = new();
-        if (ColliderHits.Length > 0)
-        {
-            foreach (var enemyCollider in ColliderHits)
-            {
-                if (enemyCollider.gameObject.TryGetComponent<Enemy>(out var enemy))
-                    enemies.Add(enemy);
-            }
-            return enemies;
-        }
-        return null;
+
+        return ColliderHits.Length > 0 ? ColliderHits.Select(e => e.GetComponent<Enemy>()).Where(e => e != null).ToList() : null;
     }
 
 }

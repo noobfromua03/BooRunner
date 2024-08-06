@@ -5,6 +5,7 @@
     public void TeleportToPosition();
     public void ActionHandler();
     public bool ActionDone();
+    public bool ActiveStatus();
 }
 
 public enum PoolObjectType

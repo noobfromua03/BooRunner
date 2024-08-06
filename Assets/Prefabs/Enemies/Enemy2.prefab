@@ -52,13 +52,14 @@ MonoBehaviour:
     MoveType: 0
     Rb: {fileID: 0}
     Transform: {fileID: 8752360011007659140}
-    PointNumber: 0
+    PointNumber: 1
     SpeedX: 2
     SpeedY: 0
     SpeedZ: 10
     jump: 0
     isPatrol: 1
     currentPatrolLine: 0
+  actionDone: 0
 --- !u!136 &632811658499332456
 CapsuleCollider:
   m_ObjectHideFlags: 0

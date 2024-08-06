@@ -34,7 +34,7 @@ public class ObjectGenerator
     private ObjectsPool objectsPool;
 
     private float objectsSpawnTime = 0.5f;
-    private float boostersSpawnTime = 10f;
+    private float boostersSpawnTime = 7f;
     private int essenceVariantCounter = 0;
     private SpawnVariant lastEssenceVariant;
     private float spawnDistance = 30;
@@ -49,15 +49,9 @@ public class ObjectGenerator
 
     public void GenerateNewObjectOnLine(int line, Transform container, PoolObjectType type, List<GameObject> prefabs)
     {
-        if (obstaclePrefabs.Count > 0)
-        {
-            foreach (var item in prefabs)
-                if (item.GetComponent<IPoolObject>().ObjectType == type)
-                {
-                    var poolObject = objectsPool.Spawn(item.GetComponent<IPoolObject>(), container, GetPositionObject(container));
-                    poolObject.ChangeLine(line);
-                }
-        }
+        var poolObject = prefabs.Find(po => po.GetComponent<IPoolObject>().ObjectType == type).GetComponent<IPoolObject>();
+        poolObject = objectsPool.Spawn(poolObject, container, GetPositionObject(container));
+        poolObject.ChangeLine(line);
     }
 
     public Vector3 GetPositionObject(Transform container)
