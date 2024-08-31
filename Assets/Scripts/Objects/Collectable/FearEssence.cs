@@ -32,7 +32,7 @@ public class FearEssence : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.AddFearEssence(10);
+        PlayerData.Instance.AddFearEssence(10);
         actionDone = true;
         gameObject.SetActive(false);
     }

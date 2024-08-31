@@ -33,7 +33,7 @@ public class Obstacle : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.RemoveLIfe(1);
+        PlayerData.Instance.RemoveLife(1);
         actionDone = true;
     }
     public bool ActionDone()

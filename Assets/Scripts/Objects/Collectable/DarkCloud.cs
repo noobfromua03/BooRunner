@@ -25,12 +25,12 @@ public class DarkCloud : MonoBehaviour, IPoolObject
 
     public void TeleportToPosition()
     {
-        MovementController.instance.TeleportToPosition(MoveUnit, 2.3f);
+        MovementController.instance.TeleportToPosition(MoveUnit, 2.4f);
     }
 
     public void ActionHandler()
     {
-        PlayerData.instance.DarkCloudON();
+        PlayerData.Instance.DarkCloudON();
         actionDone = true;
         gameObject.SetActive(false);
         // додати затемнення погоди/світла

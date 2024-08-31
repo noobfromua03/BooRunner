@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public bool actionDone;
 
+    private bool CanUseEssence => CompareBold(PlayerData.Instance.FearEssence) || PlayerData.Instance.IsTownLegend.Status;
     private void Start()
     {
         MovementController.instance.AddMoveUnit(MoveUnit);
@@ -73,16 +74,22 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        if (CompareBold(PlayerData.instance.FearEssence) || PlayerData.instance.IsTownLegend.Status)
-            PlayerData.instance.RemoveEssence(BoldLevel);
+        if (CanUseEssence)
+            PlayerData.Instance.RemoveEssence(BoldLevel);
         else
-        {
-            if (CompareBold(PlayerData.instance.FearEssence) == false && PlayerData.instance.IsPhantomOfTheOpera.Status)
-                return;
-            PlayerData.instance.RemoveLIfe(1);
-        }
+            PlayerData.Instance.RemoveLife(1);
         actionDone = true;
     }
+
+    public void PhantomOfTheOperaHandler()
+    {
+        if (CanUseEssence)
+        {
+            PlayerData.Instance.RemoveEssence(BoldLevel);
+            actionDone = true;
+        }
+    }
+
     public bool ActionDone()
         => actionDone;
     public bool ActiveStatus()

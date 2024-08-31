@@ -30,7 +30,7 @@ public class SlowMotion : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.SlowMotionsON();
+        PlayerData.Instance.SlowMotionsON();
         actionDone = true;
         gameObject.SetActive(false);
         // додати ефект уповільнення/заморозки часу

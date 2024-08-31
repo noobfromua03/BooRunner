@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d2a894dc48623664bb3c134dae395b03
+  m_SerializeEntries:
+  - m_GUID: 806e9f9a9baa1654fb3519d0b652c33a
+    m_Address: Assets/Prefabs/Obstacles/Obstacle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5bf000e3b40de64a846f42b1dc02e09
+    m_Address: Assets/Prefabs/Obstacles/Obstacle2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b39b5a24b86eb0468dd1e47a0258aa2
+    m_Address: Assets/Prefabs/Enemies/Enemy1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 02b82e7b707ea7a448633002a8b808d9
+    m_Address: Assets/Prefabs/Enemies/Enemy2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab4ff752f24038c4c8796d511fc1dfb4
+    m_Address: Assets/Prefabs/RoadParts/RoadPart.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoadParts
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ccd0d1f809bda148a4d6b8d5e7a9039
+    m_Address: Assets/Prefabs/DecorationParts/DecorationPart.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d66e47b58e46cb54993a9b665191179d
+    m_Address: Assets/Prefabs/Collectable/FearEssence.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6123520bdcf0ce447b3ee95f518a693b
+    m_Address: Assets/Prefabs/Collectable/Immateriality.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a79c6b8d448e5f408323e15f5d88567
+    m_Address: Assets/Prefabs/Collectable/SlowMotion.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af4711057ad98a2419f2c30037f24ca7
+    m_Address: Assets/Prefabs/Collectable/DarkCloud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d71b40da1fd04942922034371634693
+    m_Address: Assets/Prefabs/Collectable/LightsOff.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12037fb11facb82449b844bbe3310198
+    m_Address: Assets/Prefabs/Collectable/PhantomOfTheOpera.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f99d6be6d941f7c4399d95805cc25986
+    m_Address: Assets/Prefabs/Collectable/TownLegend.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Collectable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c377aa984b8e6a543aefc0d955324c4b
+    m_Address: Assets/Prefabs/Interface/Canvas - MainMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b87e1b75bdd0344c94fac07ef0132cf
+    m_Address: Assets/Prefabs/Interface/Canvas - Options.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e73c6722ab5c2a74fae0c3b9c0c72009
+    m_Address: Assets/Prefabs/Interface/Canvas - Pause.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e71d74695623404e97fca6b43caa6f1
+    m_Address: Assets/Prefabs/Interface/FortuneWheel/Canvas -FortuneWheel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22d5831c5d4d4ec4481f0ebe6048b2e5
+    m_Address: Assets/Prefabs/Interface/FortuneWheel/ClaimRewardPopup.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc43457450448534b8824a39b067dbdc
+    m_Address: Assets/Prefabs/Interface/Inventory/Canvas - Inventory.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3acec78da68ad6b4bb5fa652a116f669
+    m_Address: Assets/Prefabs/Interface/LevelChoose/Canvas - LevelChoose.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f62d6da608c79a43b0851ebfc5483b1
+    m_Address: Assets/Prefabs/Interface/Shop/Canvas - Shop.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95d79095be156c842951968f1ec3f694
+    m_Address: Assets/Prefabs/Interface/Tutorial/Canvas - Tutorial.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 161948922a001ff478d09932c5c98a24
+    m_Address: Assets/Prefabs/Interface/HUD/Canvas - HUD.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5db7dc457d536c4e8022c0c09f9d662
+    m_Address: Assets/Prefabs/Interface/LevelChoose/LevelGoalsPopup.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f43765b3f862f04d9009a3673b10c25
+    m_Address: Assets/Prefabs/Interface/LevelChoose/LevelCell.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI Items
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e2487b9554f9c54e8e02a324b41e6dc
+    m_Address: Assets/Prefabs/Interface/FortuneWheel/RewardItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 973addf4d589f65498bfb4d25fb3e363
+    m_Address: Assets/Prefabs/Interface/Shop/SoftShopItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 935e56c25698d654c91e87efde387ffb
+    m_Address: Assets/Prefabs/Interface/Shop/HardShopItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37a492f986c95944ba285656cbef6b90
+    m_Address: Assets/Prefabs/Interface/Shop/RealShopItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 991e857012a583541ac4a8bc93132656
+    m_Address: Assets/Prefabs/Interface/Inventory/Item.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82397b8953c9b2549a9dbe01d357ef42
+    m_Address: Assets/Prefabs/Interface/Inventory/Item.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI Items
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b42e7459ab7c10d4da5b2d5e4362f50e
+    m_Address: Assets/Prefabs/Interface/Hero/Canvas - Hero.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 66c443d027bc56847abf708ea319de25, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 28bf5430ed89edc45847ab103bdc3fb9, type: 2}
+    - {fileID: 11400000, guid: 38ad2ba4b880ccb4193633d090f6520f, type: 2}

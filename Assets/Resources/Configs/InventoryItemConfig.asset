@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cabd28a552aab54ebfa2e5ba2c054b9, type: 3}
+  m_Name: InventoryItemConfig
+  m_EditorClassIdentifier: 
+  <ItemData>k__BackingField:
+  - <Type>k__BackingField: 0
+    <Item>k__BackingField:
+      rid: 5081669677652377618
+  - <Type>k__BackingField: 1
+    <Item>k__BackingField:
+      rid: 5081669677652377619
+  - <Type>k__BackingField: 2
+    <Item>k__BackingField:
+      rid: 5081669677652377620
+  - <Type>k__BackingField: 3
+    <Item>k__BackingField:
+      rid: 5081669677652377621
+  - <Type>k__BackingField: 4
+    <Item>k__BackingField:
+      rid: 5081669677652377622
+  - <Type>k__BackingField: 5
+    <Item>k__BackingField:
+      rid: 5081669677652377623
+  - <Type>k__BackingField: 6
+    <Item>k__BackingField:
+      rid: 5081669677652377624
+  - <Type>k__BackingField: 7
+    <Item>k__BackingField:
+      rid: 5081669677652377625
+  - <Type>k__BackingField: 8
+    <Item>k__BackingField:
+      rid: 5081669677652377626
+  - <Type>k__BackingField: 9
+    <Item>k__BackingField:
+      rid: 5081669677652377627
+  - <Type>k__BackingField: 10
+    <Item>k__BackingField:
+      rid: 5081669677652377628
+  - <Type>k__BackingField: 11
+    <Item>k__BackingField:
+      rid: 5081669677652377629
+  references:
+    version: 2
+    RefIds:
+    - rid: 5081669677652377618
+      type: {class: BottledEctoplasm, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377619
+      type: {class: BrokenClock, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377620
+      type: {class: GemOfStorm, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377621
+      type: {class: DarkRune, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377622
+      type: {class: AmuletOfFearAura, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377623
+      type: {class: MysticBook, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377624
+      type: {class: ScrollOfCurse, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377625
+      type: {class: HeartOfGhost, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377626
+      type: {class: ScareTotem, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377627
+      type: {class: GoldLoaf, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377628
+      type: {class: CoffinKey, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 5081669677652377629
+      type: {class: TotemOfFearEssence, ns: , asm: Assembly-CSharp}
+      data: 

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d6916e96c7c7842b15435f45143f1e, type: 3}
+  m_Name: TutorialConfig
+  m_EditorClassIdentifier: 
+  <Slides>k__BackingField:
+  - <Sprite>k__BackingField: {fileID: 374495580, guid: 68f9b16138fce1e45b89fc9e2385c884,
+      type: 3}
+    <Text>k__BackingField: Collect fear essence
+  - <Sprite>k__BackingField: {fileID: -606357570, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+      type: 3}
+    <Text>k__BackingField: Scare peoples
+  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+      type: 3}
+    <Text>k__BackingField: Collect boosters for overpower by some time
+  - <Sprite>k__BackingField: {fileID: 259136664, guid: 156ec492e516ccb4099add479601d65e,
+      type: 3}
+    <Text>k__BackingField: Use swipes for evading obstacles

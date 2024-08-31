@@ -5,7 +5,6 @@ public class IconsConfig : AbstractConfig<IconsConfig>
 {
     [field: SerializeField] public List<IconData> Icons { get; private set; }
 
-
     public Sprite GetByType(IconType type)
     {
         var icon = Icons.Find(i => i.Type == type);

@@ -1,34 +1,30 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public static PlayerData instance;
+    public static PlayerData Instance;
 
-    [SerializeField] private int life;
-    [SerializeField] private int fearEssence;
-    [SerializeField] private int score;
-    [SerializeField] private int scaredEnemiesStreak;
     [SerializeField] private Animator animator;
 
-    private int maxLifes = 5;
+    private int life;
+    private int scaredEnemiesStreak;
+
+    private int maxLifes = 3;
     private int maxEssence = 100;
 
-    public int Life { get => life; }
-    public int FearEssence { get => fearEssence; }
-    public int Score { get => score; }
-    public int ScaredEnemiesStreak { get => scaredEnemiesStreak; }
+    public int FearEssence { get; private set; }
+    public int Score { get; private set; }
 
     public bool IsInvincible { get; private set; }
-    //public bool IsImmateriality { get; private set; }
-    //public bool IsSlowMotion { get; private set; }
-    //public bool IsDarkCloud { get; private set; }
-    //public bool IsLightsOFF { get; private set; }
-    //public bool IsPhantomOfTheOpera { get; private set; }
-    //public bool IsTownLegend { get; private set; }
+    public bool IsScareTotem { get; private set; }
+    public bool IsGoldLoaf { get; private set; }
+    public bool IsCoffinKey { get; private set; }
+
+    public Dictionary<GoalsData, int> currentGoals = new();
 
     public BoosterStatus IsImmateriality = new();
     public BoosterStatus IsSlowMotion = new();
@@ -36,6 +32,7 @@ public class PlayerData : MonoBehaviour
     public BoosterStatus IsLightsOFF = new();
     public BoosterStatus IsPhantomOfTheOpera = new();
     public BoosterStatus IsTownLegend = new();
+    public BoosterStatus IsTotemOfFear = new();
 
     public Action<int> UpdatePlayerLifes;
     public Action<int> UpdatePlayerScore;
@@ -43,14 +40,19 @@ public class PlayerData : MonoBehaviour
     public Action<int> UpdateFearEssence;
     public Action<IconType, float> UpdateBoosterIcon;
     public Action GameOver;
+    public Action UpdateLevelComplete;
 
-    private Coroutine[] activeBoosters = new Coroutine[3];
+    private const float BOOSTERS_TIME = 6f;
 
-    private const float BOOSTERS_TIME = 9f;
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
-        instance = this;
+        life = maxLifes;
+
+        IsLevelComplete();
     }
 
     public void AddLife(int value)
@@ -59,7 +61,7 @@ public class PlayerData : MonoBehaviour
         UpdatePlayerLifes?.Invoke(life);
     }
 
-    public void RemoveLIfe(int value)
+    public void RemoveLife(int value)
     {
         if (IsInvincible || IsImmateriality.Status)
             return;
@@ -82,11 +84,13 @@ public class PlayerData : MonoBehaviour
     public void AddFearEssence(int value)
     {
         if (IsDarkCloud.Status)
-            fearEssence += value;
+            value *= 2;
 
-        fearEssence = Mathf.Clamp(fearEssence += value, 0, maxEssence);
+        FearEssence = Mathf.Clamp(FearEssence += value, 0, maxEssence);
         AddScore(1 * scaredEnemiesStreak != 0 ? scaredEnemiesStreak : 1);
-        UpdateFearEssence?.Invoke(fearEssence);
+        UpdateFearEssence?.Invoke(FearEssence);
+
+        ChangeGoalValueByType(GoalType.CollectEssence, value);
     }
 
     public void RemoveEssence(int value)
@@ -96,26 +100,38 @@ public class PlayerData : MonoBehaviour
 
         if (IsPhantomOfTheOpera.Status)
         {
-            if (value > fearEssence)
+            if (value > FearEssence)
                 return;
             value /= 2;
         }
 
         if (IsTownLegend.Status == false)
-            fearEssence = Mathf.Clamp(fearEssence -= value, 0, maxEssence);
-        AddScore(scaredEnemiesStreak != 0 ? 20 * scaredEnemiesStreak : 20);
+            FearEssence = Mathf.Clamp(FearEssence -= value, 0, maxEssence);
+
+        var score = scaredEnemiesStreak != 0 ? 20 * scaredEnemiesStreak : 20;
+
+        if (IsScareTotem)
+            score *= 3;
+
+        AddScore(score);
+
         scaredEnemiesStreak++;
 
         animator.SetTrigger("Boo");
 
         UpdateStreak.Invoke(scaredEnemiesStreak);
-        UpdateFearEssence?.Invoke(fearEssence);
+        UpdateFearEssence?.Invoke(FearEssence);
+
+        ChangeGoalValueByType(GoalType.ScarePersons, 1);
+        ChangeGoalValueByType(GoalType.ScaredStreak, scaredEnemiesStreak);
     }
 
     public void AddScore(int value)
     {
-        score += value;
-        UpdatePlayerScore?.Invoke(score);
+        Score += value;
+        UpdatePlayerScore?.Invoke(Score);
+
+        ChangeGoalValueByType(GoalType.TotalScore, value);
     }
 
     public void SetInvincible(float time)
@@ -187,6 +203,35 @@ public class PlayerData : MonoBehaviour
         IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false));
     }
 
+    public void ScrollOfCurse()
+    {
+        scaredEnemiesStreak *= 2;
+        UpdateStreak(scaredEnemiesStreak);
+    }
+
+    public void ScareTotemON()
+        => IsScareTotem = true;
+
+    public void GoldBreadON()
+        => IsGoldLoaf = true;
+
+    public void CoffinKeyON()
+    {
+        maxLifes = 5;
+        life = maxLifes;
+        UpdatePlayerLifes?.Invoke(maxLifes);
+    }
+
+    public void TotemOfFearEssence()
+    {
+        IsTotemOfFear.Status = true;
+        IsTotemOfFear.Coroutine = StartCoroutine(TotemOfFearCoroutine());
+    }
+
+
+    public int GetSoftReward()
+        => IsGoldLoaf ? Score * 2 : Score;
+
     public IEnumerator BoosterDuration(Action boosterStatus)
     {
         yield return new WaitForSeconds(BOOSTERS_TIME);
@@ -204,4 +249,64 @@ public class PlayerData : MonoBehaviour
         boosterStatus?.Invoke();
         action?.Invoke(value);
     }
+
+    public IEnumerator TotemOfFearCoroutine()
+    {
+        while (IsTotemOfFear.Status)
+        {
+            yield return new WaitForSeconds(BOOSTERS_TIME);
+            AddFearEssence(10);
+        }
+    }
+
+    public void GetCurrentGoals(LevelData levelData)
+    {
+        foreach (var item in levelData.Goals)
+            currentGoals.Add(item, 0);
+    }
+    public string SetGoals()
+    {
+        string goalsText = "";
+
+        if (IsLevelComplete())
+            return goalsText = "Level complete!!!";
+
+        foreach (var item in currentGoals)
+        {
+            goalsText += $"{item.Key.Text} {item.Value}/{item.Key.GoalValue} \n";
+        }
+
+        return goalsText;
+    }
+
+    public void ChangeGoalValueByType(GoalType type, int value)
+    {
+        if (IsLevelComplete())
+            return;
+
+        var goal = currentGoals.Keys.ToList().Find(g => g.Type == type);
+        if (goal != null)
+        {
+            if (type == GoalType.ScaredStreak)
+                currentGoals[goal] = value;
+            else
+                currentGoals[goal] += value;
+
+            goal.CompleteLevel(goal.GoalValue <= currentGoals[goal]);
+        }
+
+
+    }
+
+    private bool IsLevelComplete()
+    {
+        if (currentGoals.Keys.All(g => g.Complete))
+        {
+            UpdateLevelComplete?.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+
 }

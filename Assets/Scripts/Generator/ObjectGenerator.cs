@@ -34,7 +34,7 @@ public class ObjectGenerator
     private ObjectsPool objectsPool;
 
     private float objectsSpawnTime = 0.5f;
-    private float boostersSpawnTime = 7f;
+    private float boostersSpawnTime = 15f;
     private int essenceVariantCounter = 0;
     private SpawnVariant lastEssenceVariant;
     private float spawnDistance = 30;
@@ -70,7 +70,7 @@ public class ObjectGenerator
 
     public void AutomaticSpawnObstaclesByVariants()
     {
-        var currentVariant = spawnVariants[GetRandomValue(0,spawnVariants.Count)];
+        var currentVariant = spawnVariants[GetRandomValue(0, spawnVariants.Count)];
         List<bool> lines = new List<bool>() { currentVariant.Left, currentVariant.Middle, currentVariant.Right };
 
         for (int i = 0; i < lines.Count; i++)
@@ -122,7 +122,7 @@ public class ObjectGenerator
             {
                 var type = PoolObjectType.FearEssence;
 
-                if(collectablePrefabs.All(c => c.GetComponent<IPoolObject>().ObjectType != type))
+                if (collectablePrefabs.All(c => c.GetComponent<IPoolObject>().ObjectType != type))
                 {
                     Debug.LogError("FearEssence doesnt exist in prefabs list");
                     continue;
@@ -132,14 +132,8 @@ public class ObjectGenerator
 
                 if (poolObject != null)
                 {
-                    switch (poolObject.GetComponent<IPoolObject>())
-                    {
-                        case FearEssence:
-                            poolObject.GetComponent<FearEssence>().ChangeLine(i);
-                            break;
-                    }
-
                     poolObject.transform.position = GetPositionObject(collectableContainer);
+                    poolObject.GetComponent<FearEssence>().ChangeLine(i);
                     poolObject.SetActive(true);
                 }
                 else
@@ -150,22 +144,15 @@ public class ObjectGenerator
 
     public void AutomaticSpawnBoosters()
     {
-        var type = collectablePrefabs.OrderBy(c => UnityEngine.Random.value).First()
+        var type = collectablePrefabs.OrderBy(c => UnityEngine.Random.value).
+            Where(c => c.GetComponent<IPoolObject>().ObjectType != PoolObjectType.FearEssence).First()
             .GetComponent<IPoolObject>().ObjectType;
+
         var poolObject = objectsPool.GetObjectFromPoolByType(type);
 
         if (poolObject != null)
         {
-            switch (poolObject.GetComponent<IPoolObject>())
-            {
-                case Immateriality:
-                    poolObject.GetComponent<Immateriality>().ChangeLine(RandomLine);
-                    break;
-                case SlowMotion:
-                    poolObject.GetComponent<SlowMotion>().ChangeLine(RandomLine);
-                    break;
-            }
-
+            poolObject.GetComponent<IPoolObject>().ChangeLine(RandomLine);
             poolObject.transform.position = GetPositionObject(collectableContainer);
             poolObject.SetActive(true);
         }
@@ -190,7 +177,7 @@ public class ObjectGenerator
 
     public IEnumerator SpawnBoosters()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(boostersSpawnTime);
             AutomaticSpawnBoosters();

@@ -29,7 +29,7 @@ public class Immateriality : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.ImmaterialityBooster();
+        PlayerData.Instance.ImmaterialityBooster();
         actionDone = true;
         gameObject.SetActive(false);
         // прозорість персонажа чи dissolve

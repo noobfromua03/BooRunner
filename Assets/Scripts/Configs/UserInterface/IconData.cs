@@ -19,5 +19,17 @@ public enum IconType
     DarkCloud = 7,
     LightsOff = 8,
     PhantomOfTheOpera = 9,
-    TownLegend = 10
+    TownLegend = 10,
+    BottledEctoplasm = 11,
+    BrokenClock = 12,
+    GemOfStorm = 13,
+    DarkRune = 14,
+    AmuletOfFearAura = 15,
+    MysticBook = 16,
+    ScrollOfCurse = 17,
+    HeartOfGhost = 18,
+    ScareTotem = 19,
+    GoldLoaf = 20,
+    CoffinKey = 21,
+    TotemOfFearEssence = 22
 }

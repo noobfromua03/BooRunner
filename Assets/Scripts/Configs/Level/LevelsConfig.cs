@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class LevelsConfig : AbstractConfig<LevelsConfig>
 {
@@ -10,8 +12,9 @@ public class LevelsConfig : AbstractConfig<LevelsConfig>
 [System.Serializable]
 public class LevelData
 { 
-    [field: SerializeField] public List<GameObject> Obstacles { get; private set; }
-    [field: SerializeField] public List<GameObject> Collectables { get; private set; }
-    [field: SerializeField] public List<RoadPart> RoadParts { get; private set; }
-    [field: SerializeField] public List<RoadPart> DecorationParts { get; private set; }
+    [field: SerializeField] public List<AssetReferenceGameObject> Obstacles { get; private set; }
+    [field: SerializeField] public List<AssetReferenceGameObject> Collectables { get; private set; }
+    [field: SerializeField] public List<AssetReferenceGameObject> RoadParts { get; private set; }
+    [field: SerializeField] public List<AssetReferenceGameObject> DecorationParts { get; private set; }
+    [field: SerializeField] public List<GoalsData> Goals { get; private set; }
 }

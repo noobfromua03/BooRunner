@@ -20,11 +20,11 @@ public class CollisionManager : MonoBehaviour
 
         poolObjects?.FindAll(o => o.ActionDone() == false).ForEach(o => o.ActionHandler());
 
-        if (PlayerData.instance.IsPhantomOfTheOpera.Status)
+        if (PlayerData.Instance.IsPhantomOfTheOpera.Status)
         {
             var enemies = PhantomOfTheOperaCollisionCheck();
 
-            enemies?.FindAll(o => o.ActionDone() == false).ForEach(o => o.ActionHandler());
+            enemies?.FindAll(o => o.ActionDone() == false).ForEach(o => o.PhantomOfTheOperaHandler());
         }
 
     }

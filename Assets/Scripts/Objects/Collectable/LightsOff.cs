@@ -31,7 +31,7 @@ public class LightsOff : MonoBehaviour, IPoolObject
 
     public void ActionHandler()
     {
-        PlayerData.instance.LightsOFF();
+        PlayerData.Instance.LightsOFF();
         actionDone = true;
         gameObject.SetActive(false);
         // додати вимкнення світла

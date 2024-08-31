@@ -309,6 +309,7 @@ MonoBehaviour:
     isPatrol: 0
     currentPatrolLine: 0
   objectType: 7
+  actionDone: 0
 --- !u!65 &3248167279185241624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -328,5 +329,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9146639, y: 0.9552205, z: 1}
-  m_Center: {x: -0.03483528, y: -0.08474496, z: 0}
+  m_Size: {x: 1.9146639, y: 1.5271846, z: 1}
+  m_Center: {x: -0.03483528, y: -0.085345685, z: 0}

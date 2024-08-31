@@ -86,12 +86,6 @@ MonoBehaviour:
   score: 0
   scaredEnemiesStreak: 0
   animator: {fileID: 437520724860952149}
-  <IsInvincible>k__BackingField: 0
-  <IsSlowMotion>k__BackingField: 0
-  <IsDarkCloud>k__BackingField: 0
-  <IsLightsOFF>k__BackingField: 0
-  <IsPhantomOfTheOpera>k__BackingField: 0
-  <IsTownLegend>k__BackingField: 0
 --- !u!54 &4318111142082491549
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,7 +152,6 @@ MonoBehaviour:
   objectsMask:
     serializedVersion: 2
     m_Bits: 256
-  renderer: {fileID: 1225612138983071739}
 --- !u!1 &2857712004887284295
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 3186382505751516915}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -423,12 +416,6 @@ PrefabInstance:
 --- !u!95 &437520724860952149 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2069234913439815857, guid: 8ee08d04ad5df46fbb2e97260b63420b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1919946276110059236}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1225612138983071739 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 839705036205447455, guid: 8ee08d04ad5df46fbb2e97260b63420b,
     type: 3}
   m_PrefabInstance: {fileID: 1919946276110059236}
   m_PrefabAsset: {fileID: 0}

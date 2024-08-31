@@ -26,12 +26,12 @@ public class PhantomOfTheOpera : MonoBehaviour, IPoolObject
 
     public void TeleportToPosition()
     {
-        MovementController.instance.TeleportToPosition(MoveUnit, 2.1f);
+        MovementController.instance.TeleportToPosition(MoveUnit, 2f);
     }
 
     public void ActionHandler()
     {
-        PlayerData.instance.PhantomOfTheOperaON();
+        PlayerData.Instance.PhantomOfTheOperaON();
         actionDone = true;
         gameObject.SetActive(false);
         // додати відповідні жахаючі звуки
