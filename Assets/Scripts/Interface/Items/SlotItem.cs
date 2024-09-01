@@ -27,6 +27,9 @@ public class SlotItem : MonoBehaviour
 
     public void UpdateAmount()
     {
-        amountText.text = Progress.Inventory.GetItemAmount(itemType).ToString();
+        if(itemType == ItemType.None)
+            amountText.text = string.Empty;
+        else
+            amountText.text = Progress.Inventory.GetItemAmount(itemType).ToString();
     }
 }

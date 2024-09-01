@@ -49,9 +49,15 @@ MonoBehaviour:
   - <Type>k__BackingField: 11
     <Item>k__BackingField:
       rid: 5081669677652377629
+  - <Type>k__BackingField: 12
+    <Item>k__BackingField:
+      rid: 4945424115491405826
   references:
     version: 2
     RefIds:
+    - rid: 4945424115491405826
+      type: {class: NoneItem, ns: , asm: Assembly-CSharp}
+      data: 
     - rid: 5081669677652377618
       type: {class: BottledEctoplasm, ns: , asm: Assembly-CSharp}
       data: 
