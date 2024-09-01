@@ -21,7 +21,12 @@ public class HUDWindow : MonoBehaviour, IWindowUI
                 slots[i].Click += UseSlot;
             }
         }
-        
+    }
+
+    public void UpdateSlotsAmount()
+    {
+        foreach (var slot in slots)
+            slot.UpdateAmount();
     }
 
     private void UseSlot(SlotItem slot)

@@ -50,15 +50,17 @@ public class Inventory : MonoBehaviour, IWindowUI
             var inventoryItem = InventoryItemConfig.Instance.GetItemByType(type);
             activeSlot.Initialize(inventoryItem);
             IsActiveSlot = false;
-
+            Save();
         }
     }
 
     public void ExitBtn()
+        => WindowsManager.Instance.ClosePopup(this);
+
+    private void Save()
     {
-        List<ItemType> slots = new() { Slot1.ItemType, Slot2.ItemType };
-        WindowsManager.Instance.ApplyInventory(slots);
-        WindowsManager.Instance.ClosePopup(this);
+        Progress.Inventory.currentItem_0 = Slot1.ItemType;
+        Progress.Inventory.currentItem_1 = Slot2.ItemType;
     }
 
     public void DestroySelf()

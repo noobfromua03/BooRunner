@@ -19,7 +19,8 @@ public enum ItemType
     ScareTotem = 8,
     GoldLoaf = 9,
     CoffinKey = 10,
-    TotemOfFearEssence = 11
+    TotemOfFearEssence = 11,
+    None = 12
 }
 
 public enum ItemSubType
@@ -28,3 +29,8 @@ public enum ItemSubType
     passive = 1
 }
 
+public enum CurrencyType
+{
+    Soft = 0,
+    Hard = 1
+}
