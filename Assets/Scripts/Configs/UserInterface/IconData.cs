@@ -31,5 +31,6 @@ public enum IconType
     ScareTotem = 19,
     GoldLoaf = 20,
     CoffinKey = 21,
-    TotemOfFearEssence = 22
+    TotemOfFearEssence = 22,
+    None = 23
 }

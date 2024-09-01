@@ -44,6 +44,7 @@ public static class ItemTypes
             ItemType.GoldLoaf => new GoldLoaf(),
             ItemType.CoffinKey => new CoffinKey(),
             ItemType.TotemOfFearEssence => new TotemOfFearEssence(),
+            ItemType.None => new NoneItem(),
                     _ => null
         };
 }

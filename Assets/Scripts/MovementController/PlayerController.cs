@@ -25,6 +25,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        #if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.W))
+            inputData.MoveUp = true;
+        else if(Input.GetKeyDown(KeyCode.A))
+            inputData.MoveLeft = true;
+        else if(Input.GetKeyDown(KeyCode.D))
+            inputData.MoveRight = true;
+        #endif
+
         if (inputData.MoveUp)
             MoveUp();
         else if (inputData.MoveLeft)
