@@ -89,7 +89,7 @@ public class WindowsManager : MonoBehaviour
     private IWindowUI GetWindowByType(WindowType type)
         => windows.Find(w => w.Type == type);
 
-    public HUDUpdate GetHUDUpdate()
+    public HUD GetHUDUpdate()
     {
         CloseAllWindows();
         var HUD = windows.Find(hud => hud.Type == WindowType.HUD);
@@ -97,11 +97,11 @@ public class WindowsManager : MonoBehaviour
         {
             CreateWindowByType(WindowType.HUD);
             activeWindow = windows[windows.Count - 1];
-            return activeWindow.Window.GetComponent<HUDUpdate>();
+            return activeWindow.Window.GetComponent<HUD>();
 
         }
         HUD.Window.SetActive(true);
-        return HUD.Window.GetComponent<HUDUpdate>();
+        return HUD.Window.GetComponent<HUD>();
     }
 
     public void PreloadLevel(int level)
@@ -122,11 +122,6 @@ public class WindowsManager : MonoBehaviour
         levelController.gameObject.SetActive(false);
         levelController.Reload();
         OpenWindow(WindowType.MainMenu);
-    }
-
-    public void ApplyInventory(List<ItemType> slots)
-    {
-        levelController.GetInventorySlots(slots);
     }
 
     public void OpenWindow(WindowType type)

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDUpdate : MonoBehaviour
+public class HUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI life;
     [SerializeField] private TextMeshProUGUI score;

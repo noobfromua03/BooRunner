@@ -11,6 +11,7 @@ public class SlotItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI amountText;
 
     public Action<SlotItem> Click;
+    private ItemType itemType;
     public void OnClick()
     {
         Click?.Invoke(this);
@@ -18,7 +19,14 @@ public class SlotItem : MonoBehaviour
 
     public void Initialize(IInventoryItem item)
     {
+        itemType = item.Type;
+
         itemImage.sprite = IconsConfig.Instance.GetByType(item.IconType);
-        amountText.text = "5"; // progress get amount of item by type
+        UpdateAmount();
+    }
+
+    public void UpdateAmount()
+    {
+        amountText.text = Progress.Inventory.GetItemAmount(itemType).ToString();
     }
 }
