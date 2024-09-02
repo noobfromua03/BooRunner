@@ -18,7 +18,7 @@ public partial class Progress : ProgressBase<Progress>
             public int Amount;
         }
 
-        public bool HasItem(ItemType type, int amount = 1)
+        public bool ItemExist(ItemType type, int amount = 1)
             => items.Exists(i => i.Type == type) && GetItemAmount(type) >= amount;
 
         public int GetItemAmount(ItemType type)
@@ -34,7 +34,7 @@ public partial class Progress : ProgressBase<Progress>
 
         public void AddItem(ItemType type, int amount = 1)
         {
-            if (HasItem(type))
+            if (ItemExist(type))
             {
                 items.Find(i => i.Type == type).Amount += amount;
                 return;
@@ -45,10 +45,10 @@ public partial class Progress : ProgressBase<Progress>
 
         public void RemoveItem(ItemType type, int amount = 1)
         {
-            if (HasItem(type))
+            if (ItemExist(type))
             {
                 var currentAmount = GetItemAmount(type);
-                if(currentAmount - amount < 0)
+                if (currentAmount - amount < 0)
                 {
                     UnityEngine.Debug.LogError($"Trying to remove more items than available in inventory");
                     return;

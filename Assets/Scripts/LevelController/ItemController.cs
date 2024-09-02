@@ -24,7 +24,7 @@ public class ItemController
             if (type == ItemType.None)
                 continue;
 
-            if (Progress.Inventory.HasItem(type))
+            if (Progress.Inventory.ItemExist(type))
             {
                 var item = InventoryItemConfig.Instance.GetItemByType(type);
                 if (item.SubType == ItemSubType.passive)
@@ -43,7 +43,7 @@ public class ItemController
         if (itemType == ItemType.None)
             return;
 
-        if (Progress.Inventory.HasItem(itemType))
+        if (Progress.Inventory.ItemExist(itemType))
         {
             var item = InventoryItemConfig.Instance.GetItemByType(itemType);
             if (item.SubType == ItemSubType.active)

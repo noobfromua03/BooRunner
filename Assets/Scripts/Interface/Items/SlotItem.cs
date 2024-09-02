@@ -19,7 +19,7 @@ public class SlotItem : MonoBehaviour
 
     public void Initialize(IInventoryItem item)
     {
-        itemType = item.Type;
+        itemType = item.Type;   
 
         itemImage.sprite = IconsConfig.Instance.GetByType(item.IconType);
         UpdateAmount();

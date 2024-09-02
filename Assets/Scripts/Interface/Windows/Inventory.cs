@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.AddressableAssets.BuildReportVisualizer;
 using UnityEngine;
 
@@ -23,18 +24,35 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     private void InitializeAllItems()
     {
-        var allItems = InventoryItemConfig.Instance.ItemData;
+        var allItems = Progress.Inventory.items;
         var prefab = WindowsConfig.Instance.Windows[0].GetItemByType(InterfaceItemType.InventoryItem);
 
         for (int i = 0; i < allItems.Count; i++)
         {
+            var bagItem = InventoryItemConfig.Instance.GetItemByType(allItems[i].Type);
+
+            if (bagItem.Type == ItemType.None)
+                continue;
+
             var inventoryItem = Instantiate(prefab, content);
             var item = inventoryItem.GetComponent<Item>();
 
             inventoryItems.Add(item);
             item.Click += ClickOnItem;
-            item.Initialize(allItems[i].Item);
+            if (allItems[i].Amount > 0)
+                item.Initialize(bagItem);
         }
+
+        InitializeSlots();
+    }
+
+    public void InitializeSlots()
+    {
+        var currentSlot1 = InventoryItemConfig.Instance.GetItemByType(Progress.Inventory.currentItem_0);
+        Slot1.Initialize(currentSlot1);
+
+        var currentSlot2 = InventoryItemConfig.Instance.GetItemByType(Progress.Inventory.currentItem_1);
+        Slot2.Initialize(currentSlot2);
     }
 
     public void ChooseSlot(Item item)
@@ -52,6 +70,13 @@ public class Inventory : MonoBehaviour, IWindowUI
             IsActiveSlot = false;
             Save();
         }
+    }
+
+    public void ClearBtn()
+    {
+        Slot1.Initialize(InventoryItemConfig.Instance.GetItemByType(ItemType.None));
+        Slot2.Initialize(InventoryItemConfig.Instance.GetItemByType(ItemType.None));
+        Save();
     }
 
     public void ExitBtn()
