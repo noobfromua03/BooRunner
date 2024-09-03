@@ -12,6 +12,7 @@ public class ClaimRewardPopup : MonoBehaviour, IWindowUI
         int value = PlayerData.Instance.GetSoftReward() / 100;
         value = value < 10 ? 10 : value;
         rewardItemData.SetAmount(value);
+        CurrencyService.AddCurrency(CurrencyType.Soft, value);
     }
 
     public void ClaimBtn()

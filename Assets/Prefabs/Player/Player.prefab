@@ -81,11 +81,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b485407b0acb62d4988d50f2c8880226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 3
-  fearEssence: 0
-  score: 0
-  scaredEnemiesStreak: 0
   animator: {fileID: 437520724860952149}
+  MeshRenderer:
+  - {fileID: 1225612138983071739}
+  colors:
+  - serializedVersion: 2
+    rgba: 16711858
+  - serializedVersion: 2
+    rgba: 16712192
+  - serializedVersion: 2
+    rgba: 130816
+  - serializedVersion: 2
+    rgba: 3080447
 --- !u!54 &4318111142082491549
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -416,6 +423,12 @@ PrefabInstance:
 --- !u!95 &437520724860952149 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2069234913439815857, guid: 8ee08d04ad5df46fbb2e97260b63420b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1919946276110059236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1225612138983071739 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 839705036205447455, guid: 8ee08d04ad5df46fbb2e97260b63420b,
     type: 3}
   m_PrefabInstance: {fileID: 1919946276110059236}
   m_PrefabAsset: {fileID: 0}

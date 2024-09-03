@@ -146,7 +146,6 @@ public class LevelController : MonoBehaviour
         playerData.UpdatePlayerLifes += playerHUDUpdate.UpdateLifes;
         playerData.UpdatePlayerScore += playerHUDUpdate.UpdateScore;
         playerData.UpdateStreak += playerHUDUpdate.UpdateStreak;
-        playerData.UpdateFearEssence += playerHUDUpdate.UpdateFearEssence;
         playerData.UpdateBoosterIcon += playerHUDUpdate.UpdateBoosterIcon;
         playerData.UpdateLevelComplete += playerHUDUpdate.LevelDone;
 

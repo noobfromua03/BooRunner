@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
@@ -32,7 +33,7 @@ public class CollisionManager : MonoBehaviour
     private List<IPoolObject> PlayerCollisionCheck()
     {
         var ColliderHits = Physics.OverlapSphere(playerCollisionPoint.position, OVERLAP_RADIUS, objectsMask);
-
+        PlayerData.Instance.Dissolve(ColliderHits.Length > 0);
         return ColliderHits.Length > 0 ? ColliderHits.Select(po => po.GetComponent<IPoolObject>()).ToList() : null;
     }
 

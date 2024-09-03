@@ -9,20 +9,26 @@ public class PlayerData : MonoBehaviour
     public static PlayerData Instance;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private SkinnedMeshRenderer[] MeshRenderer;
+    [SerializeField] private List<Color32> colors;
 
     private int life;
     private int scaredEnemiesStreak;
 
     private int maxLifes = 3;
     private int maxEssence = 100;
+    private float currentDissolveValue = 1f;
 
+    private Color32 playerColor;
     public int FearEssence { get; private set; }
     public int Score { get; private set; }
+
 
     public bool IsInvincible { get; private set; }
     public bool IsScareTotem { get; private set; }
     public bool IsGoldLoaf { get; private set; }
     public bool IsCoffinKey { get; private set; }
+    public bool IsDissolve { get; private set; } = false;
 
     public Dictionary<GoalsData, int> currentGoals = new();
 
@@ -42,6 +48,7 @@ public class PlayerData : MonoBehaviour
     public Action GameOver;
     public Action UpdateLevelComplete;
 
+    private const float COLOR_STEP = 7f;
     private const float BOOSTERS_TIME = 6f;
 
     private void Awake()
@@ -53,6 +60,12 @@ public class PlayerData : MonoBehaviour
         life = maxLifes;
 
         IsLevelComplete();
+    }
+
+    private void Update()
+    {
+        //PlayDissolve();
+        ColorUpdate();
     }
 
     public void AddLife(int value)
@@ -264,6 +277,7 @@ public class PlayerData : MonoBehaviour
         foreach (var item in levelData.Goals)
             currentGoals.Add(item, 0);
     }
+
     public string SetGoals()
     {
         string goalsText = "";
@@ -297,7 +311,6 @@ public class PlayerData : MonoBehaviour
 
 
     }
-
     private bool IsLevelComplete()
     {
         if (currentGoals.Keys.All(g => g.Complete))
@@ -308,5 +321,44 @@ public class PlayerData : MonoBehaviour
         return false;
     }
 
+    public void Dissolve(bool isDissolve)
+    {
+        IsDissolve = isDissolve;
+    }
 
+    private void PlayDissolve()
+    {
+        var dissolveValue = 0.025f;
+
+        if (scaredEnemiesStreak < 15)
+            dissolveValue *= 2;
+
+        if (IsDissolve)
+            currentDissolveValue = Mathf.Clamp(currentDissolveValue - dissolveValue, 0.6f, 1);
+        else if (IsDissolve == false && currentDissolveValue != 1)
+            currentDissolveValue = Mathf.Clamp(currentDissolveValue + dissolveValue, 0.6f, 1);
+
+        for (int i = 0; i < MeshRenderer.Length; i++)
+            MeshRenderer[i].material.SetFloat("_Dissolve", currentDissolveValue);
+    }
+
+    private void ColorUpdate()
+    {
+        if (FearEssence < 25)
+            ChangeColor(colors[0]);
+        else if (FearEssence > 25 && FearEssence <= 50)
+            ChangeColor(colors[1]);
+        else if (FearEssence > 50 && FearEssence <= 75)
+            ChangeColor(colors[2]);
+        else if (FearEssence > 75)
+            ChangeColor(colors[3]);
+
+        for (int i = 0; i < MeshRenderer.Length; i++)
+            MeshRenderer[i].material.SetColor("_MainColor", playerColor);
+    }
+
+    private void ChangeColor(Color32 color)
+    {
+        playerColor = Vector3.MoveTowards(playerColor.ToVector3(), color.ToVector3(), COLOR_STEP).ToColor32();
+    }
 }
