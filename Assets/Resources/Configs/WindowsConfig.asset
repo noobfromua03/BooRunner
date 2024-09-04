@@ -102,3 +102,9 @@ MonoBehaviour:
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
+    - <Type>k__BackingField: 3
+      <Prefab>k__BackingField:
+        m_AssetGUID: 973addf4d589f65498bfb4d25fb3e363
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0

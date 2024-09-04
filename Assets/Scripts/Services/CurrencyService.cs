@@ -44,4 +44,16 @@ public static class CurrencyService
                 break;
         }
     }
+
+    public static bool CanBuy(CurrencyType type, int cost)
+    {
+        switch (type)
+        {
+            case CurrencyType.Soft:
+                return Progress.Inventory.soft >= cost;
+            case CurrencyType.Hard:
+                return Progress.Inventory.hard >= cost;
+        }
+        return false;
+    }
 }

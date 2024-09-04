@@ -173,19 +173,10 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 973addf4d589f65498bfb4d25fb3e363
-    m_Address: Assets/Prefabs/Interface/Shop/SoftShopItem.prefab
+    m_Address: erface/Shop/ShopItem.prefabShopItem.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 935e56c25698d654c91e87efde387ffb
-    m_Address: Assets/Prefabs/Interface/Shop/HardShopItem.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 37a492f986c95944ba285656cbef6b90
-    m_Address: Assets/Prefabs/Interface/Shop/RealShopItem.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - UI Items
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 991e857012a583541ac4a8bc93132656
     m_Address: Assets/Prefabs/Interface/Inventory/Item.prefab

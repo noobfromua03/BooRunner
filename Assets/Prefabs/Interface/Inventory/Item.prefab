@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9147e68ec138348856c06a1186ff9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemType: 0
   itemImage: {fileID: 2001794972115674804}
   amountText: {fileID: 7006960741204906905}
   nameText: {fileID: 7761740065588230127}
@@ -499,7 +500,7 @@ MonoBehaviour:
   m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

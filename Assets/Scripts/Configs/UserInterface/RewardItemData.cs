@@ -20,3 +20,4 @@ public enum RewardType
     InventoryItem = 3,
     FreeSpin = 4,
 }
+

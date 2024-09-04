@@ -3,6 +3,7 @@
     public ItemType Type { get; }
     public ItemSubType SubType { get; }
     public IconType IconType { get; }
+    public string Name { get; }
     public void ActionHandler();
 }
 
@@ -20,7 +21,9 @@ public enum ItemType
     GoldLoaf = 9,
     CoffinKey = 10,
     TotemOfFearEssence = 11,
-    None = 12
+    None = 12,
+    SoftCurrency = 13,
+    HardCurrency = 14
 }
 
 public enum ItemSubType
@@ -32,5 +35,6 @@ public enum ItemSubType
 public enum CurrencyType
 {
     Soft = 0,
-    Hard = 1
+    Hard = 1,
+    Real = 2
 }

@@ -52,9 +52,17 @@ MonoBehaviour:
   - <Type>k__BackingField: 12
     <Item>k__BackingField:
       rid: 4945424115491405826
+  - <Type>k__BackingField: 13
+    <Item>k__BackingField:
+      rid: -2
+  - <Type>k__BackingField: 14
+    <Item>k__BackingField:
+      rid: -2
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 4945424115491405826
       type: {class: NoneItem, ns: , asm: Assembly-CSharp}
       data: 

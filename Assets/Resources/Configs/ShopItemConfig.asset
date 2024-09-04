@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6ed0b49a4d02c4fb9fc425e416f940, type: 3}
+  m_Name: ShopItemConfig
+  m_EditorClassIdentifier: 
+  <ShopItems>k__BackingField:
+  - <Type>k__BackingField: 0
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 2000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 1
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 2000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 2
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 2000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 3
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 2500
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 4
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 4000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 5
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 5000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 6
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 2500
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 7
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 5000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 8
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 8000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 9
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 10000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 10
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 10000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 11
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 12000
+    <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 13
+    <CurrencyType>k__BackingField: 1
+    <Cost>k__BackingField: 10
+    <Amount>k__BackingField: 5000
+  - <Type>k__BackingField: 13
+    <CurrencyType>k__BackingField: 1
+    <Cost>k__BackingField: 50
+    <Amount>k__BackingField: 30000
+  - <Type>k__BackingField: 13
+    <CurrencyType>k__BackingField: 1
+    <Cost>k__BackingField: 100
+    <Amount>k__BackingField: 80000
+  - <Type>k__BackingField: 14
+    <CurrencyType>k__BackingField: 2
+    <Cost>k__BackingField: 500
+    <Amount>k__BackingField: 150
+  - <Type>k__BackingField: 14
+    <CurrencyType>k__BackingField: 2
+    <Cost>k__BackingField: 899
+    <Amount>k__BackingField: 300

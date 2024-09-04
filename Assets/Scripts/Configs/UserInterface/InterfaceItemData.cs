@@ -17,7 +17,5 @@ public enum InterfaceItemType
     LevelCell = 0,
     InventoryItem = 1,
     RewardItem = 2,
-    SoftCurrency = 3,
-    HardCurrency = 4,
-    RealCurrency = 5
+    ShopItem = 3
 }

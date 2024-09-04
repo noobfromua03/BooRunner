@@ -45,6 +45,8 @@ public static class ItemTypes
             ItemType.CoffinKey => new CoffinKey(),
             ItemType.TotemOfFearEssence => new TotemOfFearEssence(),
             ItemType.None => new NoneItem(),
+            ItemType.SoftCurrency => new SoftCurrency(),
+            ItemType.HardCurrency => new HardCurrency(),
                     _ => null
         };
 }

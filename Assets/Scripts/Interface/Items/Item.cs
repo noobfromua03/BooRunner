@@ -25,7 +25,7 @@ public class Item : MonoBehaviour
         ItemType = item.Type;
         itemImage.sprite = IconsConfig.Instance.GetByType(item.IconType);
         amountText.text = Progress.Inventory.GetItemAmount(item.Type).ToString();
-        nameText.text = item.Type.ToString();
+        nameText.text = item.Name;
     }
 }
 
