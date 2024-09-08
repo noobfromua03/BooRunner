@@ -25,7 +25,7 @@ public class Pause : MonoBehaviour, IWindowUI
     public void ExitBtn()
     {
         WindowsManager.Instance.ClosePopup(this);
-        WindowsManager.Instance.EndLevel();
+        PlayerData.Instance.GameOver?.Invoke();
     }
     public void SoundBtn()
     {

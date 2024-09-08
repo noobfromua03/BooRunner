@@ -1,24 +1,25 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ClaimRewardPopup : MonoBehaviour, IWindowUI
 {
     [SerializeField] private WindowType type;
     [SerializeField] private RewardItemData rewardItemData;
+    [SerializeField] private Transform container;
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
 
-    private void OnEnable()
+    public void InitializeReward(RewardItemData data)
     {
-        int value = PlayerData.Instance.GetSoftReward() / 100;
-        value = value < 10 ? 10 : value;
-        rewardItemData.SetAmount(value);
-        CurrencyService.AddCurrency(CurrencyType.Soft, value);
+        var prefab = WindowsConfig.Instance.Windows[0].GetItemByType(InterfaceItemType.RewardItem);
+        var rewardItem = Instantiate(prefab, container);
+        rewardItem.GetComponent<RewardDataView>().Initialize(data);
     }
 
     public void ClaimBtn()
     {
         WindowsManager.Instance.ClosePopup(this);
-        WindowsManager.Instance.EndLevel();
+        WindowsManager.Instance.ReturnToMenu();
     }
 
     public void DestroySelf()

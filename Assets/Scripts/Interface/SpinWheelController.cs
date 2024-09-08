@@ -3,10 +3,11 @@ using RandomGeneratorWithWeight;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static UnityEditor.Progress;
+using Random = UnityEngine.Random;
 public class SpinWheelController : MonoBehaviour
 {
-
+    [SerializeField] private FortuneWheel view;
     [SerializeField] private RectTransform wheel;
     [SerializeField] private AnimationCurve spinCurve;
     [SerializeField] private AnimationCurve finalPosOffsetCurve;
@@ -23,20 +24,23 @@ public class SpinWheelController : MonoBehaviour
 
     private Coroutine spinRoutine;
     private RewardItemData rewardItem;
-
     public bool IsSpinning { get; private set; }
 
     private void OnEnable()
     {
-        // звернення до контроллера UI колеса для підписки на SpinWheel
-        // оновлення слотів колеса
+        view.Spin += SpinWheel;
+        view.RewardSpin += RewardSpinWheel;
+        view.StopSpin += StopSpin;
+        view.InitializeWheelRewards(RewardConfig.Instance.GetAllWheelRewards());
 
-        // оновлення ціни спіна та кнопки
+        UpdateSpins();
     }
 
     private void OnDisable()
     {
-        // сказування підписки на SpinWheel, але чому немає дужок
+        view.Spin -= SpinWheel;
+        view.RewardSpin -= RewardSpinWheel;
+        view.StopSpin -= StopSpin;
     }
 
     private void SpinWheel()
@@ -44,23 +48,31 @@ public class SpinWheelController : MonoBehaviour
         if (spinRoutine != null)
             return;
 
-        /* if(сніпів вистачає) 
-         { 
-             використати можливий спін
-         }*/
+        if (Progress.Inventory.spins.spins > 0)
+            Play();
+
+
+    }
+
+    private void RewardSpinWheel()
+    {
+        if (spinRoutine != null)
+            return;
+
+        if (Progress.Inventory.spins.rewardSpins > 0)
+            Play();
     }
 
     private void Play()
     {
         IsSpinning = true;
-        // не розумію що відбувається
-        // оновлення кнопки та вартості спіна
-        var reward = RewardsConfig.Instance.GetWheelReward();
+        UpdateSpins();
+        var reward = RewardConfig.Instance.GetWheelReward();
         rewardItem = reward.Item1;
-        // вимкнення якихось додатків
-        // вимкнення активності кнопки, яка запускає спін
-        spinRoutine = StartCoroutine(SpinWheelCoroutine(reward.Item2, rewardItem)); // чому тут
-                                                                                      // амаунт від верхнього а не поточного??
+
+        view.spinBtn.enabled = false;
+        view.rewardSpinBtn.enabled = false;
+        spinRoutine = StartCoroutine(SpinWheelCoroutine(reward.Item2, rewardItem));
     }
 
     private IEnumerator SpinWheelCoroutine(int section, RewardItemData item)
@@ -75,9 +87,9 @@ public class SpinWheelController : MonoBehaviour
             var nextWheelPos = currentWheelPos + speed * Time.deltaTime;
             currentWheelPos = nextWheelPos > 1f ? nextWheelPos - 1f : nextWheelPos;
             wheel.localEulerAngles = new Vector3(0f, 0f, currentWheelPos * FULL_WHEEL);
+            timer += Time.deltaTime;
             yield return null;
         }
-
         var finalSectionPos = section * (FULL_WHEEL / SECTIONS_AMOUNT) + SECTION_CENTER_MIDDLE + CalculateRandomOffset();
         var finalPos = finalSectionPos / FULL_WHEEL + Random.Range(END_ADDITIONAL_WHEELS_COUNT.Item1, END_ADDITIONAL_WHEELS_COUNT.Item2);
         var distance = finalPos - currentWheelPos;
@@ -94,14 +106,27 @@ public class SpinWheelController : MonoBehaviour
             yield return null;
         }
 
+
+
         OnFinishSpin(section, item);
     }
 
     private void OnFinishSpin(int section, RewardItemData item)
     {
-        spinRoutine = null;
+        StopSpin();
+        Debug.Log("Looted item: " + item.Amount + " " + item.Item.Type.ToString() + " with index " + section);
 
-        IsSpinning = false;
+        var popup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
+        if (item.Type == ItemType.SoftCurrency)
+            CurrencyService.AddCurrency(CurrencyType.Soft, item.Amount);
+        else if (item.Type == ItemType.HardCurrency)
+            CurrencyService.AddCurrency(CurrencyType.Hard, item.Amount);
+        else
+            Progress.Inventory.AddItem(item.Type, item.Amount);
+
+        popup.InitializeReward(item);
+
+        UpdateSpins();
     }
 
 
@@ -117,9 +142,30 @@ public class SpinWheelController : MonoBehaviour
         return Mathf.Lerp(FINAL_POS_OFFSET.Item1, FINAL_POS_OFFSET.Item2, randomFloat);
     }
 
-    private void UpdateCostAndButton()
+    private void UpdateSpins()
     {
+        if (SpinService.CompareDate() == false)
+        {
+            SpinService.ReloadSpinsOnNewDay();
+            SpinService.SetDate();
+        }
 
+
+
+        if (Progress.Inventory.spins.spins == 0)
+            view.spins.text = "Today free spin is used";
+        if (Progress.Inventory.spins.rewardSpins == 0)
+            view.rewardSpins.text = "Today all attempts are used";
+    }
+
+    private void StopSpin()
+    {
+        if (spinRoutine != null)
+            StopCoroutine(spinRoutine);
+        spinRoutine = null;
+        IsSpinning = false;
+        view.spinBtn.enabled = true;
+        view.rewardSpinBtn.enabled = true;
     }
 }
 

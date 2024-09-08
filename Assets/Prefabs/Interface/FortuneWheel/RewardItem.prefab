@@ -169,11 +169,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
+  m_fontSize: 22.3
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 22
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 16
   m_fontSizeMax: 72
   m_fontStyle: 3
   m_HorizontalAlignment: 2
@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 3497947040041260023}
   - component: {fileID: 8087833037260885761}
   - component: {fileID: 4457130461697589933}
-  - component: {fileID: 2425025253416966700}
   m_Layer: 5
   m_Name: SlotImage
   m_TagString: Untagged
@@ -287,20 +286,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2425025253416966700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2869764271596319502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d12527ea8f2d25945b634c9e36056355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  image: {fileID: 4457130461697589933}
 --- !u!1 &5454184838311673927
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,8 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 253404012536750818}
-  - component: {fileID: 8738717529118601278}
-  - component: {fileID: 5393849049613518827}
+  - component: {fileID: 8816743430168558920}
   m_Layer: 5
   m_Name: RewardItem
   m_TagString: Untagged
@@ -417,7 +401,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8738717529118601278
+--- !u!114 &8816743430168558920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,20 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: {fileID: 4402554988951632553}
   amount: {fileID: 8597519023770363307}
---- !u!114 &5393849049613518827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6866803692506564618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d034a217410763418730f2732feba2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Type>k__BackingField: 0
-  <Amount>k__BackingField: 0
+  icon: {fileID: 4457130461697589933}
 --- !u!1 &9156228873246775811
 GameObject:
   m_ObjectHideFlags: 0

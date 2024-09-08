@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CreateOnlyBasicWindowsAtStart>k__BackingField: 1
   <DestroyInactiveWindows>k__BackingField: 1
-  BasicWindows: 000000000100000003000000
+  BasicWindows: 0000000006000000
   <Windows>k__BackingField:
   - <WindowPrefabs>k__BackingField:
     - <Type>k__BackingField: 0
@@ -105,6 +105,12 @@ MonoBehaviour:
     - <Type>k__BackingField: 3
       <Prefab>k__BackingField:
         m_AssetGUID: 973addf4d589f65498bfb4d25fb3e363
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+    - <Type>k__BackingField: 2
+      <Prefab>k__BackingField:
+        m_AssetGUID: 6e2487b9554f9c54e8e02a324b41e6dc
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0

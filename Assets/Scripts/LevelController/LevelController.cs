@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,7 +17,6 @@ public class LevelController : MonoBehaviour
 
     [SerializeField]
     private GameObject DisableZonePrefab;
-
     private ItemController itemController = new();
     private GameObject player;
     private GameObject playerCamera;
@@ -175,7 +174,10 @@ public class LevelController : MonoBehaviour
 
     private void GameOver()
     {
-        WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup);
+        var rewardData = RewardConfig.Instance.GetSoftLevelReward(playerData.IsGoldLoaf, playerData.Score);
+        var rewardPopup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
+        CurrencyService.AddCurrency(CurrencyType.Soft, rewardData.Amount);
+        rewardPopup.InitializeReward(rewardData);
         Time.timeScale = 0;
     }
 }

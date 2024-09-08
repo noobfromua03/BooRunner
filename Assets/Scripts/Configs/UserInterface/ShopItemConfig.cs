@@ -11,7 +11,7 @@ public class ShopItemConfig : AbstractConfig<ShopItemConfig>
 public class ShopItemData
 {
     [field: SerializeField] public ItemType Type { get; private set; }
-    public IInventoryItem Item { get => InventoryItemConfig.Instance.GetItemByType(Type);}
+    public IInventoryItem Item { get => ItemBuilder.GetInventoryItem(Type);}
     [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
     [field: SerializeField] public int Cost { get; private set; }
     [field: SerializeField] public int Amount { get; private set; } = 1;

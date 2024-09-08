@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class InventoryItemConfig : AbstractConfig<InventoryItemConfig>
 {
     [field: SerializeField] public List<ItemData> ItemData { get; private set; }
@@ -26,8 +26,8 @@ public class ItemData
         if (Item == null || Item.Type != Type)
             Item = ItemTypes.GetInventoryItem(Type);
     }
-}
-public static class ItemTypes
+}*/
+public static class ItemBuilder
 {
     public static IInventoryItem GetInventoryItem(ItemType type)
         => type switch

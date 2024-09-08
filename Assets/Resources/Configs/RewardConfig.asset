@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4924262e07365c843b2d293fd99bde11, type: 3}
+  m_Name: RewardConfig
+  m_EditorClassIdentifier: 
+  wheelRewards:
+  - _weight: 200
+    _item:
+      <Type>k__BackingField: 0
+      <Amount>k__BackingField: 2
+  - _weight: 100
+    _item:
+      <Type>k__BackingField: 4
+      <Amount>k__BackingField: 1
+  - _weight: 10
+    _item:
+      <Type>k__BackingField: 14
+      <Amount>k__BackingField: 20
+  - _weight: 20
+    _item:
+      <Type>k__BackingField: 9
+      <Amount>k__BackingField: 1
+  - _weight: 500
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 100
+  - _weight: 150
+    _item:
+      <Type>k__BackingField: 7
+      <Amount>k__BackingField: 1
+  - _weight: 200
+    _item:
+      <Type>k__BackingField: 3
+      <Amount>k__BackingField: 2
+  - _weight: 200
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 800
+  levelRewardItemType: 13
+  goldLoafMultiplier: 2
+  defaultMultiplier: 0.01
+  minReward: 10

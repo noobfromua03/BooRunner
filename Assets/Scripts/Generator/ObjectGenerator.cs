@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -41,6 +42,7 @@ public class ObjectGenerator
 
     private int RandomLine => GetRandomValue(0, 3);
 
+    
     public void Initialize(List<GameObject> obstaclePrefabs, List<GameObject> collectablePrefabs)
     {
         this.obstaclePrefabs = obstaclePrefabs;

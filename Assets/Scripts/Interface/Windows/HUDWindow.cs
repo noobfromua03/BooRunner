@@ -16,7 +16,7 @@ public class HUDWindow : MonoBehaviour, IWindowUI
         {
             for (int i = 0; i < slots.Count; i++)
             {
-                var item = InventoryItemConfig.Instance.GetItemByType(items[i]);
+                var item = ItemBuilder.GetInventoryItem(items[i]);
                 slots[i].Initialize(item);
                 slots[i].Click += UseSlot;
             }

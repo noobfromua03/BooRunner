@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour, IWindowUI
     private Item activeSlot;
     private bool IsActiveSlot;
 
-    private void Start()
+    private void OnEnable()
     {
         InitializeAllItems();
     }
@@ -29,9 +29,9 @@ public class Inventory : MonoBehaviour, IWindowUI
 
         for (int i = 0; i < allItems.Count; i++)
         {
-            var bagItem = InventoryItemConfig.Instance.GetItemByType(allItems[i].Type);
+            var bagItem = ItemBuilder.GetInventoryItem(allItems[i].Type);
 
-            if (bagItem.Type == ItemType.None)
+            if (bagItem.Type == ItemType.None || allItems[i].Amount == 0)
                 continue;
 
             var inventoryItem = Instantiate(prefab, content);
@@ -39,8 +39,7 @@ public class Inventory : MonoBehaviour, IWindowUI
 
             inventoryItems.Add(item);
             item.Click += ClickOnItem;
-            if (allItems[i].Amount > 0)
-                item.Initialize(bagItem);
+            item.Initialize(bagItem);
         }
 
         InitializeSlots();
@@ -48,10 +47,10 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     public void InitializeSlots()
     {
-        var currentSlot1 = InventoryItemConfig.Instance.GetItemByType(Progress.Inventory.currentItem_0);
+        var currentSlot1 = ItemBuilder.GetInventoryItem(Progress.Inventory.currentItem_0);
         Slot1.Initialize(currentSlot1);
 
-        var currentSlot2 = InventoryItemConfig.Instance.GetItemByType(Progress.Inventory.currentItem_1);
+        var currentSlot2 = ItemBuilder.GetInventoryItem(Progress.Inventory.currentItem_1);
         Slot2.Initialize(currentSlot2);
     }
 
@@ -65,7 +64,7 @@ public class Inventory : MonoBehaviour, IWindowUI
     {
         if (IsActiveSlot)
         {
-            var inventoryItem = InventoryItemConfig.Instance.GetItemByType(type);
+            var inventoryItem = ItemBuilder.GetInventoryItem(type);
             activeSlot.Initialize(inventoryItem);
             IsActiveSlot = false;
             Save();
@@ -74,8 +73,8 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     public void ClearBtn()
     {
-        Slot1.Initialize(InventoryItemConfig.Instance.GetItemByType(ItemType.None));
-        Slot2.Initialize(InventoryItemConfig.Instance.GetItemByType(ItemType.None));
+        Slot1.Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
+        Slot2.Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
         Save();
     }
 

@@ -24,7 +24,6 @@ public enum WindowType
     Shop = 8,
     TutorialPopup = 9,
     HUD = 10,
-    Hero = 11,
-    ClaimWheelRewardPopup = 12
+    Hero = 11
 }
 

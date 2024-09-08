@@ -26,7 +26,7 @@ public class ItemController
 
             if (Progress.Inventory.ItemExist(type))
             {
-                var item = InventoryItemConfig.Instance.GetItemByType(type);
+                var item = ItemBuilder.GetInventoryItem(type);
                 if (item.SubType == ItemSubType.passive)
                 {
                     item.ActionHandler();
@@ -45,7 +45,7 @@ public class ItemController
 
         if (Progress.Inventory.ItemExist(itemType))
         {
-            var item = InventoryItemConfig.Instance.GetItemByType(itemType);
+            var item = ItemBuilder.GetInventoryItem(itemType);
             if (item.SubType == ItemSubType.active)
             {
                 item.ActionHandler();

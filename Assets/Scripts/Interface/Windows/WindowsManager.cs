@@ -14,7 +14,7 @@ public class WindowsManager : MonoBehaviour
 
     public List<IWindowUI> windows = new();
 
-    private IWindowUI activeWindow;
+    private IWindowUI lastActiveWindow;
     private List<IWindowUI> ActivePopups = new();
 
     private void Awake()
@@ -33,7 +33,7 @@ public class WindowsManager : MonoBehaviour
     private void Start()
     {
         DisableWindowsExcept(WindowType.MainMenu);
-        activeWindow = GetWindowByType(WindowType.MainMenu);
+        lastActiveWindow = GetWindowByType(WindowType.MainMenu);
     }
 
     private void InitializeAllWindows()
@@ -49,7 +49,7 @@ public class WindowsManager : MonoBehaviour
                 if (component.Type == WindowType.MainMenu)
                 {
                     window.SetActive(true);
-                    activeWindow = component;
+                    lastActiveWindow = component;
                 }
             }
             else
@@ -71,11 +71,13 @@ public class WindowsManager : MonoBehaviour
         }
     }
 
-    public void CreateWindowByType(WindowType type)
+    public IWindowUI CreateWindowByType(WindowType type)
     {
         var prefab = WindowsConfig.Instance.Windows[0].WindowPrefabs.Find(w => w.Type == type).RealizeWindow();
         var window = Instantiate(prefab, container);
-        windows.Add(window.GetComponent<IWindowUI>());
+        var windowUI = window.GetComponent<IWindowUI>();
+        windows.Add(windowUI);
+        return windowUI;
     }
 
     private void DestroyWindow(IWindowUI window)
@@ -96,8 +98,8 @@ public class WindowsManager : MonoBehaviour
         if (HUD == null)
         {
             CreateWindowByType(WindowType.HUD);
-            activeWindow = windows[windows.Count - 1];
-            return activeWindow.Window.GetComponent<HUD>();
+            lastActiveWindow = windows[windows.Count - 1];
+            return lastActiveWindow.Window.GetComponent<HUD>();
 
         }
         HUD.Window.SetActive(true);
@@ -113,42 +115,50 @@ public class WindowsManager : MonoBehaviour
     public void StartLevel()
     {
         CloseAllWindows();
+        CloseAllPopups();
         menuCamera.enabled = false;
         levelController.gameObject.SetActive(true);
+
     }
 
-    public void EndLevel()
+    public void ReturnToMenu()
     {
-        levelController.gameObject.SetActive(false);
-        levelController.Reload();
-        OpenWindow(WindowType.MainMenu);
+        if (lastActiveWindow.Type == WindowType.HUD)
+        {
+            levelController.gameObject.SetActive(false);
+            levelController.Reload();
+            OpenWindow(WindowType.MainMenu);
+        }
+        Time.timeScale = 1;
+        menuCamera.enabled = true;
+
     }
 
-    public void OpenWindow(WindowType type)
+    public IWindowUI OpenWindow(WindowType type)
     {
         var window = windows.Find(w => w.Type == type);
+        CloseAllPopups();
         CloseAllWindows();
+
         if (window == null)
-        {
-            CreateWindowByType(type);
-            activeWindow = windows[windows.Count - 1];
-            return;
-        }
-        activeWindow = window;
+            window = CreateWindowByType(type);
+
+        CloseWindow(lastActiveWindow);
+        lastActiveWindow = window;
         window.Window.SetActive(true);
+        return window;
     }
 
-    public void OpenPopup(WindowType type)
+    public IWindowUI OpenPopup(WindowType type)
     {
         var popup = windows.Find(w => w.Type == type);
+
         if (popup == null)
-        {
-            CreateWindowByType(type);
-            ActivePopups.Add(windows[windows.Count - 1]);
-            return;
-        }
+            popup = CreateWindowByType(type);
+
         popup.Window.SetActive(true);
         ActivePopups.Add(popup);
+        return popup;
     }
 
     public void CloseWindow(IWindowUI window)
@@ -176,9 +186,14 @@ public class WindowsManager : MonoBehaviour
 
     private void CloseAllWindows()
     {
+        for (int i = 0; i < windows.Count - 1; i++)
+            CloseWindow(windows[i]);
+    }
+
+    private void CloseAllPopups()
+    {
         for (int i = ActivePopups.Count - 1; i >= 0; i--)
             ClosePopup(ActivePopups[i]);
-        CloseWindow(activeWindow);
     }
 }
 

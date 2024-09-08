@@ -241,10 +241,6 @@ public class PlayerData : MonoBehaviour
         IsTotemOfFear.Coroutine = StartCoroutine(TotemOfFearCoroutine());
     }
 
-
-    public int GetSoftReward()
-        => IsGoldLoaf ? Score * 2 : Score;
-
     public IEnumerator BoosterDuration(Action boosterStatus)
     {
         yield return new WaitForSeconds(BOOSTERS_TIME);
