@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8752360011007659140}
   - component: {fileID: 1334668308220908937}
   - component: {fileID: 632811658499332456}
+  - component: {fileID: 868943544428338901}
   m_Layer: 8
   m_Name: Enemy2
   m_TagString: Untagged
@@ -50,11 +51,11 @@ MonoBehaviour:
   boldLevel: 25
   <MoveUnit>k__BackingField:
     MoveType: 0
-    Rb: {fileID: 0}
+    Rb: {fileID: 868943544428338901}
     Transform: {fileID: 8752360011007659140}
     PointNumber: 1
     SpeedX: 2
-    SpeedY: 0
+    SpeedY: 13
     SpeedZ: 10
     jump: 0
     isPatrol: 1
@@ -83,6 +84,33 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!54 &868943544428338901
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796987672305416087}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &9052432348907743138
 GameObject:
   m_ObjectHideFlags: 0

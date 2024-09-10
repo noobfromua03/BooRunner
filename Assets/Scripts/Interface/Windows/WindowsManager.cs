@@ -9,8 +9,12 @@ public class WindowsManager : MonoBehaviour
 
     [SerializeField] private LevelController levelController;
     [SerializeField] private Camera menuCamera;
+    [SerializeField] private GameObject menuPrefab;
+    [SerializeField] private Transform menuCameraPosition;
+    [SerializeField] private Transform customHeroCameraPosition;
 
     private Transform container;
+    private GameObject menuComposition;
 
     public List<IWindowUI> windows = new();
 
@@ -28,6 +32,8 @@ public class WindowsManager : MonoBehaviour
             Initialize();
         else
             InitializeAllWindows();
+
+        menuComposition = Instantiate(menuPrefab);
     }
 
     private void Start()
@@ -94,6 +100,7 @@ public class WindowsManager : MonoBehaviour
     public HUD GetHUDUpdate()
     {
         CloseAllWindows();
+        menuComposition.SetActive(false);
         var HUD = windows.Find(hud => hud.Type == WindowType.HUD);
         if (HUD == null)
         {
@@ -131,7 +138,6 @@ public class WindowsManager : MonoBehaviour
         }
         Time.timeScale = 1;
         menuCamera.enabled = true;
-
     }
 
     public IWindowUI OpenWindow(WindowType type)
@@ -195,5 +201,22 @@ public class WindowsManager : MonoBehaviour
         for (int i = ActivePopups.Count - 1; i >= 0; i--)
             ClosePopup(ActivePopups[i]);
     }
+
+    public void ChangeCameraView(WindowType type)
+    {
+        if (type == WindowType.Hero)
+        {
+            menuCamera.transform.position = customHeroCameraPosition.position;
+            menuCamera.transform.rotation = customHeroCameraPosition.rotation;
+            menuComposition.GetComponent<MenuCompositionController>().DisableSpawn(true);
+        }
+        else
+        {
+            menuCamera.transform.position = menuCameraPosition.position;
+            menuCamera.transform.rotation = menuCameraPosition.rotation;
+            menuComposition.GetComponent<MenuCompositionController>().DisableSpawn(false);
+        }
+    }
+
 }
 

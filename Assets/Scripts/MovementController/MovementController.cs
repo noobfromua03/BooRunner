@@ -1,11 +1,13 @@
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MovementController
 {
     public static MovementController instance;
 
-    private List<MoveUnit> moveUnits;
+    private List<MoveUnit> moveUnits = new();
     private float speedModify = 1;
 
     private Vector3[] points =
@@ -39,16 +41,13 @@ public class MovementController
             if (unit.Transform.gameObject.activeSelf)
             {
                 MoveToPositionRBFixedUpdate(unit);
+                RBJumpForTransformFixedUpdate(unit);
             }
         }
     }
 
     public void AddMoveUnit(MoveUnit moveUnit)
-    {
-        if (moveUnits == null)
-            moveUnits = new List<MoveUnit>();
-        moveUnits.Add(moveUnit);
-    }
+       => moveUnits.Add(moveUnit);
 
     public void MoveToPositionRBFixedUpdate(MoveUnit unit)
     {
@@ -58,13 +57,27 @@ public class MovementController
                 Vector3 movePosition = unit.Rb.position;
 
                 movePosition.x = Mathf.MoveTowards(unit.Rb.position.x, points[unit.PointNumber].x, unit.SpeedX * Time.fixedDeltaTime);
-                
+
                 if (unit.jump)
                 {
                     unit.Rb.AddForce(Vector3.up * unit.SpeedY, ForceMode.Impulse);
                     unit.jump = false;
-                }    
+                }
                 unit.Rb.MovePosition(movePosition);
+                break;
+        }
+    }
+    public void RBJumpForTransformFixedUpdate(MoveUnit unit)
+    {
+        switch (unit.MoveType)
+        {
+            case MoveType.Transform:
+
+                if (unit.jump)
+                {
+                    unit.Rb.AddForce(Vector3.up * unit.SpeedY, ForceMode.Impulse);
+                    unit.jump = false;
+                }
                 break;
         }
     }
@@ -93,7 +106,7 @@ public class MovementController
         movePosition.x = points[unit.PointNumber].x;
         unit.Transform.position = movePosition;
     }
-    
+
     public void TeleportToPosition(MoveUnit unit, float posY)
     {
         Vector3 movePosition = unit.Transform.position;
@@ -105,7 +118,6 @@ public class MovementController
 
     public void MoveToPositionForwardTransformUpdate(MoveUnit unit)
     {
-        
         switch (unit.MoveType)
         {
             case MoveType.Transform:

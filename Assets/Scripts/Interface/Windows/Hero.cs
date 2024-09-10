@@ -8,7 +8,10 @@ public class Hero : MonoBehaviour, IWindowUI
     public GameObject Window { get => gameObject; }
 
     public void ExitBtn()
-        => WindowsManager.Instance.OpenWindow(WindowType.MainMenu);
+    {
+        WindowsManager.Instance.ChangeCameraView(WindowType.MainMenu);
+        WindowsManager.Instance.OpenWindow(WindowType.MainMenu);
+    }
 
     public void DestroySelf()
         => Destroy(Window);

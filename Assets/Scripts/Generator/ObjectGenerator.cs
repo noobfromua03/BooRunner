@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
@@ -32,6 +31,14 @@ public class ObjectGenerator
         new SpawnVariant(false, true, true),
         new SpawnVariant(true, true, true)
     };
+
+    private List<SpawnVariant> menuSpawnVariants = new()
+    {
+        new SpawnVariant(true, false, false),
+        new SpawnVariant(false, true, false),
+        new SpawnVariant(false, false, true)
+    };
+
     private ObjectsPool objectsPool;
 
     private float objectsSpawnTime = 0.5f;
@@ -42,11 +49,16 @@ public class ObjectGenerator
 
     private int RandomLine => GetRandomValue(0, 3);
 
-    
+
     public void Initialize(List<GameObject> obstaclePrefabs, List<GameObject> collectablePrefabs)
     {
         this.obstaclePrefabs = obstaclePrefabs;
         this.collectablePrefabs = collectablePrefabs;
+    }
+
+    public void InitializeForMenu(List<GameObject> enemyPrefabs)
+    {
+        obstaclePrefabs = enemyPrefabs.Where(p => p.GetComponent<Enemy>()).ToList();
     }
 
     public void GenerateNewObjectOnLine(int line, Transform container, PoolObjectType type, List<GameObject> prefabs)
@@ -56,7 +68,7 @@ public class ObjectGenerator
         poolObject.ChangeLine(line);
     }
 
-    public Vector3 GetPositionObject(Transform container)
+    private Vector3 GetPositionObject(Transform container)
     {
         return new Vector3(0, container.position.y, spawnDistance);
     }
@@ -105,6 +117,31 @@ public class ObjectGenerator
         }
 
         essenceVariantCounter = -1;
+    }
+
+    public void AutomaticSpawnEnemiesForMenu()
+    {
+        var currentVariant = menuSpawnVariants[GetRandomValue(0, menuSpawnVariants.Count)];
+        List<bool> lines = new List<bool>() { currentVariant.Left, currentVariant.Middle, currentVariant.Right };
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+            if (lines[i])
+            {
+                var type = obstaclePrefabs.OrderBy(o => UnityEngine.Random.value).First()
+                    .GetComponent<IPoolObject>().ObjectType;
+                var poolObject = objectsPool.GetObjectFromPoolByType(type);
+
+                if (poolObject != null)
+                {
+                    poolObject.GetComponent<Enemy>().ChangeLine(i);
+                    poolObject.transform.position = GetPositionObject(obstaclesContainer);
+                    poolObject.SetActive(true);
+                }
+                else
+                    GenerateNewObjectOnLine(i, obstaclesContainer, type, obstaclePrefabs);
+            }
+        }
     }
 
     public void AutomaticSpawnCollectableObjectsByVariants()
@@ -177,6 +214,15 @@ public class ObjectGenerator
         }
     }
 
+    public IEnumerator SpawnEnemiesForMenu()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(GetRandomValue(1, 10));
+            AutomaticSpawnEnemiesForMenu();
+        }
+    }
+
     public IEnumerator SpawnBoosters()
     {
         while (true)
@@ -201,6 +247,9 @@ public class ObjectGenerator
     {
         objectsSpawnTime = Mathf.Clamp(0.5f - value, 0.2f, 0.5f);
     }
+
+    public void SetSpawnDistance(float value)
+        => spawnDistance = value;
 }
 
 

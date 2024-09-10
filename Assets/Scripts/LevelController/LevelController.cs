@@ -9,14 +9,12 @@ public class LevelController : MonoBehaviour
     public RoadGenerator RoadGenerator { get; private set; } = new();
     public RoadGenerator DecorationGenerator { get; private set; } = new();
 
-    [SerializeField]
-    private GameObject PlayerPrefab;
+    [SerializeField] private GameObject PlayerPrefab;
 
-    [SerializeField]
-    private GameObject CameraPrefab;
+    [SerializeField] private GameObject CameraPrefab;
 
-    [SerializeField]
-    private GameObject DisableZonePrefab;
+    [SerializeField] private GameObject DisableZonePrefab;
+
     private ItemController itemController = new();
     private GameObject player;
     private GameObject playerCamera;
@@ -38,19 +36,15 @@ public class LevelController : MonoBehaviour
         RoadGenerator.Initialize(
             levelData
                 .RoadParts.Select(rp => AddressableExtensions.GetAsset(rp).GetComponent<RoadPart>())
-                .ToList()
-        );
+                .ToList());
         DecorationGenerator.Initialize(
             levelData
                 .DecorationParts.Select(rp =>
                     AddressableExtensions.GetAsset(rp).GetComponent<RoadPart>()
-                )
-                .ToList()
-        );
+                ).ToList());
         ObjectGenerator.Initialize(
             levelData.Obstacles.Select(o => AddressableExtensions.GetAsset(o)).ToList(),
-            levelData.Collectables.Select(c => AddressableExtensions.GetAsset(c)).ToList()
-        );
+            levelData.Collectables.Select(c => AddressableExtensions.GetAsset(c)).ToList());
         AddressablesAssetsHandler.ReleaseReferences();
 
         CreatePlayerWithData();

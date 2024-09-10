@@ -75,7 +75,10 @@ public class Enemy : MonoBehaviour, IPoolObject
     public void ActionHandler()
     {
         if (CanUseEssence)
+        {
             PlayerData.Instance.RemoveEssence(BoldLevel);
+            ScaredJump();
+        }
         else
             PlayerData.Instance.RemoveLife(1);
         actionDone = true;
@@ -89,6 +92,9 @@ public class Enemy : MonoBehaviour, IPoolObject
             actionDone = true;
         }
     }
+
+    public void ScaredJump()
+        => MoveUnit.jump = true;
 
     public bool ActionDone()
         => actionDone;

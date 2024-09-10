@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour, IWindowUI
     public void InventoryBtn()
         => WindowsManager.Instance.OpenPopup(WindowType.InventoryPopup);
     public void HeroBtn()
-        => WindowsManager.Instance.OpenWindow(WindowType.Hero);
+    {
+        WindowsManager.Instance.ChangeCameraView(WindowType.Hero);
+        WindowsManager.Instance.OpenWindow(WindowType.Hero);
+    }
     public void FortuneWheelBtn()
         => WindowsManager.Instance.OpenWindow(WindowType.FortuneWheel);
     public void TutorialBtn() 
