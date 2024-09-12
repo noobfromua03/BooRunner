@@ -71,6 +71,7 @@ public class LevelController : MonoBehaviour
         playerHUDUpdate = WindowsManager.Instance.GetHUDUpdate();
         InitializePlayerEvents();
 
+        ObjectGenerator.GenerateAllPossibleObjectsOnLevel();
         RoadGenerator.CreateFullRoad(20);
         DecorationGenerator.CreateFullRoad(20);
         StartCoroutine(ObjectGenerator.SpawnObjects());

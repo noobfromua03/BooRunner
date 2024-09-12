@@ -342,9 +342,9 @@ public class PlayerData : MonoBehaviour
     {
         if (FearEssence < 25)
             ChangeColor(colors[0]);
-        else if (FearEssence > 25 && FearEssence <= 50)
+        else if (FearEssence >= 25 && FearEssence < 50)
             ChangeColor(colors[1]);
-        else if (FearEssence > 50 && FearEssence <= 75)
+        else if (FearEssence >= 50 && FearEssence < 75)
             ChangeColor(colors[2]);
         else if (FearEssence > 75)
             ChangeColor(colors[3]);

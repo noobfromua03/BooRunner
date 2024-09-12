@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ObjectsPool
@@ -27,9 +28,9 @@ public class ObjectsPool
         if (pools.ContainsKey(type) == false)
             return null;
 
-        var pool = pools[type];
-        var poolItem = pool.Find(o => o.ActiveStatus() == false) as MonoBehaviour;
+        var pool = pools[type].FindAll(o => o.ActiveStatus() == false);
+        var poolItem = pool.Count > 0 ? pool.OrderBy(po => Random.value).First() as MonoBehaviour : null;
         
-        return poolItem != null ? poolItem.gameObject : null;
+        return poolItem?.gameObject;
     }
 }

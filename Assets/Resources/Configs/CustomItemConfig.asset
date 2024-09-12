@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da640f7a2c83a0147ad0986e0861ec20, type: 3}
+  m_Name: CustomItemConfig
+  m_EditorClassIdentifier: 
+  <CustomItems>k__BackingField:
+  - <Type>k__BackingField: 0
+    <Collection>k__BackingField:
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 23
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 1506666b0e44f644b9240dc0b3017ac8
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 25
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 8c3aa78aad4ca684c992258d0ab7648c
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 26
+    - <Prefab>k__BackingField:
+        m_AssetGUID: cfcc29224658e1b469d44035f62e026a
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 27
+    - <Prefab>k__BackingField:
+        m_AssetGUID: b7bc3bfd8fc48714cb76cfef07afca1f
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 28
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 6f68d75afa9b05243b66397ac923a73a
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 29
+    - <Prefab>k__BackingField:
+        m_AssetGUID: a794a55bb53fb46498e7d55aca8e040d
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 30
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 072f618e5e9567942a4faabe69d17fc3
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 31
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 7bf4a419e23f9d344a61ce9b360e27f2
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 32
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 2faf7ada648384a4f997c9a9d10f3175
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 33
+    - <Prefab>k__BackingField:
+        m_AssetGUID: 804aa326522a8e349b79afdcaa732496
+        m_SubObjectName: 
+        m_SubObjectType: 
+        m_EditorAssetChanged: 0
+      <IconType>k__BackingField: 34

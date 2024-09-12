@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour, IPoolObject
         if (CanUseEssence)
         {
             PlayerData.Instance.RemoveEssence(BoldLevel);
+            ScaredJump();
             actionDone = true;
         }
     }

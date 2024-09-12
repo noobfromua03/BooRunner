@@ -17,29 +17,27 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: d2a894dc48623664bb3c134dae395b03
   m_SerializeEntries:
-  - m_GUID: 806e9f9a9baa1654fb3519d0b652c33a
-    m_Address: Assets/Prefabs/Obstacles/Obstacle.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Obstacle/Enemy
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5bf000e3b40de64a846f42b1dc02e09
-    m_Address: Assets/Prefabs/Obstacles/Obstacle2.prefab
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7b39b5a24b86eb0468dd1e47a0258aa2
-    m_Address: Assets/Prefabs/Enemies/Enemy1.prefab
+  - m_GUID: 806e9f9a9baa1654fb3519d0b652c33a
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02b82e7b707ea7a448633002a8b808d9
-    m_Address: Assets/Prefabs/Enemies/Enemy2.prefab
+    m_Address: Assets/Prefabs/Enemies/Patient1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Obstacle/Enemy
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b39b5a24b86eb0468dd1e47a0258aa2
+    m_Address: Assets/Prefabs/Enemies/Police1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab4ff752f24038c4c8796d511fc1dfb4
     m_Address: Assets/Prefabs/RoadParts/RoadPart.prefab
@@ -195,6 +193,305 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7bc3bfd8fc48714cb76cfef07afca1f
+    m_Address: Assets/Prefabs/Customization/Hats/MinerHat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1506666b0e44f644b9240dc0b3017ac8
+    m_Address: Assets/Prefabs/Customization/Hats/CowboyHat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c3aa78aad4ca684c992258d0ab7648c
+    m_Address: Assets/Prefabs/Customization/Hats/Crown.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfcc29224658e1b469d44035f62e026a
+    m_Address: Assets/Prefabs/Customization/Hats/MagicianHat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f68d75afa9b05243b66397ac923a73a
+    m_Address: Assets/Prefabs/Customization/Hats/PajamaHat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a794a55bb53fb46498e7d55aca8e040d
+    m_Address: Assets/Prefabs/Customization/Hats/PillboxHat.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 072f618e5e9567942a4faabe69d17fc3
+    m_Address: Assets/Prefabs/Customization/Hats/PoliceCap.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf4a419e23f9d344a61ce9b360e27f2
+    m_Address: Assets/Prefabs/Customization/Hats/ShowerCap.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2faf7ada648384a4f997c9a9d10f3175
+    m_Address: Assets/Prefabs/Customization/Hats/Sombrero.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 804aa326522a8e349b79afdcaa732496
+    m_Address: Assets/Prefabs/Customization/Hats/VikingHelmet.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Hats
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13e57794e0bdaee45b4b9f8722a81529
+    m_Address: Assets/Prefabs/Interface/Hero/CustomItem.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0fc3ca416ae6224d87376095987eeb7
+    m_Address: Assets/Prefabs/Enemies/Police2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fdb556518f72cb44b92cb06b0bff7d4
+    m_Address: Assets/Prefabs/Enemies/Patient2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ffa145d3292cc84398d79a3e5bfc032
+    m_Address: Assets/Prefabs/Enemies/Patient3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e68ea91b7c7d3b4ba329e5874fd725a
+    m_Address: Assets/Prefabs/Enemies/Patient4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb20b0d21e793044e9713b98af05fcd1
+    m_Address: Assets/Prefabs/Enemies/Patient5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfc7033d0ed324e41b3fde9b6fd8f5ff
+    m_Address: Assets/Prefabs/Enemies/CricketBatsman.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07e21ea6cb827ed41a316fadfb20f000
+    m_Address: Assets/Prefabs/Enemies/CricketFielder.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f3bcd26a16f7a44ea6412ccfdfe5931
+    m_Address: Assets/Prefabs/Enemies/Doctor1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cd1abe7216312d4ca28489f6b2a50af
+    m_Address: Assets/Prefabs/Enemies/Doctor2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3716483f4b22d541947d998bf59e25d
+    m_Address: Assets/Prefabs/Enemies/GhostPeople.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44cb8cf3aab33124ea5a31d0a94f2f09
+    m_Address: Assets/Prefabs/Enemies/Knight1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8961785e4817901449caf7abaca8e1bc
+    m_Address: Assets/Prefabs/Enemies/Knight2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82c49a32f3635954c8a8226a719d35cd
+    m_Address: Assets/Prefabs/Enemies/Knight3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e0a945b225db644a8cc671c13604e03
+    m_Address: Assets/Prefabs/Enemies/Nurce1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 666fc2ebc98ea6243a22ace06e1e31d7
+    m_Address: Assets/Prefabs/Enemies/Nurce2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c28d2a1097aa7242aa3751d49059326
+    m_Address: Assets/Prefabs/Enemies/Nurce3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7db7ff46d19bccc44abace3c97c24454
+    m_Address: Assets/Prefabs/Enemies/Pilligrim1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1a607928966ef4488cb7cf30b5929e0
+    m_Address: Assets/Prefabs/Enemies/Pilligrim2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4c0a0d96d1b29545bcfeeffdb288970
+    m_Address: Assets/Prefabs/Enemies/Robber2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01354213a5e9dd2499e9f7059cda4342
+    m_Address: Assets/Prefabs/Enemies/Robber1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49bf4b3106c9f224fb153c5572c366ae
+    m_Address: Assets/Prefabs/Enemies/Streaker.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 465ff5473c028e94cb2dddf7e082bdb1
+    m_Address: Assets/Prefabs/Enemies/Villager1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 25df90e90026b504f88cd735acb439a4
+    m_Address: Assets/Prefabs/Enemies/Villager2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b79bfbaf8547ae141995ffc1017c832d
+    m_Address: Assets/Prefabs/Enemies/Villager3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 706ef252e2b4b3e4a97e673a19925aa3
+    m_Address: Assets/Prefabs/Enemies/Villager4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3f80d925d74d904d895ed9c255e778d
+    m_Address: Assets/Prefabs/Enemies/Witch.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b253ed1d1f5bf0141ba45ebf3159c839
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d02d3c7ff3b89a34d834d51ae9e423c3
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b106babf498d9fb4282ef17f4bd28be4
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a458e347fec27ce4cad4ff821a278f92
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81505d0fa3f3249449fc3ec98f06dada
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8efaf6948a0f5c649bd8f52af63ea751
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bf8d6acc74623149a62b0fe742725ce
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8b81738a7acc064e91565263e0df7bb
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b9de1f705f95a644b80013a713b413a
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8336973af35e8dc42aece44d0704a8e9
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4be96db1534d6744bd5542d040a7f32
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d18a68cc0f00a942958c9b6d6555543
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2305eecc2ac049048a4a1fd5e48fcd37
+    m_Address: Assets/Prefabs/Obstacles/CityParkObstacle 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 66c443d027bc56847abf708ea319de25, type: 2}

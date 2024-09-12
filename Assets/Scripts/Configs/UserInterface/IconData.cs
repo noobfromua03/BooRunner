@@ -33,5 +33,16 @@ public enum IconType
     CoffinKey = 21,
     TotemOfFearEssence = 22,
     None = 23,
-    RealCurrency = 24
+    RealCurrency = 24,
+    CowboyHat = 25,
+    CrownHat = 26,
+    MagicalHat = 27,
+    MinerHat = 28,
+    PajamaHat = 29,
+    PillboxHat = 30,
+    PoliceCapHat = 31,
+    ShowerCapHat = 32,
+    SombreroHat = 33,
+    VikingHelmetHat = 34
+
 }

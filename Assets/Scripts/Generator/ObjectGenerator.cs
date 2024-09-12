@@ -68,6 +68,17 @@ public class ObjectGenerator
         poolObject.ChangeLine(line);
     }
 
+    public void GenerateAllPossibleObjectsOnLevel()
+    {
+        for (int i = 0; i < obstaclePrefabs.Count; i++)
+        {
+            var prefab = obstaclePrefabs[i].GetComponent<IPoolObject>();
+            var poolObject = objectsPool.Spawn(prefab, obstaclesContainer, GetPositionObject(obstaclesContainer)) as MonoBehaviour;
+            poolObject.gameObject.SetActive(false);
+        }
+
+    }
+
     private Vector3 GetPositionObject(Transform container)
     {
         return new Vector3(0, container.position.y, spawnDistance);
@@ -101,6 +112,7 @@ public class ObjectGenerator
                     {
                         case Obstacle:
                             poolObject.GetComponent<Obstacle>().ChangeLine(i);
+                            poolObject.GetComponent<Obstacle>().Rotate();
                             break;
                         case Enemy:
                             poolObject.GetComponent<Enemy>().ChangeLine(i);

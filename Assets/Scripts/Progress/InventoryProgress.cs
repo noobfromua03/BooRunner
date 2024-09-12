@@ -6,6 +6,7 @@ public partial class Progress : ProgressBase<Progress>
     [System.Serializable]
     public class InventoryProgress
     {
+        public CustomItems customItems;
         public Spins spins;
         public int soft;
         public int hard;
@@ -39,6 +40,12 @@ public partial class Progress : ProgressBase<Progress>
                 spins = 1;
                 rewardSpins = 3;
             }
+        }
+
+        [Serializable]
+        public class CustomItems
+        {
+            public int HatIndex = 0;
         }
 
         public bool ItemExist(ItemType type, int amount = 1)

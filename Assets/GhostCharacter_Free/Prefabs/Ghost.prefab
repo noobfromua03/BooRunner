@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3682668034490985604
+--- !u!1 &2980796193772393311
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1909773027320483215}
+  - component: {fileID: 5098105922420925120}
   m_Layer: 0
   m_Name: Hat
   m_TagString: Untagged
@@ -16,20 +16,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1909773027320483215
+--- !u!4 &5098105922420925120
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3682668034490985604}
+  m_GameObject: {fileID: 2980796193772393311}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.00436, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 796652407307068396}
+  m_Father: {fileID: 3749227236981857661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &902125486744929287
 PrefabInstance:
@@ -97,15 +97,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119,
-        type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 1909773027320483215}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119,
+    - targetCorrespondingSourceObject: {fileID: 4072116181036161402, guid: 46f311046d2104da8b56be3d0a49a119,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2218055026219704195}
+      addedObject: {fileID: 5098105922420925120}
+    m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119,
         type: 3}
       insertIndex: -1
@@ -113,7 +109,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46f311046d2104da8b56be3d0a49a119,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4524755726158905661}
+      addedObject: {fileID: 871658801864038723}
   m_SourcePrefab: {fileID: 100100000, guid: 46f311046d2104da8b56be3d0a49a119, type: 3}
 --- !u!1 &19588385245968726 stripped
 GameObject:
@@ -121,32 +117,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 902125486744929287}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &2218055026219704195
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19588385245968726}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.4, z: -0.1}
 --- !u!95 &2069234913439815857
 Animator:
   serializedVersion: 5
@@ -168,7 +138,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4524755726158905661
+--- !u!114 &871658801864038723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,21 +147,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 19588385245968726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f57bdc949fce340f8968c5bc86276031, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a42bc422f49dd4191e176983ca5a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshR:
-  - {fileID: 839705036205447455}
-  Speed: 4
---- !u!4 &796652407307068396 stripped
+  hat: {fileID: 2980796193772393311}
+--- !u!4 &3749227236981857661 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 46f311046d2104da8b56be3d0a49a119,
-    type: 3}
-  m_PrefabInstance: {fileID: 902125486744929287}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &839705036205447455 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 514471462265150744, guid: 46f311046d2104da8b56be3d0a49a119,
+  m_CorrespondingSourceObject: {fileID: 4072116181036161402, guid: 46f311046d2104da8b56be3d0a49a119,
     type: 3}
   m_PrefabInstance: {fileID: 902125486744929287}
   m_PrefabAsset: {fileID: 0}

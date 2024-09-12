@@ -88,3 +88,33 @@ MonoBehaviour:
   - <Type>k__BackingField: 24
     <Sprite>k__BackingField: {fileID: 21300000, guid: 382ad12ab20394f4881665d1542168ef,
       type: 3}
+  - <Type>k__BackingField: 25
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 83ed53a4e3eec8c45af02c6ec702fcf7,
+      type: 3}
+  - <Type>k__BackingField: 26
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 051834542d18602439fc3a6274ff73df,
+      type: 3}
+  - <Type>k__BackingField: 27
+    <Sprite>k__BackingField: {fileID: 21300000, guid: f33b30a7a9fe4fd49b188c2cfc679e1f,
+      type: 3}
+  - <Type>k__BackingField: 28
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 3ba48261eef2002469a78817a7d44f72,
+      type: 3}
+  - <Type>k__BackingField: 29
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 7b4ef3f238ce75f46befa0c8efac30a2,
+      type: 3}
+  - <Type>k__BackingField: 30
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 0b42cad5ab8516649aa7a90164a87b4b,
+      type: 3}
+  - <Type>k__BackingField: 31
+    <Sprite>k__BackingField: {fileID: 21300000, guid: a14018109bd987f4989143b791f74a5e,
+      type: 3}
+  - <Type>k__BackingField: 32
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 510a1e81f699a244daa12dface1a2334,
+      type: 3}
+  - <Type>k__BackingField: 33
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 59d5ce0425880de4cb09465d55761249,
+      type: 3}
+  - <Type>k__BackingField: 34
+    <Sprite>k__BackingField: {fileID: 21300000, guid: acd5dad477232bd4ba7b906214f1e500,
+      type: 3}

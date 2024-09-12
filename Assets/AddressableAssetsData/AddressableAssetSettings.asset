@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: d2a894dc48623664bb3c134dae395b03
   m_currentHash:
     serializedVersion: 2
-    Hash: ba3157a27d964bc4fee2490643aae6f3
+    Hash: 540b26fb69d345a39b0cb3b0d2b2bcf5
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
     - Obstacle/Enemy
     - Windows
     - UI Items
+    - Hats
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 9e8dc3f90cf631d47b23c21e6e7efa46, type: 2}

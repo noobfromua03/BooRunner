@@ -17,5 +17,6 @@ public enum InterfaceItemType
     LevelCell = 0,
     InventoryItem = 1,
     RewardItem = 2,
-    ShopItem = 3
+    ShopItem = 3,
+    CustomItem = 4
 }
