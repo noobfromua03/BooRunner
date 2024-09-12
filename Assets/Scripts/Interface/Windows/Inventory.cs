@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.AddressableAssets.BuildReportVisualizer;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour, IWindowUI

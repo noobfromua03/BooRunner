@@ -1,9 +1,6 @@
 ﻿using RandomGeneratorWithWeight;
 using System.Collections.Generic;
-using System.Xml.Schema;
-using UnityEditor.AddressableAssets.BuildReportVisualizer;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class RewardConfig : AbstractConfig<RewardConfig>
 {

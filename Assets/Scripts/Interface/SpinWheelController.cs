@@ -3,7 +3,6 @@ using RandomGeneratorWithWeight;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 using Random = UnityEngine.Random;
 public class SpinWheelController : MonoBehaviour
 {
