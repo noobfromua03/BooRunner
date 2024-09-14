@@ -6,8 +6,9 @@ public class AmuletOfFearAura : IInventoryItem
     public IconType IconType => IconType.AmuletOfFearAura;
     public string Name => "Amulet of fear aura";
 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.PhantomOfTheOperaON();
+        return true;
     }
 }

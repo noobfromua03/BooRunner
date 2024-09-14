@@ -17,4 +17,5 @@ public class LevelData
     [field: SerializeField] public List<AssetReferenceGameObject> RoadParts { get; private set; }
     [field: SerializeField] public List<AssetReferenceGameObject> DecorationParts { get; private set; }
     [field: SerializeField] public List<GoalsData> Goals { get; private set; }
+    [field: SerializeField] public float LightTemperature { get; private set; }
 }

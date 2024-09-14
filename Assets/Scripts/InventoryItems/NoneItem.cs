@@ -5,7 +5,8 @@ public class NoneItem : IInventoryItem
     public ItemSubType SubType => ItemSubType.passive;
     public IconType IconType => IconType.None;
     public string Name => "None";
-    public void ActionHandler()
+    public bool ActionHandler()
     {
+        return true;
     }
 }

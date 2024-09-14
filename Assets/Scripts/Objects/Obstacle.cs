@@ -51,7 +51,7 @@ public class Obstacle : MonoBehaviour, IPoolObject
         if (!Rotatable)
             return;
         var rotation = transform.rotation;
-        rotation.y = rotateVariants[Random.Range(0, rotateVariants.Count)];
+        rotation.y += rotateVariants[Random.Range(0, rotateVariants.Count)];
         transform.rotation = rotation;
     }
 }

@@ -6,8 +6,9 @@ public class CoffinKey : IInventoryItem
     public IconType IconType => IconType.CoffinKey;
     public string Name => "Coffin Key";
 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.CoffinKeyON();
+        return true;
     }
 }

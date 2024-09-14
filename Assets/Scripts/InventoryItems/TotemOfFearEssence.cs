@@ -5,8 +5,9 @@ public class TotemOfFearEssence : IInventoryItem
     public ItemSubType SubType => ItemSubType.passive;
     public IconType IconType => IconType.TotemOfFearEssence;
     public string Name => "Totem of fear essence";
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.TotemOfFearEssence();
+        return true;
     }
 }

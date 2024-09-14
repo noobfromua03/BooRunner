@@ -4,7 +4,7 @@
     public ItemSubType SubType { get; }
     public IconType IconType { get; }
     public string Name { get; }
-    public void ActionHandler();
+    public bool ActionHandler();
 }
 
 public enum ItemType

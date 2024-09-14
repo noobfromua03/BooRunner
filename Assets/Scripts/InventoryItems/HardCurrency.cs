@@ -6,7 +6,8 @@ public class HardCurrency : IInventoryItem
     public IconType IconType => IconType.HardCurrency; 
     public string Name => "Skulls";
 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
+        return true;
     }
 }

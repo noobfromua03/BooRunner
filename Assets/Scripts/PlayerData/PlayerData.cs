@@ -49,7 +49,7 @@ public class PlayerData : MonoBehaviour
     public Action UpdateLevelComplete;
 
     private const float COLOR_STEP = 7f;
-    private const float BOOSTERS_TIME = 6f;
+    public const float BOOSTERS_TIME = 6f;
 
     private void Awake()
     {
@@ -94,6 +94,9 @@ public class PlayerData : MonoBehaviour
 
     }
 
+    public bool CompareLife()
+        => life == maxLifes;
+
     public void AddFearEssence(int value)
     {
         if (IsDarkCloud.Status)
@@ -137,6 +140,8 @@ public class PlayerData : MonoBehaviour
 
         ChangeGoalValueByType(GoalType.ScarePersons, 1);
         ChangeGoalValueByType(GoalType.ScaredStreak, scaredEnemiesStreak);
+
+        ColorUpdate();
     }
 
     public void AddScore(int value)

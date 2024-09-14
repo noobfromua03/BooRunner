@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
@@ -24,6 +25,7 @@ public class LevelController : MonoBehaviour
     private SwipeController swipeController = new();
     private MovementController movementController = new();
     private ObjectsPool objectsPool = new();
+    private float lightTemperature;
 
     private int levelConfig = 0;
     private const float SPEED_MODIFY_MULTIPLIER = 0.075f;
@@ -49,6 +51,7 @@ public class LevelController : MonoBehaviour
 
         CreatePlayerWithData();
         CreateCamera();
+        lightTemperature = levelData.LightTemperature;
         CreateDisableZone();
         playerData.GetCurrentGoals(levelData);
 
@@ -76,6 +79,8 @@ public class LevelController : MonoBehaviour
         DecorationGenerator.CreateFullRoad(20);
         StartCoroutine(ObjectGenerator.SpawnObjects());
         StartCoroutine(ObjectGenerator.SpawnBoosters());
+
+        playerCamera.GetComponentInChildren<Light>().colorTemperature = lightTemperature;
 
         itemController.ActivatePassiveItems();
     }
@@ -158,7 +163,7 @@ public class LevelController : MonoBehaviour
     private float GetSlowMotionMultiplier(int streak, bool status, float multiplier)
         => status ? streak * multiplier / 2 : streak * multiplier;
 
-    public void UseItemByIndex(int index)
+    public bool UseItemByIndex(int index)
         => itemController.TryUseItem(index);
 
     public void SetLevelConfig(int level)

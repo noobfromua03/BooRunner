@@ -22,9 +22,17 @@ public class Item : MonoBehaviour
 
     public void Initialize(IInventoryItem item)
     {
+        int amount = Progress.Inventory.GetItemAmount(item.Type);
+
+        if (amount <= 0)
+        {
+            item = ItemBuilder.GetInventoryItem(ItemType.None);
+            amount = 0;
+        }
+
         ItemType = item.Type;
         itemImage.sprite = IconsConfig.Instance.GetByType(item.IconType);
-        amountText.text = Progress.Inventory.GetItemAmount(item.Type).ToString();
+        amountText.text = amount.ToString();
         nameText.text = item.Name;
     }
 }

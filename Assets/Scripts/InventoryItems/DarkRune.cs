@@ -6,8 +6,9 @@ public class DarkRune : IInventoryItem
     public IconType IconType => IconType.DarkRune;
     public string Name => "Dark rune";
 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.LightsOFF();
+        return true;
     }
 }

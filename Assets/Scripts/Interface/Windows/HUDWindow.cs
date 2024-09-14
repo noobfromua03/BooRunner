@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class HUDWindow : MonoBehaviour, IWindowUI
@@ -6,13 +7,13 @@ public class HUDWindow : MonoBehaviour, IWindowUI
     [field: SerializeField] public WindowType Type { get; private set; }
     public GameObject Window { get => gameObject; }
 
-    [SerializeField] private List <SlotItem> slots;
+    [SerializeField] private List<SlotItem> slots;
 
-    public Action<int> Click;
+    public Func<int, bool> Click;
 
     public void InitializeButtons(List<ItemType> items)
     {
-        if(items.Count > 0)
+        if (items.Count > 0)
         {
             for (int i = 0; i < slots.Count; i++)
             {
@@ -31,7 +32,12 @@ public class HUDWindow : MonoBehaviour, IWindowUI
 
     private void UseSlot(SlotItem slot)
     {
-        Click?.Invoke(slots.IndexOf(slot));
+        if (slot.Amount == 0)
+            return;
+
+        bool isActionDone = Click?.Invoke(slots.IndexOf(slot)) ?? false;
+        if (isActionDone)
+            StartCoroutine(slot.BlockButton());
     }
 
     public void PauseBtn()

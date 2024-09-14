@@ -26,33 +26,41 @@ public class ItemController
 
             if (Progress.Inventory.ItemExist(type))
             {
-                var item = ItemBuilder.GetInventoryItem(type);
-                if (item.SubType == ItemSubType.passive)
+                IInventoryItem item;
+                if (Progress.Inventory.items.Find(i => i.Type == type).Amount > 0)
+                    item = ItemBuilder.GetInventoryItem(type);
+                else
+                    item = ItemBuilder.GetInventoryItem(ItemType.None);
+
+                if (item.SubType == ItemSubType.passive && item.Type != ItemType.None)
                 {
                     item.ActionHandler();
                     Progress.Inventory.RemoveItem(type);
-                    OnItemUsed?.Invoke();
                 }
             }
+            OnItemUsed?.Invoke();
         }
     }
 
-    public void TryUseItem(int index)
+    public bool TryUseItem(int index)
     {
         var itemType = items[index];
         if (itemType == ItemType.None)
-            return;
+            return false;
 
         if (Progress.Inventory.ItemExist(itemType))
         {
             var item = ItemBuilder.GetInventoryItem(itemType);
             if (item.SubType == ItemSubType.active)
             {
-                item.ActionHandler();
+                if (item.ActionHandler() == false)
+                    return false;
                 Progress.Inventory.RemoveItem(itemType);
                 OnItemUsed?.Invoke();
+                return true;
             }
         }
+        return false;
     }
 
     public List<ItemType> GetSlotTypes() => items;

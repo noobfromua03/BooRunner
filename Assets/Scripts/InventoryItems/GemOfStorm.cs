@@ -6,8 +6,9 @@ public class GemOfStorm : IInventoryItem
     public IconType IconType => IconType.GemOfStorm;
     public string Name => "Gem of Storm";
 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.DarkCloudON();
+        return true;
     }
 }

@@ -19,6 +19,7 @@ public partial class Progress : ProgressBase<Progress>
         {
             public ItemType Type;
             public int Amount;
+
         }
 
         [Serializable]

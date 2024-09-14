@@ -5,8 +5,9 @@ public class BottledEctoplasm : IInventoryItem
     public ItemSubType SubType => ItemSubType.active;
     public IconType IconType => IconType.BottledEctoplasm;
     public string Name => "Bottled Ectoplasm"; 
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.ImmaterialityBooster();
+        return true;
     }
 }

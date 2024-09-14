@@ -7,8 +7,7 @@ public class Inventory : MonoBehaviour, IWindowUI
     public GameObject Window { get => gameObject; }
 
     [SerializeField] private Transform content;
-    [SerializeField] private Item Slot1;
-    [SerializeField] private Item Slot2;
+    [SerializeField] private List<Item> Slots;
 
     private List<Item> inventoryItems = new();
 
@@ -17,7 +16,9 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     private void OnEnable()
     {
+        CreateNone();
         InitializeAllItems();
+        InitializeSlots();
     }
 
     private void InitializeAllItems()
@@ -39,17 +40,26 @@ public class Inventory : MonoBehaviour, IWindowUI
             item.Click += ClickOnItem;
             item.Initialize(bagItem);
         }
-
-        InitializeSlots();
     }
+
+    private void CreateNone()
+    {
+        if (Progress.Inventory.ItemExist(ItemType.None, 0) == false)
+        {
+            var none = ItemBuilder.GetInventoryItem(ItemType.None);
+            Progress.Inventory.AddItem(none.Type, 1);
+        }
+    }
+
+
 
     public void InitializeSlots()
     {
         var currentSlot1 = ItemBuilder.GetInventoryItem(Progress.Inventory.currentItem_0);
-        Slot1.Initialize(currentSlot1);
+        Slots[0].Initialize(currentSlot1);
 
         var currentSlot2 = ItemBuilder.GetInventoryItem(Progress.Inventory.currentItem_1);
-        Slot2.Initialize(currentSlot2);
+        Slots[1].Initialize(currentSlot2);
     }
 
     public void ChooseSlot(Item item)
@@ -63,6 +73,13 @@ public class Inventory : MonoBehaviour, IWindowUI
         if (IsActiveSlot)
         {
             var inventoryItem = ItemBuilder.GetInventoryItem(type);
+
+            if (type == Slots.Find(s => s != activeSlot).ItemType)
+            {
+                var inventoryItemNone = ItemBuilder.GetInventoryItem(ItemType.None);
+                Slots.Find(s => s != activeSlot).Initialize(inventoryItemNone);
+            }
+
             activeSlot.Initialize(inventoryItem);
             IsActiveSlot = false;
             Save();
@@ -71,8 +88,8 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     public void ClearBtn()
     {
-        Slot1.Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
-        Slot2.Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
+        Slots[0].Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
+        Slots[1].Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
         Save();
     }
 
@@ -81,8 +98,10 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     private void Save()
     {
-        Progress.Inventory.currentItem_0 = Slot1.ItemType;
-        Progress.Inventory.currentItem_1 = Slot2.ItemType;
+        Progress.Inventory.currentItem_0 = Slots[0].ItemType;
+        Progress.Inventory.currentItem_1 = Slots[1].ItemType;
+
+        InitializeSlots();
     }
 
     public void DestroySelf()

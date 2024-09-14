@@ -5,8 +5,9 @@ public class ScrollOfCurse : IInventoryItem
     public ItemSubType SubType => ItemSubType.active; 
     public IconType IconType => IconType.ScrollOfCurse;
     public string Name => "Scroll of curse";
-    public void ActionHandler()
+    public bool ActionHandler()
     {
         PlayerData.Instance.ScrollOfCurse();
+        return true;
     }
 }

@@ -5,7 +5,8 @@ public class SoftCurrency : IInventoryItem
     public ItemSubType SubType => ItemSubType.active;
     public IconType IconType => IconType.SoftCurrency;
     public string Name => "Cursed gold";
-    public void ActionHandler()
+    public bool ActionHandler()
     {
+        return true;
     }
 }
