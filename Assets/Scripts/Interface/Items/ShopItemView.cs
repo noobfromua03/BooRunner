@@ -14,7 +14,6 @@ public class ShopItemView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Image itemImage;
     [SerializeField] private Image currencyIcon;
-
     public void OnClick()
     {
         BuyButtonHandler();

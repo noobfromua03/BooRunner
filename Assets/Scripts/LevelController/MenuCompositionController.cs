@@ -59,6 +59,10 @@ public class MenuCompositionController : MonoBehaviour
 
     }
 
+    public PlayerCustomization GetCustomizator()
+        => ghost.GetComponent<PlayerCustomization>();
+
+
     private bool EnemiesCheckRaycastUpdate(out RaycastHit hit)
      => Physics.Raycast(ghost.transform.position, Vector3.left, out hit, 10, layerMask);
 
@@ -74,5 +78,6 @@ public class MenuCompositionController : MonoBehaviour
             }
         }
     }
+
 }
 

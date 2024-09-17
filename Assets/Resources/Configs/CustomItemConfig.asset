@@ -21,63 +21,85 @@ MonoBehaviour:
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 23
+      <Price>k__BackingField: 0
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 1506666b0e44f644b9240dc0b3017ac8
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 25
+      <Price>k__BackingField: 4000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 8c3aa78aad4ca684c992258d0ab7648c
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 26
+      <Price>k__BackingField: 5000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: cfcc29224658e1b469d44035f62e026a
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 27
+      <Price>k__BackingField: 8000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: b7bc3bfd8fc48714cb76cfef07afca1f
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 28
+      <Price>k__BackingField: 3000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 6f68d75afa9b05243b66397ac923a73a
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 29
+      <Price>k__BackingField: 1000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: a794a55bb53fb46498e7d55aca8e040d
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 30
+      <Price>k__BackingField: 1500
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 072f618e5e9567942a4faabe69d17fc3
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 31
+      <Price>k__BackingField: 5000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 7bf4a419e23f9d344a61ce9b360e27f2
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 32
+      <Price>k__BackingField: 2000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 2faf7ada648384a4f997c9a9d10f3175
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 33
+      <Price>k__BackingField: 4000
+      <CurrencyType>k__BackingField: 0
     - <Prefab>k__BackingField:
         m_AssetGUID: 804aa326522a8e349b79afdcaa732496
         m_SubObjectName: 
         m_SubObjectType: 
         m_EditorAssetChanged: 0
       <IconType>k__BackingField: 34
+      <Price>k__BackingField: 8000
+      <CurrencyType>k__BackingField: 0

@@ -126,13 +126,13 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     <Goals>k__BackingField:
-    - <Complete>k__BackingField: 1
+    - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 2000
+      <GoalValue>k__BackingField: 300
       <Text>k__BackingField: 'Collect fear essence:'
-    - <Complete>k__BackingField: 1
+    - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 40
+      <GoalValue>k__BackingField: 10
       <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 6500
   - <Obstacles>k__BackingField:
@@ -230,6 +230,10 @@ MonoBehaviour:
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    - m_AssetGUID: 8c6c310498b2316448ba42e42663fbd3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     <DecorationParts>k__BackingField:
     - m_AssetGUID: 2045c5989fa578244b34a1ab2818f3d3
       m_SubObjectName: 
@@ -268,14 +272,14 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <Goals>k__BackingField:
-    - <Complete>k__BackingField: 1
+    - <Complete>k__BackingField: 0
       <Type>k__BackingField: 3
       <GoalValue>k__BackingField: 40
       <Text>k__BackingField: 'Keep scare streak: '
-    - <Complete>k__BackingField: 1
+    - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
       <GoalValue>k__BackingField: 60
-      <Text>k__BackingField: 'Keep scare streak: '
+      <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 6000
   - <Obstacles>k__BackingField:
     - m_AssetGUID: cf758f74ba6e34347aa9a337bde5cef0
@@ -364,10 +368,14 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 1
     <RoadParts>k__BackingField:
-    - m_AssetGUID: ab4ff752f24038c4c8796d511fc1dfb4
+    - m_AssetGUID: 0c349e8f09f56d045957ad50be4312bd
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0
+    - m_AssetGUID: a74219d448ae92e40b98c93c94c41cfa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
     <DecorationParts>k__BackingField:
     - m_AssetGUID: 1753cb0cd37655f4a92d65898018cabf
       m_SubObjectName: 
@@ -403,7 +411,307 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
-      <Type>k__BackingField: 2
-      <GoalValue>k__BackingField: 20000
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 4000
+      <Text>k__BackingField: 'Collect fear essence:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 80
       <Text>k__BackingField: 'Earn total score:'
     <LightTemperature>k__BackingField: 8000
+  - <Obstacles>k__BackingField:
+    - m_AssetGUID: 02b82e7b707ea7a448633002a8b808d9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f60b954dcf964cd4ab813f5add1af958
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: bb20b0d21e793044e9713b98af05fcd1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 8122cd987eef388418f206f78c8ed7af
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 8ffa145d3292cc84398d79a3e5bfc032
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 0c81d3d815789ea4a88b0d7717a6ed62
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7b39b5a24b86eb0468dd1e47a0258aa2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d0fc3ca416ae6224d87376095987eeb7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f2285a0211710e14288ad13de18e0a9f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 49bf4b3106c9f224fb153c5572c366ae
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: cb388d547fee4d540bbd3de4f1c3cb5a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 01354213a5e9dd2499e9f7059cda4342
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 0fae8f859adbc2546afda390d55887da
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f4c0a0d96d1b29545bcfeeffdb288970
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 5370b37b01ff20d44945558778d2665c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 02b82e7b707ea7a448633002a8b808d9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    - m_AssetGUID: ce7d68713e576074f84509471e2a1444
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: c5bf000e3b40de64a846f42b1dc02e09
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 49bf4b3106c9f224fb153c5572c366ae
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 6b9de1f705f95a644b80013a713b413a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 8336973af35e8dc42aece44d0704a8e9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: a4be96db1534d6744bd5542d040a7f32
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <Collectables>k__BackingField:
+    - m_AssetGUID: d66e47b58e46cb54993a9b665191179d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f99d6be6d941f7c4399d95805cc25986
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 0d71b40da1fd04942922034371634693
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 6123520bdcf0ce447b3ee95f518a693b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    <RoadParts>k__BackingField:
+    - m_AssetGUID: f41a677d567f07e4eac03832f4ff6588
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <DecorationParts>k__BackingField:
+    - m_AssetGUID: 3d00db37d4dbdbf4a9d494674daf4c78
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: b8d046d26fab2ac4a81e7c7cbf054d72
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d83aef879ab213d46a68ddfe1e382ff0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: c8ee349b1e1464e439b267b0cc141aa1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    - m_AssetGUID: a1d5eaca2de3de6489e0aa685247a373
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 93b720012fe5f4047bddc43baad173d8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 4dda0238553664f44ad470a7b547b89c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7aeb730e76c9cb04fa4ec69c904abe38
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 50000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 70
+      <Text>k__BackingField: 'Scare some persons:'
+    <LightTemperature>k__BackingField: 14000
+  - <Obstacles>k__BackingField:
+    - m_AssetGUID: 304f63165b31c9b47993c4ebdec872e0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7db7ff46d19bccc44abace3c97c24454
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: b3256400bc855fd448950bfac3681ed9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d0fc3ca416ae6224d87376095987eeb7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: e47bd05f24dd24343a1034f4d8d80f70
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 4fdb556518f72cb44b92cb06b0bff7d4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 4551d39802f3e9d4e8ec948b261c8423
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 02b82e7b707ea7a448633002a8b808d9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 6c1fa027a6451dc4a84bd64bd21cd2ca
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 7b39b5a24b86eb0468dd1e47a0258aa2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: e33006e0ff39fea429e4afa0db43dc10
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: d1a607928966ef4488cb7cf30b5929e0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: e63389961a7f0334ea69c3b40cf3f174
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 25df90e90026b504f88cd735acb439a4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 74ec001cf40b9334e8b56c7b8aa47c84
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: a3f80d925d74d904d895ed9c255e778d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 0d18a68cc0f00a942958c9b6d6555543
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 8122cd987eef388418f206f78c8ed7af
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <Collectables>k__BackingField:
+    - m_AssetGUID: d66e47b58e46cb54993a9b665191179d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: f99d6be6d941f7c4399d95805cc25986
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 0a79c6b8d448e5f408323e15f5d88567
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 6123520bdcf0ce447b3ee95f518a693b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: af4711057ad98a2419f2c30037f24ca7
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <RoadParts>k__BackingField:
+    - m_AssetGUID: 9cdb1ee33bdf6ae4a82cc97e47ea0319
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <DecorationParts>k__BackingField:
+    - m_AssetGUID: de6bd75efb32dd7438d6582d82ca06cd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 6144c5c16cd3cd54abe26d3368de8a22
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 8337b134a6e00cb4ead1b57d7897006f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: b7dc000f8c58ae246a0efa6f1e1869b9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 60793172572204a429b28d19c41d883f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 34205b28d6eb7d0469ce1e8fa5edede1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 3e6aafb65ad82a542bce51ed996a6015
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    - m_AssetGUID: 3fa92274fef80ee4fbed04522b146dcd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 3000
+      <Text>k__BackingField: 'Collect fear essence: '
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 100
+      <Text>k__BackingField: 'Scare some persons:'
+    <LightTemperature>k__BackingField: 20000

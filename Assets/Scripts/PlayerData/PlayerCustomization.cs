@@ -3,19 +3,18 @@
 public class PlayerCustomization : MonoBehaviour
 {
     [SerializeField] private GameObject hat;
-    private int currentHutIndex;
+    private int currentHutIndex = 0;
 
-    private void Update()
+    private void Start()
     {
-        if (currentHutIndex != Progress.Inventory.customItems.HatIndex)
-        {
-            InitializeCustomItems();
-            currentHutIndex = Progress.Inventory.customItems.HatIndex;
-        }
+        InitializeCustomItems();
     }
 
-    private void InitializeCustomItems()
+    public void InitializeCustomItems()
     {
+        if (currentHutIndex == Progress.Inventory.customItems.HatIndex)
+            return;
+
         var hatPrefab = CustomItemConfig.Instance.GetCustomItemByIndex(CustomItemType.Hat,
             Progress.Inventory.customItems.HatIndex);
         if (hatPrefab.IconType != IconType.None)
@@ -26,6 +25,7 @@ public class PlayerCustomization : MonoBehaviour
         else
             DestroyHat(hat.transform);
 
+        currentHutIndex = Progress.Inventory.customItems.HatIndex;
     }
 
     private void DestroyHat(Transform parent)

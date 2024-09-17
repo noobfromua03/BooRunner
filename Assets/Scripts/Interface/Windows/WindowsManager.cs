@@ -15,6 +15,7 @@ public class WindowsManager : MonoBehaviour
 
     private Transform container;
     private GameObject menuComposition;
+    private PlayerCustomization playerCustomization;
 
     public List<IWindowUI> windows = new();
 
@@ -34,6 +35,7 @@ public class WindowsManager : MonoBehaviour
             InitializeAllWindows();
 
         menuComposition = Instantiate(menuPrefab);
+        playerCustomization = menuComposition.GetComponent<MenuCompositionController>().GetCustomizator();
     }
 
     private void Start()
@@ -116,7 +118,8 @@ public class WindowsManager : MonoBehaviour
     public void PreloadLevel(int level)
     {
         levelController.SetLevelConfig(level);
-        ActivePopups.Last().Window.GetComponent<LevelGoals>().SetText(level);
+        var levelGoals = OpenPopup(WindowType.LevelGoalsPopup) as LevelGoalsPopup;
+        levelGoals.SetText(level);
     }
 
     public void StartLevel()
@@ -218,5 +221,7 @@ public class WindowsManager : MonoBehaviour
         }
     }
 
+    public void UpdateCustomization()
+        => playerCustomization.InitializeCustomItems();
 }
 

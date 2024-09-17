@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-public class LevelGoals : MonoBehaviour, IWindowUI
+public class LevelGoalsPopup : MonoBehaviour, IWindowUI
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private WindowType type;

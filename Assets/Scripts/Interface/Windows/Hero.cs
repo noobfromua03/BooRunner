@@ -1,34 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour, IWindowUI
 {
     [SerializeField] private WindowType type;
     [SerializeField] private Transform content;
+    [SerializeField] private List<CustomItemSlotView> customItemSlots;
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
 
     private List<CustomItemView> customItems = new();
+    private CustomItemSlotView activeSlot;
+
+    public Action UpdateCustomItems;
 
     private void OnEnable()
     {
-        InitializeItemsByType(CustomItemType.Hat);
+        UpdateCustomItems += WindowsManager.Instance.UpdateCustomization;
+        InitializeItemsByType(customItemSlots[0].Type);
     }
 
     private void InitializeItemsByType(CustomItemType type)
     {
         DestroyContentViews();
 
+        activeSlot = customItemSlots.Find(s => s.Type == type);
+
         var collection = CustomItemConfig.Instance.CustomItems.Find(c => c.Type == type).Collection;
         var viewPrefab = WindowsConfig.Instance.Windows[0].GetItemByType(InterfaceItemType.CustomItem);
 
-        for(int i = 0; i < collection.Count; i++)
+        for (int i = 0; i < collection.Count; i++)
         {
             var customItem = Instantiate(viewPrefab, content);
             var customItemView = customItem.GetComponent<CustomItemView>();
-            customItemView.Index = i;
+            customItemView.Click += UpdateActiveSlotAndHero;
+            customItemView.Initialize(type, i);
 
             customItems.Add(customItemView);
+
+            if (Progress.Inventory.IsCustomItemUnlocked(type, i))
+                customItems[i].InitializeLocked();
+
         }
     }
 
@@ -41,8 +54,14 @@ public class Hero : MonoBehaviour, IWindowUI
             customItems[i].Destroy();
         customItems.Clear();
     }
-    public void HatsBtn()
-        => InitializeItemsByType(CustomItemType.Hat);
+    public void ClickOnSlot(CustomItemSlotView slot)
+        => InitializeItemsByType(slot.Type);
+
+    public void UpdateActiveSlotAndHero()
+    {
+        UpdateCustomItems?.Invoke();
+        activeSlot.InitializeIcon();
+    }    
 
     public void ExitBtn()
     {

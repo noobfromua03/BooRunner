@@ -28,6 +28,9 @@ public class CustomItemData
 {
     [field: SerializeField] public AssetReferenceGameObject Prefab { get; private set; }
     [field: SerializeField] public IconType IconType { get; private set; }
+    [field: SerializeField] public int Price { get; private set; }
+    [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
+
 
     public GameObject RealizeItem()
         => AddressableExtensions.GetAsset(Prefab);

@@ -282,7 +282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 11
   content: {fileID: 8279514678610520637}
-  slotContainer: {fileID: 0}
+  customItemSlots:
+  - {fileID: 4514684079935090015}
 --- !u!1 &3503109771755064125
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,18 +1096,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8318729742431510857}
     - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HatsBtn
+      value: ClickOnSlot
       objectReference: {fileID: 0}
     - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Hero, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4514684079935090015}
+    - target: {fileID: 1794562404194362041, guid: 13e57794e0bdaee45b4b9f8722a81529,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: CustomItemSlotView, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6866803692506564618, guid: 13e57794e0bdaee45b4b9f8722a81529,
         type: 3}
@@ -1115,7 +1131,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4929289783121350507, guid: 13e57794e0bdaee45b4b9f8722a81529, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1022012689649007751, guid: 13e57794e0bdaee45b4b9f8722a81529, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6866803692506564618, guid: 13e57794e0bdaee45b4b9f8722a81529,
@@ -1159,6 +1176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bf1534f2a23295498104033f9befe0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 0
   icon: {fileID: 1735886116798403113}
-  Type: 0
   Index: 0

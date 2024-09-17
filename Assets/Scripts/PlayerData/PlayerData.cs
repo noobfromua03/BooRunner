@@ -31,6 +31,7 @@ public class PlayerData : MonoBehaviour
     public bool IsDissolve { get; private set; } = false;
 
     public Dictionary<GoalsData, int> currentGoals = new();
+    private int currentLevelIndex;
 
     public BoosterStatus IsImmateriality = new();
     public BoosterStatus IsSlowMotion = new();
@@ -48,7 +49,7 @@ public class PlayerData : MonoBehaviour
     public Action GameOver;
     public Action UpdateLevelComplete;
 
-    private const float COLOR_STEP = 7f;
+    private const float COLOR_STEP = 15f;
     public const float BOOSTERS_TIME = 6f;
 
     private void Awake()
@@ -273,10 +274,15 @@ public class PlayerData : MonoBehaviour
         }
     }
 
-    public void GetCurrentGoals(LevelData levelData)
+    public void GetCurrentGoals(LevelData levelData, int index)
     {
+        currentLevelIndex = index;
         foreach (var item in levelData.Goals)
-            currentGoals.Add(item, 0);
+        {
+            var goalData = new GoalsData();
+            goalData.CopyData(item, index);
+            currentGoals.Add(goalData, 0);
+        }    
     }
 
     public string SetGoals()
@@ -308,6 +314,7 @@ public class PlayerData : MonoBehaviour
                 currentGoals[goal] += value;
 
             goal.CompleteLevel(goal.GoalValue <= currentGoals[goal]);
+            IsLevelComplete();
         }
 
 
@@ -316,7 +323,9 @@ public class PlayerData : MonoBehaviour
     {
         if (currentGoals.Keys.All(g => g.Complete))
         {
+            Progress.Inventory.SetLastCompleteLevel(currentLevelIndex);
             UpdateLevelComplete?.Invoke();
+            currentGoals.Clear();
             return true;
         }
         return false;

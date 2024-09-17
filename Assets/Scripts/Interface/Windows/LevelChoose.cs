@@ -28,8 +28,8 @@ public class LevelChoose : MonoBehaviour, IWindowUI
 
             levelCells.Add(interfaceItem.GetComponent<LevelCell>()
                 .SetLevelNumber(i)
-                .With(l => l.Passed(), isLevelComplete)
-                .With(l => l.Unlock(), i == 0 || levelCells[i - 1].Completed));
+                .With(l => l.Passed(), i < Progress.Inventory.lastCompleteLevel)
+                .With(l => l.Unlock(), i <= Progress.Inventory.lastCompleteLevel));
         }
     }
 

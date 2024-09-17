@@ -11,6 +11,14 @@ public class GoalsData
 
     public void CompleteLevel(bool isTrue)
         => Complete = isTrue;
+
+    public void CopyData(GoalsData goals, int index)
+    {
+        Type = goals.Type;
+        GoalValue = goals.GoalValue;
+        Text = goals.Text;
+        Complete = Progress.Inventory.lastCompleteLevel > index;
+    }
 }
 
 public enum GoalType

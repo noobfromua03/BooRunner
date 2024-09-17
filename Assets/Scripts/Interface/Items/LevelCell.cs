@@ -22,7 +22,6 @@ public class LevelCell : MonoBehaviour
         if (!isOpened && levelNumber != 0)
             return;
 
-        WindowsManager.Instance.OpenPopup(WindowType.LevelGoalsPopup);
         WindowsManager.Instance.PreloadLevel(levelNumber);
     }
 

@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Cinemachine;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
@@ -53,7 +52,7 @@ public class LevelController : MonoBehaviour
         CreateCamera();
         lightTemperature = levelData.LightTemperature;
         CreateDisableZone();
-        playerData.GetCurrentGoals(levelData);
+        playerData.GetCurrentGoals(levelData, levelConfig);
 
         swipeController.SetPlayerController(player.GetComponent<PlayerController>());
         movementController.SetInstance();

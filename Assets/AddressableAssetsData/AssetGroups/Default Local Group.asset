@@ -32,12 +32,14 @@ MonoBehaviour:
   - m_GUID: 02b82e7b707ea7a448633002a8b808d9
     m_Address: Assets/Prefabs/Enemies/Patient1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b39b5a24b86eb0468dd1e47a0258aa2
     m_Address: Assets/Prefabs/Enemies/Police1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab4ff752f24038c4c8796d511fc1dfb4
     m_Address: Assets/Prefabs/RoadParts/ParkRoad.prefab
@@ -494,10 +496,9 @@ MonoBehaviour:
     - Obstacle/Enemy
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc2955640ffd033428c1f0f4eaf50e54
-    m_Address: Assets/Prefabs/RoadParts/FarmRoad.prefab
+    m_Address: Assets/Prefabs/RoadParts/FarmRoad 1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoadParts
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2045c5989fa578244b34a1ab2818f3d3
     m_Address: Assets/Prefabs/DecorationParts/DPFarm 1.prefab
@@ -705,6 +706,231 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f41a677d567f07e4eac03832f4ff6588
+    m_Address: Assets/Prefabs/RoadParts/CityRoad.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoadParts
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d00db37d4dbdbf4a9d494674daf4c78
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8d046d26fab2ac4a81e7c7cbf054d72
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d83aef879ab213d46a68ddfe1e382ff0
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8ee349b1e1464e439b267b0cc141aa1
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1d5eaca2de3de6489e0aa685247a373
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93b720012fe5f4047bddc43baad173d8
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dda0238553664f44ad470a7b547b89c
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aeb730e76c9cb04fa4ec69c904abe38
+    m_Address: Assets/Prefabs/DecorationParts/DPCity 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f60b954dcf964cd4ab813f5add1af958
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8122cd987eef388418f206f78c8ed7af
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c81d3d815789ea4a88b0d7717a6ed62
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2285a0211710e14288ad13de18e0a9f
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb388d547fee4d540bbd3de4f1c3cb5a
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fae8f859adbc2546afda390d55887da
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5370b37b01ff20d44945558778d2665c
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce7d68713e576074f84509471e2a1444
+    m_Address: Assets/Prefabs/Obstacles/CityObstacle 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c349e8f09f56d045957ad50be4312bd
+    m_Address: Assets/Prefabs/RoadParts/CastleRoad 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a74219d448ae92e40b98c93c94c41cfa
+    m_Address: Assets/Prefabs/RoadParts/CastleRoad 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c6c310498b2316448ba42e42663fbd3
+    m_Address: Assets/Prefabs/RoadParts/FarmRoad 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cdb1ee33bdf6ae4a82cc97e47ea0319
+    m_Address: Assets/Prefabs/RoadParts/CemetryRoad.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RoadParts
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de6bd75efb32dd7438d6582d82ca06cd
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6144c5c16cd3cd54abe26d3368de8a22
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8337b134a6e00cb4ead1b57d7897006f
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7dc000f8c58ae246a0efa6f1e1869b9
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60793172572204a429b28d19c41d883f
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34205b28d6eb7d0469ce1e8fa5edede1
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e6aafb65ad82a542bce51ed996a6015
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fa92274fef80ee4fbed04522b146dcd
+    m_Address: Assets/Prefabs/DecorationParts/DPCemetry 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 304f63165b31c9b47993c4ebdec872e0
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b3256400bc855fd448950bfac3681ed9
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e47bd05f24dd24343a1034f4d8d80f70
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4551d39802f3e9d4e8ec948b261c8423
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c1fa027a6451dc4a84bd64bd21cd2ca
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e33006e0ff39fea429e4afa0db43dc10
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e63389961a7f0334ea69c3b40cf3f174
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74ec001cf40b9334e8b56c7b8aa47c84
+    m_Address: Assets/Prefabs/Obstacles/CemetryObstacle 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Obstacle/Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61f43a78158e21d4cbcf6dae1f2ca427
+    m_Address: Assets/Prefabs/Interface/Hero/Canvas - ConfirmBuying.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Windows
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 66c443d027bc56847abf708ea319de25, type: 2}

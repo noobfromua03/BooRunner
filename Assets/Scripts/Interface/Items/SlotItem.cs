@@ -41,8 +41,6 @@ public class SlotItem : MonoBehaviour
             amountText.text = string.Empty;
         else
             amountText.text = Amount.ToString();
-
-        Debug.Log(itemType.ToString() + ": " + Amount);
     }
 
     private void GetAmount()

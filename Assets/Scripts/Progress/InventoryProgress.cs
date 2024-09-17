@@ -1,18 +1,20 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 
 public partial class Progress : ProgressBase<Progress>
 {
     [System.Serializable]
     public class InventoryProgress
     {
-        public CustomItems customItems;
+        public CustomItems customItems = new();
         public Spins spins;
         public int soft;
         public int hard;
         public ItemType currentItem_0 = ItemType.None;
         public ItemType currentItem_1 = ItemType.None;
         public List<InventoryItem> items = new();
+        public int lastCompleteLevel;
 
         [Serializable]
         public class InventoryItem
@@ -47,6 +49,7 @@ public partial class Progress : ProgressBase<Progress>
         public class CustomItems
         {
             public int HatIndex = 0;
+            public List<int> indexesOfUnlockedHats = new();
         }
 
         public bool ItemExist(ItemType type, int amount = 1)
@@ -90,8 +93,42 @@ public partial class Progress : ProgressBase<Progress>
             }
             UnityEngine.Debug.LogError($"Trying to remove item {type} that is not in inventory");
         }
+        public void SetLastCompleteLevel(int value)
+            => lastCompleteLevel = lastCompleteLevel < value + 1 ? value + 1 : lastCompleteLevel;
 
+        public void AddUnlockedCustomItem(CustomItemType type, int index)
+        {
+            switch (type)
+            {
+                case CustomItemType.Hat:
+                    customItems.indexesOfUnlockedHats.Add(index);
+                    break;
+            }
+        }
 
-        
+        public List<int> GetListOfUnlockedItemsByType(CustomItemType type)
+        {
+            if (customItems.indexesOfUnlockedHats.Count == 0)
+                customItems.indexesOfUnlockedHats.Add(0);
+
+            switch(type)
+            {
+                case CustomItemType.Hat:
+                    return customItems.indexesOfUnlockedHats;
+            }
+
+            return null;
+        }
+
+        public bool IsCustomItemUnlocked(CustomItemType type, int index)
+        {
+            switch(type)
+            {
+                case CustomItemType.Hat:
+                    return customItems.indexesOfUnlockedHats.Exists(i => i == index) == false;
+            }
+
+            return false;
+        }
     }
 }
