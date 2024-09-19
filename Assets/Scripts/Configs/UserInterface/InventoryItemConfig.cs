@@ -24,7 +24,7 @@ public class ItemData
     public void OnValidate()
     {
         if (Item == null || Item.Type != Type)
-            Item = ItemTypes.GetInventoryItem(Type);
+            Item = ItemBuilder.GetInventoryItem(Type);
     }
 }*/
 public static class ItemBuilder

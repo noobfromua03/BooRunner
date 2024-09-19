@@ -7,6 +7,18 @@ public class LevelsConfig : AbstractConfig<LevelsConfig>
 {
     [field: SerializeField] public List<LevelData> Levels { get; private set; }
 
+
+
+    public void OnValidate()
+    {
+        for(int i = 0; i <  Levels.Count; i++)
+        {
+            foreach (var item in Levels[i].Goals)
+                item.GoalTextBuilder(item.Type);
+        }
+        
+    }
+
 }
 
 [System.Serializable]

@@ -78,7 +78,7 @@ MonoBehaviour:
     - Collectable
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d71b40da1fd04942922034371634693
-    m_Address: Assets/Prefabs/Collectable/LightsOff.prefab
+    m_Address: Assets/Prefabs/Collectable/ChillingTouch.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Collectable
@@ -498,7 +498,8 @@ MonoBehaviour:
   - m_GUID: cc2955640ffd033428c1f0f4eaf50e54
     m_Address: Assets/Prefabs/RoadParts/FarmRoad 1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoadParts
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2045c5989fa578244b34a1ab2818f3d3
     m_Address: Assets/Prefabs/DecorationParts/DPFarm 1.prefab
@@ -812,17 +813,20 @@ MonoBehaviour:
   - m_GUID: 0c349e8f09f56d045957ad50be4312bd
     m_Address: Assets/Prefabs/RoadParts/CastleRoad 1.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoadParts
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a74219d448ae92e40b98c93c94c41cfa
     m_Address: Assets/Prefabs/RoadParts/CastleRoad 2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoadParts
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c6c310498b2316448ba42e42663fbd3
     m_Address: Assets/Prefabs/RoadParts/FarmRoad 2.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoadParts
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cdb1ee33bdf6ae4a82cc97e47ea0319
     m_Address: Assets/Prefabs/RoadParts/CemetryRoad.prefab
@@ -931,6 +935,60 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Windows
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e72da6a5ec277c43a851f9f968d5d84
+    m_Address: Assets/Prefabs/Effects/Damaged.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 865e7d3e515f7f741ad627b5e401fede
+    m_Address: Assets/Prefabs/Effects/Scared.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1e092baff0baf94392fbaa37b69bcaf
+    m_Address: Assets/Prefabs/Effects/Congratulate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38af928cc578ef747aa1491edb0a3981
+    m_Address: Assets/Prefabs/Effects/ImmaterialityEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b863b41534c18e45b9fe36a959221a6
+    m_Address: Assets/Prefabs/Effects/DarkCloudEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ceefa393fe631a44868757e2dc491b6
+    m_Address: Assets/Prefabs/Effects/ChillingTouchEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e108ee8266a65e74ea0834063430265c
+    m_Address: Assets/Prefabs/Effects/SlowMotionEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d2c0b680bb80624fa002422d0211696
+    m_Address: Assets/Prefabs/Effects/PhantomOfTheOperaEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d638ae795568bd4bbdd621712a020dc
+    m_Address: Assets/Prefabs/Effects/TownLegendEffect.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effects
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 66c443d027bc56847abf708ea319de25, type: 2}

@@ -128,11 +128,11 @@ MonoBehaviour:
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 300
-      <Text>k__BackingField: 'Collect fear essence:'
+      <GoalValue>k__BackingField: 30
+      <Text>k__BackingField: 'Collect some fear essence:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 10
+      <GoalValue>k__BackingField: 3
       <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 6500
   - <Obstacles>k__BackingField:
@@ -274,11 +274,11 @@ MonoBehaviour:
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 3
-      <GoalValue>k__BackingField: 40
-      <Text>k__BackingField: 'Keep scare streak: '
+      <GoalValue>k__BackingField: 15
+      <Text>k__BackingField: 'Keep scare streak:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 60
+      <GoalValue>k__BackingField: 30
       <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 6000
   - <Obstacles>k__BackingField:
@@ -412,12 +412,12 @@ MonoBehaviour:
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 4000
-      <Text>k__BackingField: 'Collect fear essence:'
+      <GoalValue>k__BackingField: 700
+      <Text>k__BackingField: 'Collect some fear essence:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 80
-      <Text>k__BackingField: 'Earn total score:'
+      <GoalValue>k__BackingField: 40
+      <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 8000
   - <Obstacles>k__BackingField:
     - m_AssetGUID: 02b82e7b707ea7a448633002a8b808d9
@@ -566,11 +566,11 @@ MonoBehaviour:
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 2
-      <GoalValue>k__BackingField: 50000
+      <GoalValue>k__BackingField: 10000
       <Text>k__BackingField: 'Earn total score:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 70
+      <GoalValue>k__BackingField: 40
       <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 14000
   - <Obstacles>k__BackingField:
@@ -708,10 +708,10 @@ MonoBehaviour:
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 3000
-      <Text>k__BackingField: 'Collect fear essence: '
+      <GoalValue>k__BackingField: 1500
+      <Text>k__BackingField: 'Collect some fear essence:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 100
+      <GoalValue>k__BackingField: 60
       <Text>k__BackingField: 'Scare some persons:'
     <LightTemperature>k__BackingField: 20000

@@ -13,15 +13,24 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   <Slides>k__BackingField:
-  - <Sprite>k__BackingField: {fileID: 374495580, guid: 68f9b16138fce1e45b89fc9e2385c884,
-      type: 3}
-    <Text>k__BackingField: Collect fear essence
-  - <Sprite>k__BackingField: {fileID: -606357570, guid: 080cb6d98b00c2645b2c41df5f69bc78,
-      type: 3}
-    <Text>k__BackingField: Scare peoples
-  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
-      type: 3}
-    <Text>k__BackingField: Collect boosters for overpower by some time
   - <Sprite>k__BackingField: {fileID: 259136664, guid: 156ec492e516ccb4099add479601d65e,
       type: 3}
     <Text>k__BackingField: Use swipes for evading obstacles
+  - <Sprite>k__BackingField: {fileID: 374495580, guid: 68f9b16138fce1e45b89fc9e2385c884,
+      type: 3}
+    <Text>k__BackingField: Collect fear essence that give you scare power, that displayed
+      on ghost color
+  - <Sprite>k__BackingField: {fileID: -606357570, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+      type: 3}
+    <Text>k__BackingField: Scare peoples
+  - <Sprite>k__BackingField: {fileID: 2047992146, guid: 68f9b16138fce1e45b89fc9e2385c884,
+      type: 3}
+    <Text>k__BackingField: 'Deegrees of power like colors is next: purple -  blue
+      - green - yellow - red'
+  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+      type: 3}
+    <Text>k__BackingField: All peoples have bold level. Simple persons like villagers
+      or patiens so easy to scare,  but police is too hard for scare
+  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+      type: 3}
+    <Text>k__BackingField: Collect boosters for overpower by some time

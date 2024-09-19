@@ -11,6 +11,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SkinnedMeshRenderer[] MeshRenderer;
     [SerializeField] private List<Color32> colors;
+    [SerializeField] private PlayerEffectController effectController; 
 
     private int life;
     private int scaredEnemiesStreak;
@@ -36,7 +37,7 @@ public class PlayerData : MonoBehaviour
     public BoosterStatus IsImmateriality = new();
     public BoosterStatus IsSlowMotion = new();
     public BoosterStatus IsDarkCloud = new();
-    public BoosterStatus IsLightsOFF = new();
+    public BoosterStatus IsChillingTouch = new();
     public BoosterStatus IsPhantomOfTheOpera = new();
     public BoosterStatus IsTownLegend = new();
     public BoosterStatus IsTotemOfFear = new();
@@ -49,7 +50,7 @@ public class PlayerData : MonoBehaviour
     public Action GameOver;
     public Action UpdateLevelComplete;
 
-    private const float COLOR_STEP = 15f;
+    private const float COLOR_STEP = 30f;
     public const float BOOSTERS_TIME = 6f;
 
     private void Awake()
@@ -92,7 +93,7 @@ public class PlayerData : MonoBehaviour
 
         UpdatePlayerLifes?.Invoke(life);
         UpdateStreak?.Invoke(scaredEnemiesStreak);
-
+        effectController.Damaged();
     }
 
     public bool CompareLife()
@@ -112,7 +113,7 @@ public class PlayerData : MonoBehaviour
 
     public void RemoveEssence(int value)
     {
-        if (IsLightsOFF.Status)
+        if (IsChillingTouch.Status)
             value /= 2;
 
         if (IsPhantomOfTheOpera.Status)
@@ -166,7 +167,8 @@ public class PlayerData : MonoBehaviour
 
         IsImmateriality.Status = true;
 
-        UpdateBoosterIcon(IconType.Immateriality, BOOSTERS_TIME);
+        //UpdateBoosterIcon(IconType.Immateriality, BOOSTERS_TIME);
+        effectController.Immateriality();
         IsImmateriality.Coroutine = StartCoroutine(BoosterDuration(() => IsImmateriality.Status = false));
     }
 
@@ -177,7 +179,8 @@ public class PlayerData : MonoBehaviour
 
         IsSlowMotion.Status = true;
         UpdateStreak?.Invoke(scaredEnemiesStreak);
-        UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
+        //UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
+        effectController.SlowMotion();
         IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false, UpdateStreak, scaredEnemiesStreak));
     }
 
@@ -187,18 +190,20 @@ public class PlayerData : MonoBehaviour
             StopCoroutine(IsDarkCloud.Coroutine);
 
         IsDarkCloud.Status = true;
-        UpdateBoosterIcon(IconType.DarkCloud, BOOSTERS_TIME);
+        //UpdateBoosterIcon(IconType.DarkCloud, BOOSTERS_TIME);
+        effectController.DarkCloud();
         IsDarkCloud.Coroutine = StartCoroutine(BoosterDuration(() => IsDarkCloud.Status = false));
     }
 
-    public void LightsOFF()
+    public void ChillingTouchON()
     {
-        if (IsLightsOFF.Status)
-            StopCoroutine(IsLightsOFF.Coroutine);
+        if (IsChillingTouch.Status)
+            StopCoroutine(IsChillingTouch.Coroutine);
 
-        IsLightsOFF.Status = true;
-        UpdateBoosterIcon(IconType.LightsOff, BOOSTERS_TIME);
-        IsLightsOFF.Coroutine = StartCoroutine(BoosterDuration(() => IsLightsOFF.Status = false));
+        IsChillingTouch.Status = true;
+        //UpdateBoosterIcon(IconType.ChillingTouch, BOOSTERS_TIME);
+        effectController.ChillingTouch();
+        IsChillingTouch.Coroutine = StartCoroutine(BoosterDuration(() => IsChillingTouch.Status = false));
     }
 
     public void PhantomOfTheOperaON()
@@ -207,7 +212,8 @@ public class PlayerData : MonoBehaviour
             StopCoroutine(IsPhantomOfTheOpera.Coroutine);
 
         IsPhantomOfTheOpera.Status = true;
-        UpdateBoosterIcon(IconType.PhantomOfTheOpera, BOOSTERS_TIME);
+        //UpdateBoosterIcon(IconType.PhantomOfTheOpera, BOOSTERS_TIME);
+        effectController.PhantomOfTheOpera();
         IsPhantomOfTheOpera.Coroutine = StartCoroutine(BoosterDuration(() => IsPhantomOfTheOpera.Status = false));
     }
 
@@ -217,8 +223,8 @@ public class PlayerData : MonoBehaviour
             StopCoroutine(IsTownLegend.Coroutine);
 
         IsTownLegend.Status = true;
-        UpdateBoosterIcon(IconType.TownLegend, BOOSTERS_TIME);
-
+        //UpdateBoosterIcon(IconType.TownLegend, BOOSTERS_TIME);
+        effectController.TownLegend();
         IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false));
     }
 
@@ -282,7 +288,7 @@ public class PlayerData : MonoBehaviour
             var goalData = new GoalsData();
             goalData.CopyData(item, index);
             currentGoals.Add(goalData, 0);
-        }    
+        }
     }
 
     public string SetGoals()
@@ -314,7 +320,8 @@ public class PlayerData : MonoBehaviour
                 currentGoals[goal] += value;
 
             goal.CompleteLevel(goal.GoalValue <= currentGoals[goal]);
-            IsLevelComplete();
+            if(IsLevelComplete())
+                effectController.LevelComplete();
         }
 
 
@@ -360,8 +367,10 @@ public class PlayerData : MonoBehaviour
             ChangeColor(colors[1]);
         else if (FearEssence >= 50 && FearEssence < 75)
             ChangeColor(colors[2]);
-        else if (FearEssence > 75)
+        else if (FearEssence >= 75 && FearEssence < 100)
             ChangeColor(colors[3]);
+        else if (FearEssence == 100)
+            ChangeColor(colors[4]);
 
         for (int i = 0; i < MeshRenderer.Length; i++)
             MeshRenderer[i].material.SetColor("_MainColor", playerColor);

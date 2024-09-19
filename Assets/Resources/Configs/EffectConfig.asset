@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aeb3c98c13d9c74f8e933a57c920b4e, type: 3}
+  m_Name: EffectConfig
+  m_EditorClassIdentifier: 
+  <Effects>k__BackingField:
+  - <Type>k__BackingField: 0
+    <Effect>k__BackingField:
+      m_AssetGUID: 2e72da6a5ec277c43a851f9f968d5d84
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 1
+    <Effect>k__BackingField:
+      m_AssetGUID: 865e7d3e515f7f741ad627b5e401fede
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 2
+    <Effect>k__BackingField:
+      m_AssetGUID: d1e092baff0baf94392fbaa37b69bcaf
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 3
+    <Effect>k__BackingField:
+      m_AssetGUID: 38af928cc578ef747aa1491edb0a3981
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 5
+    <Effect>k__BackingField:
+      m_AssetGUID: 0b863b41534c18e45b9fe36a959221a6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 6
+    <Effect>k__BackingField:
+      m_AssetGUID: 8ceefa393fe631a44868757e2dc491b6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 7
+    <Effect>k__BackingField:
+      m_AssetGUID: 0d2c0b680bb80624fa002422d0211696
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 4
+    <Effect>k__BackingField:
+      m_AssetGUID: e108ee8266a65e74ea0834063430265c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - <Type>k__BackingField: 8
+    <Effect>k__BackingField:
+      m_AssetGUID: 4d638ae795568bd4bbdd621712a020dc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

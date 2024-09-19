@@ -18,7 +18,7 @@ public class SwipeController
         {
             endTouchPosition = Input.GetTouch(0).position;
 
-            inputData.MoveUp = endTouchPosition.y > startTouchPosition.y;
+            inputData.MoveUp = endTouchPosition.y > (startTouchPosition.y + 300f);
 
             if (inputData.MoveUp == false)
             {

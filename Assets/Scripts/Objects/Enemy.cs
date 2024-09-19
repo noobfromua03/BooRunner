@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public bool actionDone;
 
+    private ParticleSystem scaredEffect;
+
     private bool CanUseEssence => CompareBold(PlayerData.Instance.FearEssence) || PlayerData.Instance.IsTownLegend.Status;
     private void Start()
     {
@@ -95,10 +97,23 @@ public class Enemy : MonoBehaviour, IPoolObject
     }
 
     public void ScaredJump()
-        => MoveUnit.jump = true;
+    {
+        if (scaredEffect == null)
+            GetScareEffect();
+
+        MoveUnit.jump = true;
+        scaredEffect.Play();
+    }
+
 
     public bool ActionDone()
         => actionDone;
     public bool ActiveStatus()
         => gameObject.activeSelf;
+
+    private void GetScareEffect()
+    {
+        var prefab = EffectConfig.Instance.GetEffectByType(EffectType.Scared);
+        scaredEffect = Instantiate(prefab, transform).GetComponent<ParticleSystem>();
+    }
 }

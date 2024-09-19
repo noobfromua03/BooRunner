@@ -92,7 +92,7 @@ public class LevelController : MonoBehaviour
     private void Update()
     {
         swipeController.UpdateSwipes();
-        movementController.Update();
+        movementController.Update(); 
     }
 
     private void FixedUpdate()

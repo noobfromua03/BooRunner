@@ -18,7 +18,7 @@ public enum PoolObjectType
     Immateriality = 5,
     SlowMotion = 6,
     DarkCloud = 7,
-    LightsOff = 8,
+    ChillingTouch = 8,
     PhantomOfTheOpera = 9,
     TownLegend = 10
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 2
   boldLevel: 100
+  scared: {fileID: 0}
   <MoveUnit>k__BackingField:
     MoveType: 0
     Rb: {fileID: -442547480570132925}
@@ -280,6 +281,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5806995348039371592, guid: 410f339498f49a749bd263bb48817b91,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162775677985972722, guid: 410f339498f49a749bd263bb48817b91,
         type: 3}
       propertyPath: m_Enabled
       value: 0
