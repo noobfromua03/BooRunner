@@ -10,7 +10,6 @@ public class PlayerEffectController : MonoBehaviour
 
     public void Damaged()
         => UseEffect(EffectType.Damaged, playerEffectContainer);
-
     public void Immateriality()
         => UseEffect(EffectType.Immateriality, playerEffectContainer);
     public void DarkCloud()

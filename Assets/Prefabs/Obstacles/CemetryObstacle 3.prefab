@@ -57,7 +57,7 @@ MonoBehaviour:
     jump: 0
     isPatrol: 0
     currentPatrolLine: 0
-  <Rotatable>k__BackingField: 1
+  <Rotatable>k__BackingField: 0
   objectType: 1
   actionDone: 0
 --- !u!65 &3847269246493045935
