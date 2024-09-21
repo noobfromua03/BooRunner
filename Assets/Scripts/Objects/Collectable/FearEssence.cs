@@ -35,6 +35,7 @@ public class FearEssence : MonoBehaviour, IPoolObject
         PlayerData.Instance.AddFearEssence(10);
         actionDone = true;
         gameObject.SetActive(false);
+        AudioManager.Instance.PlayAudioByType(SoundType.CatchEssence);
     }
 
     public bool ActionDone()

@@ -74,7 +74,7 @@ public class PlayerEffectController : MonoBehaviour
     private IEnumerator BoosterDuration(EffectType type)
     {
         Effects[type].gameObject.SetActive(true);
-        yield return new WaitForSeconds(PlayerData.BOOSTERS_TIME);
+        yield return new WaitForSeconds(PlayerData.BOOSTERS_TIME - 0.8f);
         Effects[type].gameObject.SetActive(false);
     }
 }

@@ -33,7 +33,7 @@ public class TownLegend : MonoBehaviour, IPoolObject
         PlayerData.Instance.TownLegendON();
         actionDone = true;
         gameObject.SetActive(false);
-        // додати відповідну анімацію, зробити великим і зеленим???
+        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;

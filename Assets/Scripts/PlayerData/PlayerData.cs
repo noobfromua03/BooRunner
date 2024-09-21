@@ -93,6 +93,7 @@ public class PlayerData : MonoBehaviour
 
         UpdatePlayerLifes?.Invoke(life);
         UpdateStreak?.Invoke(scaredEnemiesStreak);
+        AudioManager.Instance.PlayAudioByType(SoundType.Damaged);
         effectController.Damaged();
     }
 
@@ -142,7 +143,7 @@ public class PlayerData : MonoBehaviour
 
         ChangeGoalValueByType(GoalType.ScarePersons, 1);
         ChangeGoalValueByType(GoalType.ScaredStreak, scaredEnemiesStreak);
-
+        AudioManager.Instance.PlayAudioByType(SoundType.Boo);
         ColorUpdate();
     }
 
@@ -181,6 +182,7 @@ public class PlayerData : MonoBehaviour
         UpdateStreak?.Invoke(scaredEnemiesStreak);
         //UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
         effectController.SlowMotion();
+        AudioManager.Instance.PlayAudioByType(SoundType.SlowMotion);
         IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false, UpdateStreak, scaredEnemiesStreak));
     }
 
@@ -203,6 +205,7 @@ public class PlayerData : MonoBehaviour
         IsChillingTouch.Status = true;
         //UpdateBoosterIcon(IconType.ChillingTouch, BOOSTERS_TIME);
         effectController.ChillingTouch();
+        AudioManager.Instance.PlayAudioByType(SoundType.ChillingTouch);
         IsChillingTouch.Coroutine = StartCoroutine(BoosterDuration(() => IsChillingTouch.Status = false));
     }
 

@@ -33,7 +33,7 @@ public class DarkCloud : MonoBehaviour, IPoolObject
         PlayerData.Instance.DarkCloudON();
         actionDone = true;
         gameObject.SetActive(false);
-        // додати затемнення погоди/світла
+        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
 
     public bool ActionDone()

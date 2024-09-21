@@ -32,7 +32,7 @@ public class Immateriality : MonoBehaviour, IPoolObject
         PlayerData.Instance.ImmaterialityBooster();
         actionDone = true;
         gameObject.SetActive(false);
-        // прозорість персонажа чи dissolve
+        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
 
     public bool ActionDone()

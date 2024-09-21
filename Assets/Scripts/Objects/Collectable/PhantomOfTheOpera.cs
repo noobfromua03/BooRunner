@@ -34,8 +34,7 @@ public class PhantomOfTheOpera : MonoBehaviour, IPoolObject
         PlayerData.Instance.PhantomOfTheOperaON();
         actionDone = true;
         gameObject.SetActive(false);
-        // додати відповідні жахаючі звуки
-        // а ще поворот до того, кого лякає
+        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;
