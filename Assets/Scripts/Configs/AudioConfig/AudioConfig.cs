@@ -2,26 +2,28 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class AudioConfig : AbstractConfig<AudioConfig>
 {
     [field: SerializeField] public List<AudioData> Sounds { get; private set; }
 
-    public AudioData GetAudioDataByType(SoundType type)
-        => Sounds.FindAll(s => s.Type == type).OrderBy(s => UnityEngine.Random.value).First();
+    public List<AudioData> GetAudioDataByType(AudioType type)
+        => Sounds.FindAll(s => s.Type == type).ToList();
 }
 
 [Serializable]
 
 public class AudioData
 {
-    [field: SerializeField] public SoundType Type { get; private set; }
-    [field: SerializeField] public SubType SubType { get; private set; }
+    [field: SerializeField] public AudioType Type { get; private set; }
     [field: SerializeField] public AudioClip Clip { get; private set; }
 }
 
-public enum SoundType
+public enum AudioType
 {
     Damaged = 0,
     Boo = 1,
@@ -36,7 +38,7 @@ public enum SoundType
     LevelMusic = 12,
 }
 
-public enum SubType
+public enum AudioSubType
 {
     Sound = 0,
     Music = 1

@@ -14,42 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Sounds>k__BackingField:
   - <Type>k__BackingField: 0
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: 0a9229fec51fd614c8628d481685f20a,
       type: 3}
   - <Type>k__BackingField: 1
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: b7e722508e69a2f49aebe92cada2b0e8,
       type: 3}
   - <Type>k__BackingField: 2
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: 513e7e2ee95412d408fe80c740494d81,
       type: 3}
   - <Type>k__BackingField: 3
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: 80f0b32c93545af4ea07c11580bbe9ae,
       type: 3}
   - <Type>k__BackingField: 4
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: d175bf13cc8bddf49bcfa070c9c887ae,
       type: 3}
   - <Type>k__BackingField: 5
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: d64f04767088ac247a5970e721996ea0,
       type: 3}
   - <Type>k__BackingField: 7
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: daa02158e28089c43a0075b258c010f5,
       type: 3}
   - <Type>k__BackingField: 10
-    <SubType>k__BackingField: 0
     <Clip>k__BackingField: {fileID: 8300000, guid: 32bad869b131e714fb7dd2a1567521cf,
       type: 3}
   - <Type>k__BackingField: 11
-    <SubType>k__BackingField: 1
     <Clip>k__BackingField: {fileID: 8300000, guid: 7f7f9e9f908c5f8489ca17967da6442e,
       type: 3}
   - <Type>k__BackingField: 12
-    <SubType>k__BackingField: 1
     <Clip>k__BackingField: {fileID: 8300000, guid: 1b58d3ab53dc3a04d98dcf463eccfef6,
       type: 3}

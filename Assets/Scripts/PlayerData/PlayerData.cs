@@ -51,6 +51,7 @@ public class PlayerData : MonoBehaviour
     public Action UpdateLevelComplete;
 
     private const float COLOR_STEP = 30f;
+    private const float INVINCIBLE_TIME = 2f;
     public const float BOOSTERS_TIME = 6f;
 
     private void Awake()
@@ -89,11 +90,11 @@ public class PlayerData : MonoBehaviour
         animator.SetTrigger("Damaged");
 
         scaredEnemiesStreak = scaredEnemiesStreak <= 1 ? scaredEnemiesStreak : scaredEnemiesStreak / 2;
-        SetInvincible(2);
+        SetInvincible(INVINCIBLE_TIME);
 
         UpdatePlayerLifes?.Invoke(life);
         UpdateStreak?.Invoke(scaredEnemiesStreak);
-        AudioManager.Instance.PlayAudioByType(SoundType.Damaged);
+        AudioManager.Instance.PlayAudioByType(AudioType.Damaged, AudioSubType.Sound);
         effectController.Damaged();
     }
 
@@ -108,7 +109,7 @@ public class PlayerData : MonoBehaviour
         FearEssence = Mathf.Clamp(FearEssence += value, 0, maxEssence);
         AddScore(1 * scaredEnemiesStreak != 0 ? scaredEnemiesStreak : 1);
         UpdateFearEssence?.Invoke(FearEssence);
-
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchEssence, AudioSubType.Sound);
         ChangeGoalValueByType(GoalType.CollectEssence, value);
     }
 
@@ -143,7 +144,7 @@ public class PlayerData : MonoBehaviour
 
         ChangeGoalValueByType(GoalType.ScarePersons, 1);
         ChangeGoalValueByType(GoalType.ScaredStreak, scaredEnemiesStreak);
-        AudioManager.Instance.PlayAudioByType(SoundType.Boo);
+        AudioManager.Instance.PlayAudioByType(AudioType.Boo, AudioSubType.Sound);
         ColorUpdate();
     }
 
@@ -158,7 +159,7 @@ public class PlayerData : MonoBehaviour
     public void SetInvincible(float time)
     {
         IsInvincible = true;
-        StartCoroutine(BoosterDuration(time, () => IsInvincible = false));
+        StartCoroutine(InvincibleDuration(time, () => IsInvincible = false));
     }
 
     public void ImmaterialityBooster()
@@ -170,7 +171,9 @@ public class PlayerData : MonoBehaviour
 
         //UpdateBoosterIcon(IconType.Immateriality, BOOSTERS_TIME);
         effectController.Immateriality();
-        IsImmateriality.Coroutine = StartCoroutine(BoosterDuration(() => IsImmateriality.Status = false));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
+        IsImmateriality.Coroutine = StartCoroutine(BoosterDuration(() => IsImmateriality.Status = false, audioSource));
     }
 
     public void SlowMotionsON()
@@ -182,8 +185,10 @@ public class PlayerData : MonoBehaviour
         UpdateStreak?.Invoke(scaredEnemiesStreak);
         //UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
         effectController.SlowMotion();
-        AudioManager.Instance.PlayAudioByType(SoundType.SlowMotion);
-        IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false, UpdateStreak, scaredEnemiesStreak));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
+        IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false,
+            UpdateStreak, scaredEnemiesStreak, audioSource));
     }
 
     public void DarkCloudON()
@@ -194,7 +199,9 @@ public class PlayerData : MonoBehaviour
         IsDarkCloud.Status = true;
         //UpdateBoosterIcon(IconType.DarkCloud, BOOSTERS_TIME);
         effectController.DarkCloud();
-        IsDarkCloud.Coroutine = StartCoroutine(BoosterDuration(() => IsDarkCloud.Status = false));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
+        IsDarkCloud.Coroutine = StartCoroutine(BoosterDuration(() => IsDarkCloud.Status = false, audioSource));
     }
 
     public void ChillingTouchON()
@@ -205,8 +212,9 @@ public class PlayerData : MonoBehaviour
         IsChillingTouch.Status = true;
         //UpdateBoosterIcon(IconType.ChillingTouch, BOOSTERS_TIME);
         effectController.ChillingTouch();
-        AudioManager.Instance.PlayAudioByType(SoundType.ChillingTouch);
-        IsChillingTouch.Coroutine = StartCoroutine(BoosterDuration(() => IsChillingTouch.Status = false));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
+        IsChillingTouch.Coroutine = StartCoroutine(BoosterDuration(() => IsChillingTouch.Status = false, audioSource));
     }
 
     public void PhantomOfTheOperaON()
@@ -217,7 +225,9 @@ public class PlayerData : MonoBehaviour
         IsPhantomOfTheOpera.Status = true;
         //UpdateBoosterIcon(IconType.PhantomOfTheOpera, BOOSTERS_TIME);
         effectController.PhantomOfTheOpera();
-        IsPhantomOfTheOpera.Coroutine = StartCoroutine(BoosterDuration(() => IsPhantomOfTheOpera.Status = false));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
+        IsPhantomOfTheOpera.Coroutine = StartCoroutine(BoosterDuration(() => IsPhantomOfTheOpera.Status = false, audioSource));
     }
 
     public void TownLegendON()
@@ -228,7 +238,9 @@ public class PlayerData : MonoBehaviour
         IsTownLegend.Status = true;
         //UpdateBoosterIcon(IconType.TownLegend, BOOSTERS_TIME);
         effectController.TownLegend();
-        IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false));
+        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
+        IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false, audioSource));
     }
 
     public void ScrollOfCurse()
@@ -255,23 +267,24 @@ public class PlayerData : MonoBehaviour
         IsTotemOfFear.Status = true;
         IsTotemOfFear.Coroutine = StartCoroutine(TotemOfFearCoroutine());
     }
-
-    public IEnumerator BoosterDuration(Action boosterStatus)
-    {
-        yield return new WaitForSeconds(BOOSTERS_TIME);
-        boosterStatus?.Invoke();
-    }
-    public IEnumerator BoosterDuration(float time, Action boosterStatus)
+    public IEnumerator InvincibleDuration(float time, Action boosterStatus)
     {
         yield return new WaitForSeconds(time);
         boosterStatus?.Invoke();
-
     }
-    public IEnumerator BoosterDuration(Action boosterStatus, Action<int> action, int value)
+
+    public IEnumerator BoosterDuration(Action boosterStatus, AudioSource audioSource)
+    {
+        yield return new WaitForSeconds(BOOSTERS_TIME);
+        boosterStatus?.Invoke();
+        audioSource.Stop();
+    }
+    public IEnumerator BoosterDuration(Action boosterStatus, Action<int> action, int value, AudioSource audioSource)
     {
         yield return new WaitForSeconds(BOOSTERS_TIME);
         boosterStatus?.Invoke();
         action?.Invoke(value);
+        audioSource.Stop();
     }
 
     public IEnumerator TotemOfFearCoroutine()

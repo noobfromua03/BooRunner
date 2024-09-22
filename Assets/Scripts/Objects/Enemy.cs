@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour, IPoolObject
         MoveUnit.jump = true;
         scaredEffect.Play();
 
-        AudioManager.Instance.PlayAudioByType(SoundType.Scared);
+        AudioManager.Instance.PlayAudioByType(AudioType.Scared, AudioSubType.Sound);
     }
 
 

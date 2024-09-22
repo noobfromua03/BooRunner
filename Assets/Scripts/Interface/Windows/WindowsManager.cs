@@ -129,7 +129,7 @@ public class WindowsManager : MonoBehaviour
         menuCamera.enabled = false;
         levelController.gameObject.SetActive(true);
         AudioManager.Instance.Reload();
-        AudioManager.Instance.PlayAudioByType(SoundType.LevelMusic);
+        AudioManager.Instance.PlayAudioByType(AudioType.LevelMusic, AudioSubType.Music);
 
     }
 
@@ -144,12 +144,12 @@ public class WindowsManager : MonoBehaviour
         Time.timeScale = 1;
         menuCamera.enabled = true;
         AudioManager.Instance.Reload();
-        AudioManager.Instance.PlayAudioByType(SoundType.MenuMusic);
+        AudioManager.Instance.PlayAudioByType(AudioType.MenuMusic, AudioSubType.Music);
     }
 
     public IWindowUI OpenWindow(WindowType type)
     {
-        AudioManager.Instance.PlayAudioByType(SoundType.ButtonClick);
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
 
         var window = windows.Find(w => w.Type == type);
         CloseAllPopups();
@@ -166,7 +166,7 @@ public class WindowsManager : MonoBehaviour
 
     public IWindowUI OpenPopup(WindowType type)
     {
-        AudioManager.Instance.PlayAudioByType(SoundType.ButtonClick);
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         var popup = windows.Find(w => w.Type == type);
 
         if (popup == null)

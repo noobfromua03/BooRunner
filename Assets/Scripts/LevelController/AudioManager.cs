@@ -1,14 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
+using static Unity.VisualScripting.Member;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    private Dictionary<SoundType, List<AudioSource>> audioSources = new();
+    [SerializeField] private AudioMixer audioMixer;
 
-    private AudioSource activeMusic;
+    private Dictionary<AudioType, List<AudioClip>> audioClips = new();
+
+    private List<AudioSource> audioSources = new();
+
+    private const float SOUND_VOLUME = 0f;
+    private const float MUSIC_VOLUME = -4f;
 
     private void Awake()
     {
@@ -17,60 +25,85 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayAudioByType(SoundType.MenuMusic);
+        PlayAudioByType(AudioType.MenuMusic, AudioSubType.Music);
+        ChangeMusicVolume();
+        ChangeSoundVolume();
     }
 
-    public void PlayAudioByType(SoundType type)
+    public AudioSource PlayAudioByType(AudioType type, AudioSubType subType)
     {
-        if (audioSources.ContainsKey(type))
-        {
-            var notPlayingSource = audioSources[type].Find(s => s.isPlaying == false);
-            if (notPlayingSource == null)
-                notPlayingSource = CreateAudioSourceByType(type);
+        if (audioClips.ContainsKey(type) == false)
+            GetAudioData(type);
 
-            notPlayingSource.Play();
-        }
-        else
-        {
-            var source = CreateAudioSourceByType(type);
-            source.Play(); 
-        }
-    }
-    private AudioSource CreateAudioSourceByType(SoundType type)
-    {
-        var source = this.AddComponent<AudioSource>();
-        source.playOnAwake = false;
-
-        var audioData = AudioConfig.Instance.GetAudioDataByType(type);
-        source.loop = audioData.SubType == SubType.Music;
-        source.clip = audioData.Clip;
-
-        AddAudioSource(type, source);
-
+        var source = GetFreeAudioSource(type, subType);
+        source.clip = GetClip(type);
+        source.Play();
         return source;
     }
-
-    public void AddAudioSource(SoundType type, AudioSource source)
+    private AudioSource GetFreeAudioSource(AudioType type, AudioSubType subType)
     {
-        if (audioSources.ContainsKey(type))
-            audioSources[type].Add(source);
-        else
+        AudioSource freeSource = audioSources.Find(s => s.isPlaying == false);
+
+        if (audioSources.Count == 0 || freeSource == null)
         {
-            var audioSourceList = new List<AudioSource> { source };
-            audioSources.Add(type, audioSourceList);
+            freeSource = this.AddComponent<AudioSource>();
+            audioSources.Add(freeSource);
         }
+
+
+        switch (subType)
+        {
+            case AudioSubType.Music:
+                freeSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music").First();
+                break;
+            case AudioSubType.Sound:
+                freeSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Sound").First();
+                break;
+        }
+
+        audioSources.Add(freeSource);
+        freeSource.loop = subType == AudioSubType.Music;
+        freeSource.playOnAwake = false;
+
+        return freeSource;
     }
+
+    private void GetAudioData(AudioType type)
+    {
+        var data = AudioConfig.Instance.GetAudioDataByType(type);
+        var clipList = new List<AudioClip>();
+
+        foreach (var clip in data)
+        {
+            var loadedClip = clip.Clip;
+            clipList.Add(loadedClip);
+        }
+        audioClips.Add(type, clipList);
+    }
+
+    private AudioClip GetClip(AudioType type)
+        => audioClips[type].OrderBy(c => UnityEngine.Random.value).First();
 
     public void Reload()
     {
-        foreach (var key in audioSources.Keys)
-        {
-            foreach (var source in audioSources[key])
-            {
-                Destroy(source);
-            }
-            audioSources[key].Clear();
-        }
+        foreach (var source in audioSources)
+            Destroy(source);
         audioSources.Clear();
+    }
+
+    public void ChangeSoundVolume()
+    {
+        if (Progress.Options.Sound)
+            audioMixer.SetFloat("SoundVolume", SOUND_VOLUME);
+        else
+            audioMixer.SetFloat("SoundVolume", -80f);
+    }
+
+    public void ChangeMusicVolume()
+    {
+        if (Progress.Options.Music)
+            audioMixer.SetFloat("MusicVolume", MUSIC_VOLUME);
+        else
+            audioMixer.SetFloat("MusicVolume", -80f);
     }
 }

@@ -609,6 +609,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  musicBtn: {fileID: 5354606229216290975}
+  soundBtn: {fileID: 2425345581172886219}
+  musicON: {fileID: -663011761, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  musicOFF: {fileID: 53940023, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  soundON: {fileID: -213356348, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  soundOFF: {fileID: 1897002124, guid: 156ec492e516ccb4099add479601d65e, type: 3}
 --- !u!1 &3413101918193759250
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,7 +921,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.9
+  m_fontSize: 24.75
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1123,7 +1129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6886769251765930914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1401,7 +1407,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.9
+  m_fontSize: 30.95
   m_fontSizeBase: 74
   m_fontWeight: 400
   m_enableAutoSizing: 1
