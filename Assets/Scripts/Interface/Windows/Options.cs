@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Options : MonoBehaviour, IWindowUI
 {
@@ -6,13 +7,31 @@ public class Options : MonoBehaviour, IWindowUI
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
 
+    [SerializeField] private Image musicBtn;
+    [SerializeField] private Image soundBtn;
+
+    [SerializeField] private Sprite musicON;
+    [SerializeField] private Sprite musicOFF;
+    [SerializeField] private Sprite soundON;
+    [SerializeField] private Sprite soundOFF;
+
+    private void Start()
+    {
+        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+    }
+
     public void SoundBtn()
     {
-        Debug.Log("Sound off");
+        Progress.Options.Sound = !Progress.Options.Sound;
+        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        AudioManager.Instance.ChangeSoundVolume();
     }
     public void MusicBtn()
     {
-        Debug.Log("Music off");
+        Progress.Options.Music = !Progress.Options.Music;
+        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        AudioManager.Instance.ChangeMusicVolume();
     }
     public void ExitBtn()
         => WindowsManager.Instance.ClosePopup(this);

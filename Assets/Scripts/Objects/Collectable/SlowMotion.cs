@@ -33,7 +33,6 @@ public class SlowMotion : MonoBehaviour, IPoolObject
         PlayerData.Instance.SlowMotionsON();
         actionDone = true;
         gameObject.SetActive(false);
-        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;

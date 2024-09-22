@@ -33,7 +33,6 @@ public class TownLegend : MonoBehaviour, IPoolObject
         PlayerData.Instance.TownLegendON();
         actionDone = true;
         gameObject.SetActive(false);
-        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;

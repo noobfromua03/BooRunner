@@ -15,11 +15,4 @@ public class ShopItemData
     [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
     [field: SerializeField] public int Cost { get; private set; }
     [field: SerializeField] public int Amount { get; private set; } = 1;
-
-    
-    /*public void OnValidate()
-    {
-        if (Item == null || Item.Type != Type)
-            Item = InventoryItemConfig.Instance.GetItemByType(Type);
-    }*/
 }

@@ -34,7 +34,6 @@ public class PhantomOfTheOpera : MonoBehaviour, IPoolObject
         PlayerData.Instance.PhantomOfTheOperaON();
         actionDone = true;
         gameObject.SetActive(false);
-        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;

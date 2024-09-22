@@ -34,7 +34,6 @@ public class ChillingTouch : MonoBehaviour, IPoolObject
         PlayerData.Instance.ChillingTouchON();
         actionDone = true;
         gameObject.SetActive(false);
-        AudioManager.Instance.PlayAudioByType(SoundType.CatchBooster);
     }
     public bool ActionDone()
         => actionDone;
