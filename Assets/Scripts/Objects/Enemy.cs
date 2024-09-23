@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public bool actionDone;
 
+    private List<Color32> colors;
+    private ParticleSystem radianceEffect;
     private ParticleSystem scaredEffect;
 
     private bool CanUseEssence => CompareBold(PlayerData.Instance.FearEssence) || PlayerData.Instance.IsTownLegend.Status;
@@ -18,6 +20,8 @@ public class Enemy : MonoBehaviour, IPoolObject
     {
         MovementController.instance.AddMoveUnit(MoveUnit);
         MoveUnit.currentPatrolLine = MoveUnit.PointNumber;
+        colors = ColorConfig.Instance.Colors;
+        GetRadianceEffect();
     }
 
     public void ChangeLine(int line)
@@ -29,6 +33,8 @@ public class Enemy : MonoBehaviour, IPoolObject
     {
         TeleportToPosition();
         actionDone = false;
+        if (radianceEffect != null)
+            radianceEffect.Play();
     }
 
     public void TeleportToPosition()
@@ -117,5 +123,32 @@ public class Enemy : MonoBehaviour, IPoolObject
     {
         var prefab = EffectConfig.Instance.GetEffectByType(EffectType.Scared);
         scaredEffect = Instantiate(prefab, transform).GetComponent<ParticleSystem>();
+    }
+
+    private void GetRadianceEffect()
+    {
+        var prefab = EffectConfig.Instance.GetEffectByType(EffectType.EnemyRadiance);
+        radianceEffect = Instantiate(prefab, transform).GetComponent<ParticleSystem>();
+        SetRadianceColor();
+        radianceEffect.Play();
+    }
+
+    private void SetRadianceColor()
+    {
+        var mainModule = radianceEffect.main;
+        ParticleSystem.MinMaxGradient gradient = new();
+
+        if (boldLevel == 0)
+            gradient = new ParticleSystem.MinMaxGradient(colors[0]);
+        else if (boldLevel == 25)
+            gradient = new ParticleSystem.MinMaxGradient(colors[1]);
+        else if (boldLevel == 50)
+            gradient = new ParticleSystem.MinMaxGradient(colors[2]);
+        else if (boldLevel == 75)
+            gradient = new ParticleSystem.MinMaxGradient(colors[3]);
+        else if (boldLevel == 100)
+            gradient = new ParticleSystem.MinMaxGradient(colors[4]);
+
+        mainModule.startColor = gradient;
     }
 }

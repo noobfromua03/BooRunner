@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour, IWindowUI
 {
@@ -8,16 +9,41 @@ public class Pause : MonoBehaviour, IWindowUI
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
 
+    [SerializeField] private Image musicBtn;
+    [SerializeField] private Image soundBtn;
+
+    [SerializeField] private Sprite musicON;
+    [SerializeField] private Sprite musicOFF;
+    [SerializeField] private Sprite soundON;
+    [SerializeField] private Sprite soundOFF;
+
     private void OnEnable()
     {
         Time.timeScale = 0;
         goals.text = PlayerData.Instance.SetGoals();
+        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
     }
 
     private void OnDisable()
     {
         Time.timeScale = 1;
     }
+
+    public void SoundBtn()
+    {
+        Progress.Options.Sound = !Progress.Options.Sound;
+        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        AudioManager.Instance.ChangeSoundVolume();
+    }
+    public void MusicBtn()
+    {
+        Progress.Options.Music = !Progress.Options.Music;
+        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        AudioManager.Instance.ChangeMusicVolume();
+    }
+
+
 
     public void ContinueBtn()
         => WindowsManager.Instance.ClosePopup(this);
@@ -26,14 +52,6 @@ public class Pause : MonoBehaviour, IWindowUI
     {
         WindowsManager.Instance.ClosePopup(this);
         PlayerData.Instance.GameOver?.Invoke();
-    }
-    public void SoundBtn()
-    {
-        Debug.Log("Sound off");
-    }
-    public void MusicBtn()
-    {
-        Debug.Log("Music off");
     }
 
     public void DestroySelf()

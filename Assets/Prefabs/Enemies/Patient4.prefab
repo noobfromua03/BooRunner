@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 3
   boldLevel: 25
-  scared: {fileID: 0}
+  colors: []
   <MoveUnit>k__BackingField:
     MoveType: 0
     Rb: {fileID: 868943544428338901}

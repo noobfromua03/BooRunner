@@ -682,6 +682,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goals: {fileID: 2056839144307179520}
   type: 2
+  musicBtn: {fileID: 3822919558652276115}
+  soundBtn: {fileID: 4122593522098226062}
+  musicON: {fileID: -663011761, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  musicOFF: {fileID: 53940023, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  soundON: {fileID: -213356348, guid: 156ec492e516ccb4099add479601d65e, type: 3}
+  soundOFF: {fileID: 1897002124, guid: 156ec492e516ccb4099add479601d65e, type: 3}
 --- !u!1 &3503109771755064125
 GameObject:
   m_ObjectHideFlags: 0

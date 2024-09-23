@@ -49,7 +49,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectType: 2
   boldLevel: 50
-  scared: {fileID: 0}
   <MoveUnit>k__BackingField:
     MoveType: 0
     Rb: {fileID: -442547480570132925}

@@ -31,5 +31,6 @@ public enum EffectType
     DarkCloud = 5,
     ChillingTouch = 6,
     PhantomOfTheOpera = 7,
-    TownLegend = 8
+    TownLegend = 8,
+    EnemyRadiance = 9
 }
