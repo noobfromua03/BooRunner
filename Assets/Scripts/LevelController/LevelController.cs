@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Cinemachine;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -52,6 +54,7 @@ public class LevelController : MonoBehaviour
 
         CreatePlayerWithData();
         CreateCamera();
+        RenderSettings.skybox = LevelsConfig.Instance.GetSkyBoxByType(environmentData.SkyBox);
         levelMusic = environmentData.AudioType;
         lightTemperature = levelData.LightTemperature;
         CreateDisableZone();

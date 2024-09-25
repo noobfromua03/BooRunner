@@ -186,6 +186,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 14
+    <SkyBox>k__BackingField: 0
   - <Type>k__BackingField: 1
     <Obstacles>k__BackingField:
     - m_AssetGUID: f9fc4f324e02aee4db5ff0735d6ddd3d
@@ -307,6 +308,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 9
+    <SkyBox>k__BackingField: 0
   - <Type>k__BackingField: 2
     <Obstacles>k__BackingField:
     - m_AssetGUID: cf758f74ba6e34347aa9a337bde5cef0
@@ -424,6 +426,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 3
+    <SkyBox>k__BackingField: 0
   - <Type>k__BackingField: 3
     <Obstacles>k__BackingField:
     - m_AssetGUID: f60b954dcf964cd4ab813f5add1af958
@@ -541,6 +544,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 21
+    <SkyBox>k__BackingField: 1
   - <Type>k__BackingField: 4
     <Obstacles>k__BackingField:
     - m_AssetGUID: 304f63165b31c9b47993c4ebdec872e0
@@ -658,6 +662,10 @@ MonoBehaviour:
       m_SubObjectType: 
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 4
+    <SkyBox>k__BackingField: 1
+  <SkyBoxes>k__BackingField:
+  - {fileID: 2100000, guid: 133347283e115d147a5fcce7f47a538f, type: 2}
+  - {fileID: 2100000, guid: c1c961cbd00909b45b34d97fd7df5cbf, type: 2}
   <Collectables>k__BackingField:
   - m_AssetGUID: d66e47b58e46cb54993a9b665191179d
     m_SubObjectName: 
