@@ -993,7 +993,14 @@ MonoBehaviour:
   - m_GUID: 460f284ea249c0d4bb8a5e9a81c90701
     m_Address: Assets/Prefabs/Effects/EnemyRadiance.prefab
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Effects
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 700d0dc46d2730f44a25a14a11078f85
+    m_Address: Assets/Prefabs/DecorationParts/DPCityPark 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Decoration
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 66c443d027bc56847abf708ea319de25, type: 2}

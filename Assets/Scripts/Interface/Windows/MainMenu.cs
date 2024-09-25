@@ -13,24 +13,46 @@ public class MainMenu : MonoBehaviour, IWindowUI
     public GameObject Window { get => gameObject; }
 
     public void PlayBtn()
-        => WindowsManager.Instance.OpenPopup(WindowType.LevelChoosePopup);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenPopup(WindowType.LevelChoosePopup);
+    }
     public void ShopBtn()
-        => WindowsManager.Instance.OpenWindow(WindowType.Shop);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenWindow(WindowType.Shop);
+    }
     public void InventoryBtn()
-        => WindowsManager.Instance.OpenPopup(WindowType.InventoryPopup);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenPopup(WindowType.InventoryPopup);
+    }
     public void HeroBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         WindowsManager.Instance.ChangeCameraView(WindowType.Hero);
         WindowsManager.Instance.OpenWindow(WindowType.Hero);
     }
     public void FortuneWheelBtn()
-        => WindowsManager.Instance.OpenWindow(WindowType.FortuneWheel);
-    public void TutorialBtn() 
-        => WindowsManager.Instance.OpenPopup(WindowType.TutorialPopup);
-    public void OptionsBtn() 
-        => WindowsManager.Instance.OpenPopup(WindowType.OptionsPopup);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenWindow(WindowType.FortuneWheel);
+    }
+    public void TutorialBtn()
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenPopup(WindowType.TutorialPopup);
+    }
+    public void OptionsBtn()
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenPopup(WindowType.OptionsPopup);
+    }
     public void ExitBtn()
-        => Application.Quit();
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        Application.Quit();
+    }
     public void DestroySelf()
         => Destroy(Window);
 }

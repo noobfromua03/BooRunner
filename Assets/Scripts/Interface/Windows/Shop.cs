@@ -28,7 +28,10 @@ public class Shop : MonoBehaviour, IWindowUI
     }
 
     public void ExitBtn()
-        => WindowsManager.Instance.OpenWindow(WindowType.MainMenu);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenWindow(WindowType.MainMenu);
+    }
 
     public void DestroySelf()
         => Destroy(Window);

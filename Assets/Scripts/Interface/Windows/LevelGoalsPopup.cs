@@ -9,9 +9,15 @@ public class LevelGoalsPopup : MonoBehaviour, IWindowUI
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
     public void GoBtn()
-        => WindowsManager.Instance.StartLevel();
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.StartLevel();
+    }
     public void ExitBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
     public void SetText(int level)
     {
         List<GoalsData> allGoals = LevelsConfig.Instance.Levels[level].Goals;

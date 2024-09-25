@@ -21,7 +21,7 @@ public class LevelCell : MonoBehaviour
     {
         if (!isOpened && levelNumber != 0)
             return;
-
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         WindowsManager.Instance.PreloadLevel(levelNumber);
     }
 

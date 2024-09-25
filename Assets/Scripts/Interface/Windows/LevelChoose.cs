@@ -34,7 +34,10 @@ public class LevelChoose : MonoBehaviour, IWindowUI
     }
 
     public void ExitBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
 
     public void DestroySelf()
         => Destroy(Window);

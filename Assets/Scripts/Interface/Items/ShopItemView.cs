@@ -16,8 +16,8 @@ public class ShopItemView : MonoBehaviour
     [SerializeField] private Image currencyIcon;
     public void OnClick()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         BuyButtonHandler();
-
     }
 
     public void Initialize(ShopItemData shopItem)

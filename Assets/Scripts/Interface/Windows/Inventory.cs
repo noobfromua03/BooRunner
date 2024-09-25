@@ -64,12 +64,14 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     public void ChooseSlot(Item item)
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         activeSlot = item;
         IsActiveSlot = true;
     }
 
     public void ClickOnItem(ItemType type)
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         if (IsActiveSlot)
         {
             var inventoryItem = ItemBuilder.GetInventoryItem(type);
@@ -88,13 +90,17 @@ public class Inventory : MonoBehaviour, IWindowUI
 
     public void ClearBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         Slots[0].Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
         Slots[1].Initialize(ItemBuilder.GetInventoryItem(ItemType.None));
         Save();
     }
 
     public void ExitBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
 
     private void Save()
     {

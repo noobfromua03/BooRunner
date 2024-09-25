@@ -21,17 +21,28 @@ public class AudioData
 
 public enum AudioType
 {
-    Damaged = 0,
-    Boo = 1,
-    Scared = 2,
-    CatchEssence = 3,
-    CatchBooster = 4,
+    Boo = 0,
+    Booster = 1,
+    ButtonClick = 2,
+    CastleMusic = 3,
+    CemetryMusic = 4,
     ChillingTouch = 5,
-    PhantomOfTheOpera = 6,
-    SlowMotion = 7,
-    ButtonClick = 10,
-    MenuMusic = 11,
-    LevelMusic = 12,
+    Damaged = 6,
+    DarkCloud = 7,
+    EssenceCatch = 8,
+    FarmMusic = 9,
+    FortuneWheel = 10,
+    Immateriality = 11,
+    LevelPassed = 12,
+    MenuMusic = 13,
+    ParkMusic = 14,
+    PhantomOfTheOpera = 15,
+    RewardOpen = 16,
+    Salute = 17,
+    Scared = 18,
+    SlowMotion = 19,
+    TownLegend = 20,
+    TownMusic = 21
 }
 
 public enum AudioSubType

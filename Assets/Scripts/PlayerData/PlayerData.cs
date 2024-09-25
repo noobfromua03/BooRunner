@@ -11,7 +11,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private SkinnedMeshRenderer[] MeshRenderer;
     [SerializeField] private List<Color32> colors;
-    [SerializeField] private PlayerEffectController effectController; 
+    [SerializeField] private PlayerEffectController effectController;
 
     private int life;
     private int scaredEnemiesStreak;
@@ -109,8 +109,11 @@ public class PlayerData : MonoBehaviour
         FearEssence = Mathf.Clamp(FearEssence += value, 0, maxEssence);
         AddScore(1 * scaredEnemiesStreak != 0 ? scaredEnemiesStreak : 1);
         UpdateFearEssence?.Invoke(FearEssence);
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchEssence, AudioSubType.Sound);
         ChangeGoalValueByType(GoalType.CollectEssence, value);
+
+        AudioManager.Instance.PlayAudioByType(AudioType.EssenceCatch, AudioSubType.Sound);
+        if (UnityEngine.Random.value > 0.92f)
+            AudioManager.Instance.PlayAudioByType(AudioType.Boo, AudioSubType.Sound);
     }
 
     public void RemoveEssence(int value)
@@ -144,7 +147,6 @@ public class PlayerData : MonoBehaviour
 
         ChangeGoalValueByType(GoalType.ScarePersons, 1);
         ChangeGoalValueByType(GoalType.ScaredStreak, scaredEnemiesStreak);
-        AudioManager.Instance.PlayAudioByType(AudioType.Boo, AudioSubType.Sound);
         ColorUpdate();
     }
 
@@ -171,8 +173,8 @@ public class PlayerData : MonoBehaviour
 
         //UpdateBoosterIcon(IconType.Immateriality, BOOSTERS_TIME);
         effectController.Immateriality();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
-        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.Immateriality, AudioSubType.Sound);
         IsImmateriality.Coroutine = StartCoroutine(BoosterDuration(() => IsImmateriality.Status = false, audioSource));
     }
 
@@ -185,7 +187,7 @@ public class PlayerData : MonoBehaviour
         UpdateStreak?.Invoke(scaredEnemiesStreak);
         //UpdateBoosterIcon(IconType.SlowMotion, BOOSTERS_TIME);
         effectController.SlowMotion();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
         var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
         IsSlowMotion.Coroutine = StartCoroutine(BoosterDuration(() => IsSlowMotion.Status = false,
             UpdateStreak, scaredEnemiesStreak, audioSource));
@@ -199,8 +201,8 @@ public class PlayerData : MonoBehaviour
         IsDarkCloud.Status = true;
         //UpdateBoosterIcon(IconType.DarkCloud, BOOSTERS_TIME);
         effectController.DarkCloud();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
-        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.SlowMotion, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.DarkCloud, AudioSubType.Sound);
         IsDarkCloud.Coroutine = StartCoroutine(BoosterDuration(() => IsDarkCloud.Status = false, audioSource));
     }
 
@@ -212,7 +214,7 @@ public class PlayerData : MonoBehaviour
         IsChillingTouch.Status = true;
         //UpdateBoosterIcon(IconType.ChillingTouch, BOOSTERS_TIME);
         effectController.ChillingTouch();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
         var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
         IsChillingTouch.Coroutine = StartCoroutine(BoosterDuration(() => IsChillingTouch.Status = false, audioSource));
     }
@@ -225,8 +227,8 @@ public class PlayerData : MonoBehaviour
         IsPhantomOfTheOpera.Status = true;
         //UpdateBoosterIcon(IconType.PhantomOfTheOpera, BOOSTERS_TIME);
         effectController.PhantomOfTheOpera();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
-        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.PhantomOfTheOpera, AudioSubType.Sound);
         IsPhantomOfTheOpera.Coroutine = StartCoroutine(BoosterDuration(() => IsPhantomOfTheOpera.Status = false, audioSource));
     }
 
@@ -238,8 +240,8 @@ public class PlayerData : MonoBehaviour
         IsTownLegend.Status = true;
         //UpdateBoosterIcon(IconType.TownLegend, BOOSTERS_TIME);
         effectController.TownLegend();
-        AudioManager.Instance.PlayAudioByType(AudioType.CatchBooster, AudioSubType.Sound);
-        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.ChillingTouch, AudioSubType.Sound);
+        AudioManager.Instance.PlayAudioByType(AudioType.Booster, AudioSubType.Sound);
+        var audioSource = AudioManager.Instance.PlayAudioByType(AudioType.TownLegend, AudioSubType.Sound);
         IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false, audioSource));
     }
 
@@ -336,8 +338,12 @@ public class PlayerData : MonoBehaviour
                 currentGoals[goal] += value;
 
             goal.CompleteLevel(goal.GoalValue <= currentGoals[goal]);
-            if(IsLevelComplete())
+            if (IsLevelComplete())
+            {
                 effectController.LevelComplete();
+                AudioManager.Instance.PlayAudioByType(AudioType.Salute, AudioSubType.Sound);
+                AudioManager.Instance.PlayAudioByType(AudioType.LevelPassed, AudioSubType.Sound);
+            }
         }
 
 

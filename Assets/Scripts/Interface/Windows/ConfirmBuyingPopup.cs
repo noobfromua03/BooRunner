@@ -33,12 +33,16 @@ public class ConfirmBuyingPopup : MonoBehaviour, IWindowUI
                 break;
         }
 
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         Progress.Inventory.customItems.HatIndex = customItemView.Index;
         OnComfirm?.Invoke();
         WindowsManager.Instance.ClosePopup(this);
     }
     public void ExitBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
     public void DestroySelf()
         => Destroy(Window);
 }

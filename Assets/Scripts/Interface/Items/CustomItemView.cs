@@ -27,7 +27,8 @@ public class CustomItemView : MonoBehaviour
         {
             Progress.Inventory.customItems.HatIndex = Index;
             Click?.Invoke();
-        }   
+        }
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
     }
 
     public void Unlock()

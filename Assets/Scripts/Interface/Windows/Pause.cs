@@ -32,12 +32,14 @@ public class Pause : MonoBehaviour, IWindowUI
 
     public void SoundBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         Progress.Options.Sound = !Progress.Options.Sound;
         soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
         AudioManager.Instance.ChangeSoundVolume();
     }
     public void MusicBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         Progress.Options.Music = !Progress.Options.Music;
         musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
         AudioManager.Instance.ChangeMusicVolume();
@@ -46,10 +48,14 @@ public class Pause : MonoBehaviour, IWindowUI
 
 
     public void ContinueBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
 
     public void ExitBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         WindowsManager.Instance.ClosePopup(this);
         PlayerData.Instance.GameOver?.Invoke();
     }

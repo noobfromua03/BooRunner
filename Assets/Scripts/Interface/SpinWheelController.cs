@@ -23,6 +23,7 @@ public class SpinWheelController : MonoBehaviour
 
     private Coroutine spinRoutine;
     private RewardItemData rewardItem;
+    private AudioSource spinSound;
     public bool IsSpinning { get; private set; }
 
     private void OnEnable()
@@ -49,8 +50,6 @@ public class SpinWheelController : MonoBehaviour
 
         if (Progress.Inventory.spins.spins > 0)
             Play();
-
-
     }
 
     private void RewardSpinWheel()
@@ -71,7 +70,9 @@ public class SpinWheelController : MonoBehaviour
 
         view.spinBtn.enabled = false;
         view.rewardSpinBtn.enabled = false;
+        view.BlockPanel.SetActive(true);
         spinRoutine = StartCoroutine(SpinWheelCoroutine(reward.Item2, rewardItem));
+        spinSound = AudioManager.Instance.PlayAudioByType(AudioType.FortuneWheel, AudioSubType.Music);
     }
 
     private IEnumerator SpinWheelCoroutine(int section, RewardItemData item)
@@ -113,6 +114,7 @@ public class SpinWheelController : MonoBehaviour
     private void OnFinishSpin(int section, RewardItemData item)
     {
         StopSpin();
+        spinSound.Stop();
         Debug.Log("Looted item: " + item.Amount + " " + item.Item.Type.ToString() + " with index " + section);
 
         var popup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
@@ -122,6 +124,8 @@ public class SpinWheelController : MonoBehaviour
             CurrencyService.AddCurrency(CurrencyType.Hard, item.Amount);
         else
             Progress.Inventory.AddItem(item.Type, item.Amount);
+
+        view.BlockPanel.SetActive(false);
 
         popup.InitializeReward(item);
 

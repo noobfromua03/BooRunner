@@ -55,7 +55,10 @@ public class Hero : MonoBehaviour, IWindowUI
         customItems.Clear();
     }
     public void ClickOnSlot(CustomItemSlotView slot)
-        => InitializeItemsByType(slot.Type);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        InitializeItemsByType(slot.Type);
+    }
 
     public void UpdateActiveSlotAndHero()
     {
@@ -65,6 +68,7 @@ public class Hero : MonoBehaviour, IWindowUI
 
     public void ExitBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         WindowsManager.Instance.ChangeCameraView(WindowType.MainMenu);
         WindowsManager.Instance.OpenWindow(WindowType.MainMenu);
     }

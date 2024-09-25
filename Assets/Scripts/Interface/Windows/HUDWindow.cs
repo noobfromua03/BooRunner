@@ -38,10 +38,14 @@ public class HUDWindow : MonoBehaviour, IWindowUI
         bool isActionDone = Click?.Invoke(slots.IndexOf(slot)) ?? false;
         if (isActionDone)
             StartCoroutine(slot.BlockButton());
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
     }
 
     public void PauseBtn()
-        => WindowsManager.Instance.OpenPopup(WindowType.PausePopap);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.OpenPopup(WindowType.PausePopap);
+    }
 
     public void DestroySelf()
         => Destroy(Window);

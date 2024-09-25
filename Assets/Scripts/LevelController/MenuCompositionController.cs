@@ -21,10 +21,11 @@ public class MenuCompositionController : MonoBehaviour
     private Coroutine spawnRoutine;
     private void Awake()
     {
-        var levelData = LevelsConfig.Instance.Levels[0];
+        var levelData = LevelsConfig.Instance.Levels[Random.Range(0, LevelsConfig.Instance.Levels.Count)];
+        var environmentData = levelData.GetEnvironmentByType(levelData.EnvironmentType);
 
         generator.InitializeForMenu(
-            levelData.Obstacles.Select(o => AddressableExtensions.GetAsset(o)).ToList());
+            environmentData.Obstacles.Select(o => AddressableExtensions.GetAsset(o)).ToList());
 
         movementController.SetInstance();
         generator.SetContainers(enemyContainer, null);

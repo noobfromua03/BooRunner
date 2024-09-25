@@ -9,6 +9,10 @@ public class ClaimRewardPopup : MonoBehaviour, IWindowUI
     public WindowType Type { get => type; }
     public GameObject Window { get => gameObject; }
 
+    private void OnEnable()
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.RewardOpen, AudioSubType.Sound);
+    }
     public void InitializeReward(RewardItemData data)
     {
         var prefab = WindowsConfig.Instance.Windows[0].GetItemByType(InterfaceItemType.RewardItem);
@@ -18,6 +22,7 @@ public class ClaimRewardPopup : MonoBehaviour, IWindowUI
 
     public void ClaimBtn()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         WindowsManager.Instance.ClosePopup(this);
         WindowsManager.Instance.ReturnToMenu();
     }

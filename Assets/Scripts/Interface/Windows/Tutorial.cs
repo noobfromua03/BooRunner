@@ -16,15 +16,25 @@ public class Tutorial : MonoBehaviour, IWindowUI
     }
 
     public void ExitBtn()
-        => WindowsManager.Instance.ClosePopup(this);
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        WindowsManager.Instance.ClosePopup(this);
+    }
     public void PreviousBtn()
-        => PreviousSlide();
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        PreviousSlide();
+    }
     public void NextBtn()
-        => NextSlide();
+    {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+        NextSlide();
+    }
     public void DestroySelf()
         => Destroy(Window);
     private void NextSlide()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         slideNumber += 1;
         if (TutorialConfig.Instance.Slides.Count - 1 < slideNumber)
             slideNumber = 0;
@@ -32,6 +42,7 @@ public class Tutorial : MonoBehaviour, IWindowUI
     }
     private void PreviousSlide()
     {
+        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         slideNumber -= 1;
         if (slideNumber < 0)
             slideNumber = TutorialConfig.Instance.Slides.Count - 1;

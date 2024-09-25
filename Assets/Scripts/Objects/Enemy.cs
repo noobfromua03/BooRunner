@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour, IPoolObject
     private ParticleSystem radianceEffect;
     private ParticleSystem scaredEffect;
 
-    private bool CanUseEssence => CompareBold(PlayerData.Instance.FearEssence) || PlayerData.Instance.IsTownLegend.Status;
     private void Start()
     {
         MovementController.instance.AddMoveUnit(MoveUnit);
@@ -75,14 +74,16 @@ public class Enemy : MonoBehaviour, IPoolObject
             MoveUnit.currentPatrolLine = 1;
     }
 
-    public bool CompareBold(int essence)
+    public bool CompareBold(int essence, int boldLevel)
     {
+        if (PlayerData.Instance.IsChillingTouch.Status || PlayerData.Instance.IsPhantomOfTheOpera.Status)
+            boldLevel /= 2;
         return essence >= boldLevel;
     }
 
     public void ActionHandler()
     {
-        if (CanUseEssence)
+        if (CompareBold(PlayerData.Instance.FearEssence, boldLevel) || PlayerData.Instance.IsTownLegend.Status)
         {
             PlayerData.Instance.RemoveEssence(BoldLevel);
             ScaredJump();
@@ -94,7 +95,7 @@ public class Enemy : MonoBehaviour, IPoolObject
 
     public void PhantomOfTheOperaHandler()
     {
-        if (CanUseEssence)
+        if (CompareBold(PlayerData.Instance.FearEssence, boldLevel) || PlayerData.Instance.IsTownLegend.Status)
         {
             PlayerData.Instance.RemoveEssence(BoldLevel);
             ScaredJump();

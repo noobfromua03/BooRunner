@@ -129,7 +129,6 @@ public class WindowsManager : MonoBehaviour
         menuCamera.enabled = false;
         levelController.gameObject.SetActive(true);
         AudioManager.Instance.Reload();
-        AudioManager.Instance.PlayAudioByType(AudioType.LevelMusic, AudioSubType.Music);
 
     }
 
@@ -149,8 +148,6 @@ public class WindowsManager : MonoBehaviour
 
     public IWindowUI OpenWindow(WindowType type)
     {
-        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-
         var window = windows.Find(w => w.Type == type);
         CloseAllPopups();
         CloseAllWindows();
@@ -166,7 +163,6 @@ public class WindowsManager : MonoBehaviour
 
     public IWindowUI OpenPopup(WindowType type)
     {
-        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
         var popup = windows.Find(w => w.Type == type);
 
         if (popup == null)

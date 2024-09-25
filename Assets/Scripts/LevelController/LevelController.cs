@@ -25,6 +25,7 @@ public class LevelController : MonoBehaviour
     private MovementController movementController = new();
     private ObjectsPool objectsPool = new();
     private float lightTemperature;
+    private AudioType levelMusic;
 
     private int levelConfig = 0;
     private const float SPEED_MODIFY_MULTIPLIER = 0.075f;
@@ -33,23 +34,25 @@ public class LevelController : MonoBehaviour
     private void Awake()
     {
         var levelData = LevelsConfig.Instance.Levels[levelConfig];
+        var environmentData = levelData.GetEnvironmentByType(levelData.EnvironmentType);
 
         RoadGenerator.Initialize(
-            levelData
+            environmentData
                 .RoadParts.Select(rp => AddressableExtensions.GetAsset(rp).GetComponent<RoadPart>())
                 .ToList());
         DecorationGenerator.Initialize(
-            levelData
+            environmentData
                 .DecorationParts.Select(rp =>
                     AddressableExtensions.GetAsset(rp).GetComponent<RoadPart>()
                 ).ToList());
         ObjectGenerator.Initialize(
-            levelData.Obstacles.Select(o => AddressableExtensions.GetAsset(o)).ToList(),
-            levelData.Collectables.Select(c => AddressableExtensions.GetAsset(c)).ToList());
+            environmentData.Obstacles.Select(o => AddressableExtensions.GetAsset(o)).ToList(),
+            LevelsConfig.Instance.Collectables.Select(c => AddressableExtensions.GetAsset(c)).ToList());
         AddressablesAssetsHandler.ReleaseReferences();
 
         CreatePlayerWithData();
         CreateCamera();
+        levelMusic = environmentData.AudioType;
         lightTemperature = levelData.LightTemperature;
         CreateDisableZone();
         playerData.GetCurrentGoals(levelData, levelConfig);
@@ -82,10 +85,12 @@ public class LevelController : MonoBehaviour
         playerCamera.GetComponentInChildren<Light>().colorTemperature = lightTemperature;
 
         itemController.ActivatePassiveItems();
+        AudioManager.Instance.PlayAudioByType(levelMusic, AudioSubType.Music);
     }
 
     private void OnEnable()
     {
+
         Time.timeScale = 1;
     }
 
