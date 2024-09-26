@@ -30,7 +30,7 @@ public enum IconType
     HeartOfGhost = 18,
     ScareTotem = 19,
     GoldLoaf = 20,
-    CoffinKey = 21,
+    OldKey = 21,
     TotemOfFearEssence = 22,
     None = 23,
     RealCurrency = 24,

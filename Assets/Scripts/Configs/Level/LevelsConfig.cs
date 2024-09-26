@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Searcher;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -42,8 +41,6 @@ public class LevelData
     [field: SerializeField] public float LightTemperature { get; private set; }
     public EnvironmentData GetEnvironmentByType(EnvironmentType type)
         => LevelsConfig.Instance.EnvironmentData.Find(e => e.Type == type);
-
-
 }
 
 [Serializable]

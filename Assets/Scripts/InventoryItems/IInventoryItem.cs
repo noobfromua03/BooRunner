@@ -19,7 +19,7 @@ public enum ItemType
     HeartOfGhost = 7,
     ScareTotem = 8,
     GoldLoaf = 9,
-    CoffinKey = 10,
+    OldKey = 10,
     TotemOfFearEssence = 11,
     None = 12,
     SoftCurrency = 13,

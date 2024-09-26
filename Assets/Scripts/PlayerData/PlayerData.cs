@@ -28,7 +28,7 @@ public class PlayerData : MonoBehaviour
     public bool IsInvincible { get; private set; }
     public bool IsScareTotem { get; private set; }
     public bool IsGoldLoaf { get; private set; }
-    public bool IsCoffinKey { get; private set; }
+    public bool IsOldKey { get; private set; }
     public bool IsDissolve { get; private set; } = false;
 
     public Dictionary<GoalsData, int> currentGoals = new();
@@ -257,7 +257,7 @@ public class PlayerData : MonoBehaviour
     public void GoldBreadON()
         => IsGoldLoaf = true;
 
-    public void CoffinKeyON()
+    public void OldKeyON()
     {
         maxLifes = 5;
         life = maxLifes;

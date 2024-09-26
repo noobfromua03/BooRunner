@@ -42,7 +42,7 @@ public static class ItemBuilder
             ItemType.HeartOfGhost => new HeartOfGhost(),
             ItemType.ScareTotem => new ScareTotem(),
             ItemType.GoldLoaf => new GoldLoaf(),
-            ItemType.CoffinKey => new CoffinKey(),
+            ItemType.OldKey => new OldKey(),
             ItemType.TotemOfFearEssence => new TotemOfFearEssence(),
             ItemType.None => new NoneItem(),
             ItemType.SoftCurrency => new SoftCurrency(),

@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour, IWindowUI
         if (Progress.Inventory.ItemExist(ItemType.None, 0) == false)
         {
             var none = ItemBuilder.GetInventoryItem(ItemType.None);
-            Progress.Inventory.AddItem(none.Type, 1);
+            Progress.Inventory.AddItem(none.Type, 0);
         }
     }
 

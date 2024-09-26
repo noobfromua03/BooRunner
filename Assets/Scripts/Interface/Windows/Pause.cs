@@ -21,8 +21,8 @@ public class Pause : MonoBehaviour, IWindowUI
     {
         Time.timeScale = 0;
         goals.text = PlayerData.Instance.SetGoals();
-        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
-        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        soundBtn.sprite = Progress.Options.SoundMute ? soundON : soundOFF;
+        musicBtn.sprite = Progress.Options.MusicMute ? musicON : musicOFF;
     }
 
     private void OnDisable()
@@ -33,15 +33,15 @@ public class Pause : MonoBehaviour, IWindowUI
     public void SoundBtn()
     {
         AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-        Progress.Options.Sound = !Progress.Options.Sound;
-        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        Progress.Options.SoundMute = !Progress.Options.SoundMute;
+        soundBtn.sprite = Progress.Options.SoundMute ? soundON : soundOFF;
         AudioManager.Instance.ChangeSoundVolume();
     }
     public void MusicBtn()
     {
         AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-        Progress.Options.Music = !Progress.Options.Music;
-        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        Progress.Options.MusicMute = !Progress.Options.MusicMute;
+        musicBtn.sprite = Progress.Options.MusicMute ? musicON : musicOFF;
         AudioManager.Instance.ChangeMusicVolume();
     }
 

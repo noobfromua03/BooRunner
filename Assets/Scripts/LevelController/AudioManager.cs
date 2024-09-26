@@ -93,7 +93,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeSoundVolume()
     {
-        if (Progress.Options.Sound)
+        if (Progress.Options.SoundMute)
             audioMixer.SetFloat("SoundVolume", SOUND_VOLUME);
         else
             audioMixer.SetFloat("SoundVolume", -80f);
@@ -101,7 +101,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        if (Progress.Options.Music)
+        if (Progress.Options.MusicMute)
             audioMixer.SetFloat("MusicVolume", MUSIC_VOLUME);
         else
             audioMixer.SetFloat("MusicVolume", -80f);

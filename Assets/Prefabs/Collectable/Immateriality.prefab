@@ -187,7 +187,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.32549024, b: 0.8748581, a: 0.34117648}
+      maxColor: {r: 1, g: 0.32549024, b: 0.8748581, a: 0.59607846}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 0.740566, a: 1}
@@ -4984,7 +4984,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.07058824}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.3529412}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.23353481, g: 1, b: 0, a: 0.27450982}
@@ -5048,7 +5048,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9945,12 +9945,12 @@ PrefabInstance:
     - target: {fileID: 4109064841345302815, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4109064841345302815, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.07058824
+      value: 0.40392157
       objectReference: {fileID: 0}
     - target: {fileID: 4109064841345302815, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
@@ -9960,12 +9960,12 @@ PrefabInstance:
     - target: {fileID: 4109064841345302815, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
+      value: 0.5569397
       objectReference: {fileID: 0}
     - target: {fileID: 4109064841345302815, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
+      value: 0.2028302
       objectReference: {fileID: 0}
     - target: {fileID: 4109064841367350312, guid: 2a409ab125c5216449bc5f005ec045f0,
         type: 3}
