@@ -15,19 +15,15 @@ MonoBehaviour:
   <ShopItems>k__BackingField:
   - <Type>k__BackingField: 0
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 2000
+    <Cost>k__BackingField: 1000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 1
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 2000
-    <Amount>k__BackingField: 1
-  - <Type>k__BackingField: 2
-    <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 2000
+    <Cost>k__BackingField: 1000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 3
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 2500
+    <Cost>k__BackingField: 1500
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 4
     <CurrencyType>k__BackingField: 0
@@ -35,31 +31,27 @@ MonoBehaviour:
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 5
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 5000
+    <Cost>k__BackingField: 3000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 6
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 2500
+    <Cost>k__BackingField: 1500
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 7
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 5000
+    <Cost>k__BackingField: 3000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 8
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 8000
+    <Cost>k__BackingField: 3000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 9
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 10000
+    <Cost>k__BackingField: 3000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 10
     <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 10000
-    <Amount>k__BackingField: 1
-  - <Type>k__BackingField: 11
-    <CurrencyType>k__BackingField: 0
-    <Cost>k__BackingField: 12000
+    <Cost>k__BackingField: 4000
     <Amount>k__BackingField: 1
   - <Type>k__BackingField: 13
     <CurrencyType>k__BackingField: 1
@@ -73,11 +65,3 @@ MonoBehaviour:
     <CurrencyType>k__BackingField: 1
     <Cost>k__BackingField: 100
     <Amount>k__BackingField: 80000
-  - <Type>k__BackingField: 14
-    <CurrencyType>k__BackingField: 2
-    <Cost>k__BackingField: 500
-    <Amount>k__BackingField: 150
-  - <Type>k__BackingField: 14
-    <CurrencyType>k__BackingField: 2
-    <Cost>k__BackingField: 899
-    <Amount>k__BackingField: 300

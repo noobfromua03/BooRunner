@@ -1,5 +1,7 @@
 ﻿using RandomGeneratorWithWeight;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RewardConfig : AbstractConfig<RewardConfig>
@@ -20,17 +22,43 @@ public class RewardConfig : AbstractConfig<RewardConfig>
         return new RewardItemData(levelRewardItemType, value);
     }
 
-    public List<RewardItemData> GetAllWheelRewards()
+    public List<RewardItemData> UpdateAllWheelRewards()
     {
         var rewardItems = new List<RewardItemData>();
-        foreach (var item in wheelRewards)
+        var currentRewards = wheelRewards.OrderBy(i => UnityEngine.Random.value).Take(8).ToList();
+
+        Progress.Inventory.spins.currentWheelRewardIndexes.Clear();
+
+        foreach (var item in currentRewards)
+        {
             rewardItems.Add(item.GetItem());
+            int index = wheelRewards.IndexOf(item);
+            Progress.Inventory.spins.currentWheelRewardIndexes.Add(index);
+        }
+        return rewardItems;
+    }
+
+    public List<RewardItemData> GetCurrentWheelReward()
+    {
+        var rewardItems = new List<RewardItemData>();
+
+        Progress.Inventory.spins.currentWheelRewardIndexes = 
+            Progress.Inventory.spins.currentWheelRewardIndexes.OrderBy(i => UnityEngine.Random.value).ToList();
+
+        foreach (var index in Progress.Inventory.spins.currentWheelRewardIndexes)
+            rewardItems.Add(wheelRewards[index].GetItem());
+
         return rewardItems;
     }
 
     public (RewardItemData, int) GetWheelReward()
     {
-        return GetItemWithWeight.GetItemWithIndex(wheelRewards);
+        var rewardItems = new List<ItemForRandom<RewardItemData>>();
+
+        foreach (var index in Progress.Inventory.spins.currentWheelRewardIndexes)
+            rewardItems.Add(wheelRewards[index]);
+
+        return GetItemWithWeight.GetItemWithIndex(rewardItems);
     }
 }
 

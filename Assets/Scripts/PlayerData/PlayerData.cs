@@ -245,12 +245,6 @@ public class PlayerData : MonoBehaviour
         IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false, audioSource));
     }
 
-    public void ScrollOfCurse()
-    {
-        scaredEnemiesStreak *= 2;
-        UpdateStreak(scaredEnemiesStreak);
-    }
-
     public void ScareTotemON()
         => IsScareTotem = true;
 

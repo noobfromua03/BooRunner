@@ -43,6 +43,8 @@ public partial class Progress : ProgressBase<Progress>
                 spins = 1;
                 rewardSpins = 3;
             }
+
+            public List<int> currentWheelRewardIndexes = new();
         }
 
         [Serializable]
