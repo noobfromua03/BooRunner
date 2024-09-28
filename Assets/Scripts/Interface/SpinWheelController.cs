@@ -147,7 +147,7 @@ public class SpinWheelController : MonoBehaviour
 
     private void UpdateSpins()
     {
-        if (SpinService.CompareDate() == false)
+        if (SpinService.CompareDate() == false || Progress.Inventory.spins.currentWheelRewardIndexes.Count == 0)
         {
             SpinService.ReloadSpinsOnNewDay();
             SpinService.SetDate();
