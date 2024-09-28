@@ -179,10 +179,23 @@ public class LevelController : MonoBehaviour
 
     private void GameOver()
     {
+        Time.timeScale = 0;
+
+        AdvertWrapper.Instance.ShowInterstitial(null, (v) =>
+        {
+            ShowRewardPopup();
+        }, () =>
+        {
+            ShowRewardPopup();
+        });
+    }
+
+    private void ShowRewardPopup()
+    {
         var rewardData = RewardConfig.Instance.GetSoftLevelReward(playerData.IsGoldLoaf, playerData.Score);
         var rewardPopup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
+
         CurrencyService.AddCurrency(CurrencyType.Soft, rewardData.Amount);
         rewardPopup.InitializeReward(rewardData);
-        Time.timeScale = 0;
     }
 }

@@ -58,7 +58,13 @@ public class SpinWheelController : MonoBehaviour
             return;
 
         if (Progress.Inventory.spins.rewardSpins > 0)
-            Play();
+        {
+            AdvertWrapper.Instance.ShowRewardedVideo(null, (v) =>
+            {
+                if (v)
+                    Play();
+            }, null);
+        }
     }
 
     private void Play()

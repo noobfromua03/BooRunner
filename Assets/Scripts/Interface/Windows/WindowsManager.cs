@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -36,6 +37,8 @@ public class WindowsManager : MonoBehaviour
 
         menuComposition = Instantiate(menuPrefab);
         playerCustomization = menuComposition.GetComponent<MenuCompositionController>().GetCustomizator();
+
+        AdvertWrapper.Instance.Init().Forget();
     }
 
     private void Start()
