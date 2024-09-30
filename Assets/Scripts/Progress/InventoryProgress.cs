@@ -8,7 +8,7 @@ public partial class Progress : ProgressBase<Progress>
     public class InventoryProgress
     {
         public CustomItems customItems = new();
-        public Spins spins;
+        public FortuneWheelData spins = new();
         public int soft;
         public int hard;
         public ItemType currentItem_0 = ItemType.None;
@@ -25,14 +25,15 @@ public partial class Progress : ProgressBase<Progress>
         }
 
         [Serializable]
-        public class Spins
+        public class FortuneWheelData
         {
             public DateTime today;
             public DateTime rewardSpinStartCalldown;
             public int spins;
             public int rewardSpins;
+            public List<int> currentWheelRewardIndexes = new();
 
-            public Spins()
+            public FortuneWheelData()
             {
                 spins = 1;
                 rewardSpins = 3;
@@ -44,7 +45,6 @@ public partial class Progress : ProgressBase<Progress>
                 rewardSpins = 3;
             }
 
-            public List<int> currentWheelRewardIndexes = new();
         }
 
         [Serializable]
