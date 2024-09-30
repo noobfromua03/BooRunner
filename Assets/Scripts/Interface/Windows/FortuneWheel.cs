@@ -32,9 +32,7 @@ public class FortuneWheel : MonoBehaviour, IWindowUI
     }
     public void AdsBtn()
     {
-        AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-        AdvertService.ShowRewarded(RewardSpin, () => WindowsManager.Instance.OpenWindow(WindowType.MainMenu));
-        SpinService.RemoveRewardSpin();
+        RewardSpin?.Invoke();
     }
     public void ExitBtn()
     {

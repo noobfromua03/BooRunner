@@ -1,15 +1,22 @@
-﻿
-using RandomGeneratorWithWeight;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using RandomGeneratorWithWeight;
 using UnityEngine;
 using Random = UnityEngine.Random;
+
 public class SpinWheelController : MonoBehaviour
 {
-    [SerializeField] private FortuneWheel view;
-    [SerializeField] private RectTransform wheel;
-    [SerializeField] private AnimationCurve spinCurve;
-    [SerializeField] private AnimationCurve finalPosOffsetCurve;
+    [SerializeField]
+    private FortuneWheel view;
+
+    [SerializeField]
+    private RectTransform wheel;
+
+    [SerializeField]
+    private AnimationCurve spinCurve;
+
+    [SerializeField]
+    private AnimationCurve finalPosOffsetCurve;
 
     private const int SECTIONS_AMOUNT = 8;
     private const float FULL_WHEEL = 360f;
@@ -17,8 +24,10 @@ public class SpinWheelController : MonoBehaviour
     private const float START_OFFSET = SECTION_CENTER_MIDDLE;
     private (float, float) START_SPEED = (2f, 5f);
     private (float, float) CONST_ROTANIN_TIME = (0.5f, 1.5f);
-    private (float, float) FINAL_POS_OFFSET = (-SECTION_CENTER_MIDDLE * 0.95f - START_OFFSET,
-        SECTION_CENTER_MIDDLE * 0.95f - START_OFFSET);
+    private (float, float) FINAL_POS_OFFSET = (
+        -SECTION_CENTER_MIDDLE * 0.95f - START_OFFSET,
+        SECTION_CENTER_MIDDLE * 0.95f - START_OFFSET
+    );
     private (int, int) END_ADDITIONAL_WHEELS_COUNT = (4, 8);
 
     private Coroutine spinRoutine;
@@ -57,8 +66,23 @@ public class SpinWheelController : MonoBehaviour
         if (spinRoutine != null)
             return;
 
+        Debug.Log("Ckicked reward spin");
         if (Progress.Inventory.spins.rewardSpins > 0)
-            Play();
+        {
+            AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
+            AdvertWrapper.Instance.ShowRewardedVideo(
+                "",
+                (showed) =>
+                {
+                    if (showed && Progress.Inventory.spins.rewardSpins > 0)
+                    {
+                        Play();
+                        SpinService.RemoveRewardSpin();
+                    }
+                },
+                () => { }
+            );
+        }
     }
 
     private void Play()
@@ -72,7 +96,10 @@ public class SpinWheelController : MonoBehaviour
         view.rewardSpinBtn.enabled = false;
         view.BlockPanel.SetActive(true);
         spinRoutine = StartCoroutine(SpinWheelCoroutine(reward.Item2, rewardItem));
-        spinSound = AudioManager.Instance.PlayAudioByType(AudioType.FortuneWheel, AudioSubType.Music);
+        spinSound = AudioManager.Instance.PlayAudioByType(
+            AudioType.FortuneWheel,
+            AudioSubType.Music
+        );
     }
 
     private IEnumerator SpinWheelCoroutine(int section, RewardItemData item)
@@ -90,8 +117,13 @@ public class SpinWheelController : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        var finalSectionPos = section * (FULL_WHEEL / SECTIONS_AMOUNT) + SECTION_CENTER_MIDDLE + CalculateRandomOffset();
-        var finalPos = finalSectionPos / FULL_WHEEL + Random.Range(END_ADDITIONAL_WHEELS_COUNT.Item1, END_ADDITIONAL_WHEELS_COUNT.Item2);
+        var finalSectionPos =
+            section * (FULL_WHEEL / SECTIONS_AMOUNT)
+            + SECTION_CENTER_MIDDLE
+            + CalculateRandomOffset();
+        var finalPos =
+            finalSectionPos / FULL_WHEEL
+            + Random.Range(END_ADDITIONAL_WHEELS_COUNT.Item1, END_ADDITIONAL_WHEELS_COUNT.Item2);
         var distance = finalPos - currentWheelPos;
         var currentDistance = 0f;
         var maxSpeed = speed;
@@ -102,11 +134,13 @@ public class SpinWheelController : MonoBehaviour
             speed = Mathf.Lerp(0, maxSpeed, speedMultiplier);
             currentDistance += speed * Time.deltaTime;
             currentDistance = Mathf.Min(currentDistance, distance);
-            wheel.localEulerAngles = new Vector3(0f, 0f, (currentWheelPos + currentDistance) * FULL_WHEEL);
+            wheel.localEulerAngles = new Vector3(
+                0f,
+                0f,
+                (currentWheelPos + currentDistance) * FULL_WHEEL
+            );
             yield return null;
         }
-
-
 
         OnFinishSpin(section, item);
     }
@@ -115,9 +149,17 @@ public class SpinWheelController : MonoBehaviour
     {
         StopSpin();
         spinSound.Stop();
-        Debug.Log("Looted item: " + item.Amount + " " + item.Item.Type.ToString() + " with index " + section);
+        Debug.Log(
+            "Looted item: "
+                + item.Amount
+                + " "
+                + item.Item.Type.ToString()
+                + " with index "
+                + section
+        );
 
-        var popup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
+        var popup =
+            WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
         if (item.Type == ItemType.SoftCurrency)
             CurrencyService.AddCurrency(CurrencyType.Soft, item.Amount);
         else if (item.Type == ItemType.HardCurrency)
@@ -132,13 +174,16 @@ public class SpinWheelController : MonoBehaviour
         UpdateSpins();
     }
 
-
     private float CalculateRandomOffset()
     {
         List<ItemForRandom<float>> randomizeList = new List<ItemForRandom<float>>();
 
         for (float i = 0; i < 1f; i += 0.01f)
-            randomizeList.Add(new ItemForRandom<float>().WithItem(i).WithWeight((int)(finalPosOffsetCurve.Evaluate(i) * 100)));
+            randomizeList.Add(
+                new ItemForRandom<float>()
+                    .WithItem(i)
+                    .WithWeight((int)(finalPosOffsetCurve.Evaluate(i) * 100))
+            );
 
         var randomFloat = GetItemWithWeight.GetItem(randomizeList);
 
@@ -152,8 +197,6 @@ public class SpinWheelController : MonoBehaviour
             SpinService.ReloadSpinsOnNewDay();
             SpinService.SetDate();
         }
-
-
 
         if (Progress.Inventory.spins.spins == 0)
             view.spins.text = "Today free spin is used";
@@ -171,4 +214,3 @@ public class SpinWheelController : MonoBehaviour
         view.rewardSpinBtn.enabled = true;
     }
 }
-
