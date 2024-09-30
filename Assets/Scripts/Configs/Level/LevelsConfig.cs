@@ -38,7 +38,6 @@ public class LevelData
 {
     [field: SerializeField] public EnvironmentType EnvironmentType;
     [field: SerializeField] public List<GoalsData> Goals { get; private set; }
-    [field: SerializeField] public float LightTemperature { get; private set; }
     public EnvironmentData GetEnvironmentByType(EnvironmentType type)
         => LevelsConfig.Instance.EnvironmentData.Find(e => e.Type == type);
 
@@ -54,6 +53,8 @@ public class EnvironmentData
     [field: SerializeField] public List<AssetReferenceGameObject> DecorationParts { get; private set; }
     [field: SerializeField] public AudioType AudioType { get; private set; }
     [field: SerializeField] public SkyBoxType SkyBox { get; private set; }
+    [field: SerializeField] public float LightTemperature { get; private set; }
+
 }
 
 public enum EnvironmentType

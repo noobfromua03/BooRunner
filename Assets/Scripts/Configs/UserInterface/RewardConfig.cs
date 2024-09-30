@@ -15,10 +15,11 @@ public class RewardConfig : AbstractConfig<RewardConfig>
     [SerializeField] private float defaultMultiplier;
     [SerializeField] private int minReward;
 
-    public RewardItemData GetSoftLevelReward(bool isGoldLoaf, int score)
+    public RewardItemData GetSoftLevelReward(bool isGoldLoaf, int score, int goalBonus)
     {
         int value = (int)((isGoldLoaf ? score * goldLoafMultiplier : score) * defaultMultiplier);
         value = score != 0 ? Mathf.Max(value, minReward) : 0;
+        value += goalBonus;
         return new RewardItemData(levelRewardItemType, value);
     }
 

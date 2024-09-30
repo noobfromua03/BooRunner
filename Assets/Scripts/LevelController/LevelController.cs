@@ -26,8 +26,9 @@ public class LevelController : MonoBehaviour
     private ObjectsPool objectsPool = new();
     private float lightTemperature;
     private AudioType levelMusic;
-
+    
     private int levelConfig = 0;
+    private EnvironmentType environmentType;
     private const float SPEED_MODIFY_MULTIPLIER = 0.075f;
     private const float SPAWN_MODIFY_MULTIPLIER = 0.025f;
 
@@ -54,7 +55,8 @@ public class LevelController : MonoBehaviour
         CreateCamera();
         RenderSettings.skybox = LevelsConfig.Instance.GetSkyBoxByType(environmentData.SkyBox);
         levelMusic = environmentData.AudioType;
-        lightTemperature = levelData.LightTemperature;
+        lightTemperature = environmentData.LightTemperature;
+        environmentType = environmentData.Type;
         CreateDisableZone();
         playerData.GetCurrentGoals(levelData, levelConfig);
 
@@ -179,10 +181,30 @@ public class LevelController : MonoBehaviour
 
     private void GameOver()
     {
-        var rewardData = RewardConfig.Instance.GetSoftLevelReward(playerData.IsGoldLoaf, playerData.Score);
+        var goalBonus = playerData.GoalsBonus ? GetGoalBonus(environmentType) : 0;
+        var rewardData = RewardConfig.Instance.GetSoftLevelReward(playerData.IsGoldLoaf, playerData.Score, goalBonus);
         var rewardPopup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
         CurrencyService.AddCurrency(CurrencyType.Soft, rewardData.Amount);
         rewardPopup.InitializeReward(rewardData);
         Time.timeScale = 0;
+    }
+
+    private int GetGoalBonus(EnvironmentType type)
+    {
+        switch(type)
+        {
+            case EnvironmentType.CityPark:
+                return 200;
+            case EnvironmentType.Farm:
+                return 300;
+            case EnvironmentType.Castle:
+                return 500;
+            case EnvironmentType.Town:
+                return 600;
+            case EnvironmentType.Cemetry:
+                return 750;
+        }
+
+        return 0;
     }
 }

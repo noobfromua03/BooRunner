@@ -16,48 +16,164 @@ MonoBehaviour:
   - EnvironmentType: 0
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 15
+      <Text>k__BackingField: 'Scare some persons:'
+  - EnvironmentType: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 10
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 30
+      <GoalValue>k__BackingField: 600
       <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 3
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 3000
+      <Text>k__BackingField: 'Earn total score:'
+  - EnvironmentType: 4
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 1000
+      <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 0
+    <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
       <Text>k__BackingField: 'Scare some persons:'
-    <LightTemperature>k__BackingField: 6500
   - EnvironmentType: 1
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 3
       <GoalValue>k__BackingField: 15
       <Text>k__BackingField: 'Keep scare streak:'
-    - <Complete>k__BackingField: 0
-      <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 30
-      <Text>k__BackingField: 'Scare some persons:'
-    <LightTemperature>k__BackingField: 6000
   - EnvironmentType: 2
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
-      <GoalValue>k__BackingField: 700
+      <GoalValue>k__BackingField: 1000
       <Text>k__BackingField: 'Collect some fear essence:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
-      <GoalValue>k__BackingField: 40
+      <GoalValue>k__BackingField: 25
       <Text>k__BackingField: 'Scare some persons:'
-    <LightTemperature>k__BackingField: 8000
   - EnvironmentType: 3
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 2
-      <GoalValue>k__BackingField: 10000
+      <GoalValue>k__BackingField: 2500
       <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 15
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 4
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 5000
+      <Text>k__BackingField: 'Earn total score:'
+  - EnvironmentType: 0
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 50
+      <Text>k__BackingField: 'Scare some persons:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 1000
+      <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 1200
+      <Text>k__BackingField: 'Collect some fear essence:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
       <GoalValue>k__BackingField: 40
       <Text>k__BackingField: 'Scare some persons:'
-    <LightTemperature>k__BackingField: 14000
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 3
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 1500
+      <Text>k__BackingField: 'Collect some fear essence:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
+      <Text>k__BackingField: 'Keep scare streak:'
   - EnvironmentType: 4
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 7000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 50
+      <Text>k__BackingField: 'Scare some persons:'
+  - EnvironmentType: 0
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 30
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 8000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 50
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 2200
+      <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 3
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 70
+      <Text>k__BackingField: 'Scare some persons:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 4
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 70
+      <Text>k__BackingField: 'Scare some persons:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 20
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 0
     <Goals>k__BackingField:
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 0
@@ -65,9 +181,90 @@ MonoBehaviour:
       <Text>k__BackingField: 'Collect some fear essence:'
     - <Complete>k__BackingField: 0
       <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 50
+      <Text>k__BackingField: 'Scare some persons:'
+  - EnvironmentType: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 6000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 25
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 25000
+      <Text>k__BackingField: 'Earn total score:'
+  - EnvironmentType: 3
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 50
+      <Text>k__BackingField: 'Scare some persons:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 2400
+      <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 4
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 4000
+      <Text>k__BackingField: 'Collect some fear essence:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 30
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 0
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 2000
+      <Text>k__BackingField: 'Collect some fear essence:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
       <GoalValue>k__BackingField: 60
       <Text>k__BackingField: 'Scare some persons:'
-    <LightTemperature>k__BackingField: 20000
+  - EnvironmentType: 1
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 20000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 35
+      <Text>k__BackingField: 'Keep scare streak:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <GoalValue>k__BackingField: 40
+      <Text>k__BackingField: 'Keep scare streak:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 80
+      <Text>k__BackingField: 'Scare some persons:'
+  - EnvironmentType: 3
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 0
+      <GoalValue>k__BackingField: 5000
+      <Text>k__BackingField: 'Collect some fear essence:'
+  - EnvironmentType: 2
+    <Goals>k__BackingField:
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 2
+      <GoalValue>k__BackingField: 40000
+      <Text>k__BackingField: 'Earn total score:'
+    - <Complete>k__BackingField: 0
+      <Type>k__BackingField: 1
+      <GoalValue>k__BackingField: 100
+      <Text>k__BackingField: 'Scare some persons:'
   <EnvironmentData>k__BackingField:
   - <Type>k__BackingField: 0
     <Obstacles>k__BackingField:
@@ -187,6 +384,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 14
     <SkyBox>k__BackingField: 0
+    <LightTemperature>k__BackingField: 6500
   - <Type>k__BackingField: 1
     <Obstacles>k__BackingField:
     - m_AssetGUID: f9fc4f324e02aee4db5ff0735d6ddd3d
@@ -309,6 +507,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 9
     <SkyBox>k__BackingField: 0
+    <LightTemperature>k__BackingField: 6000
   - <Type>k__BackingField: 2
     <Obstacles>k__BackingField:
     - m_AssetGUID: cf758f74ba6e34347aa9a337bde5cef0
@@ -427,6 +626,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 3
     <SkyBox>k__BackingField: 0
+    <LightTemperature>k__BackingField: 8000
   - <Type>k__BackingField: 3
     <Obstacles>k__BackingField:
     - m_AssetGUID: f60b954dcf964cd4ab813f5add1af958
@@ -545,6 +745,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 21
     <SkyBox>k__BackingField: 1
+    <LightTemperature>k__BackingField: 14000
   - <Type>k__BackingField: 4
     <Obstacles>k__BackingField:
     - m_AssetGUID: 304f63165b31c9b47993c4ebdec872e0
@@ -663,6 +864,7 @@ MonoBehaviour:
       m_EditorAssetChanged: 0
     <AudioType>k__BackingField: 4
     <SkyBox>k__BackingField: 1
+    <LightTemperature>k__BackingField: 20000
   <SkyBoxes>k__BackingField:
   - {fileID: 2100000, guid: 133347283e115d147a5fcce7f47a538f, type: 2}
   - {fileID: 2100000, guid: c1c961cbd00909b45b34d97fd7df5cbf, type: 2}

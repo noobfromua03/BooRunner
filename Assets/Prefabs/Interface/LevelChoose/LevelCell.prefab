@@ -109,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelImage: {fileID: 2978843938069990757}
   text: {fileID: 3843644033064083656}
-  type: 0
   lockImage: {fileID: 8153974160948093486}
   completeImage: {fileID: -885489514, guid: a5e645d0b2507ac42807ef8e886f7d45, type: 3}
 --- !u!1 &4463265997916311409
