@@ -40,6 +40,10 @@ public class RewardConfig : AbstractConfig<RewardConfig>
 
     public List<RewardItemData> GetCurrentWheelReward()
     {
+
+        if (Progress.Inventory.spins.currentWheelRewardIndexes.Count < 8)
+            return UpdateAllWheelRewards();
+
         var rewardItems = new List<RewardItemData>();
 
         Progress.Inventory.spins.currentWheelRewardIndexes = 
