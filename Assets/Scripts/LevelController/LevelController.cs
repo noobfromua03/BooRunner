@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -181,12 +182,18 @@ public class LevelController : MonoBehaviour
 
     private void GameOver()
     {
+        Time.timeScale = 0;
+        AdvertWrapper.Instance.ShowInterstitial(null, (showed) => GetRewardOnEndLevel(), () => GetRewardOnEndLevel());
+    }
+
+    private void GetRewardOnEndLevel()
+    {
         var goalBonus = playerData.GoalsBonus ? GetGoalBonus(environmentType) : 0;
         var rewardData = RewardConfig.Instance.GetSoftLevelReward(playerData.IsGoldLoaf, playerData.Score, goalBonus);
         var rewardPopup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
         CurrencyService.AddCurrency(CurrencyType.Soft, rewardData.Amount);
         rewardPopup.InitializeReward(rewardData);
-        Time.timeScale = 0;
+
     }
 
     private int GetGoalBonus(EnvironmentType type)
