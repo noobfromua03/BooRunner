@@ -8,7 +8,7 @@ public class DarkRune : IInventoryItem
 
     public bool ActionHandler()
     {
-        PlayerData.Instance.ChillingTouchON();
+        PlayerData.Instance.DarkCloudON();
         return true;
     }
 }

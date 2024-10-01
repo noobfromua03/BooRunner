@@ -13,30 +13,30 @@ MonoBehaviour:
   m_Name: RewardConfig
   m_EditorClassIdentifier: 
   wheelRewards:
-  - _weight: 200
+  - _weight: 150
     _item:
       <Type>k__BackingField: 0
       <Amount>k__BackingField: 2
   - _weight: 100
     _item:
       <Type>k__BackingField: 4
-      <Amount>k__BackingField: 1
-  - _weight: 10
+      <Amount>k__BackingField: 2
+  - _weight: 20
     _item:
       <Type>k__BackingField: 14
-      <Amount>k__BackingField: 20
-  - _weight: 20
+      <Amount>k__BackingField: 25
+  - _weight: 80
     _item:
       <Type>k__BackingField: 9
       <Amount>k__BackingField: 1
-  - _weight: 500
+  - _weight: 300
     _item:
       <Type>k__BackingField: 13
       <Amount>k__BackingField: 100
   - _weight: 150
     _item:
       <Type>k__BackingField: 7
-      <Amount>k__BackingField: 1
+      <Amount>k__BackingField: 2
   - _weight: 200
     _item:
       <Type>k__BackingField: 3
@@ -45,6 +45,58 @@ MonoBehaviour:
     _item:
       <Type>k__BackingField: 13
       <Amount>k__BackingField: 800
+  - _weight: 100
+    _item:
+      <Type>k__BackingField: 5
+      <Amount>k__BackingField: 3
+  - _weight: 120
+    _item:
+      <Type>k__BackingField: 6
+      <Amount>k__BackingField: 4
+  - _weight: 80
+    _item:
+      <Type>k__BackingField: 8
+      <Amount>k__BackingField: 1
+  - _weight: 30
+    _item:
+      <Type>k__BackingField: 10
+      <Amount>k__BackingField: 2
+  - _weight: 70
+    _item:
+      <Type>k__BackingField: 11
+      <Amount>k__BackingField: 3
+  - _weight: 400
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 400
+  - _weight: 10
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 5000
+  - _weight: 60
+    _item:
+      <Type>k__BackingField: 14
+      <Amount>k__BackingField: 5
+  - _weight: 80
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 2000
+  - _weight: 180
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 700
+  - _weight: 200
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 300
+  - _weight: 150
+    _item:
+      <Type>k__BackingField: 13
+      <Amount>k__BackingField: 500
+  - _weight: 40
+    _item:
+      <Type>k__BackingField: 14
+      <Amount>k__BackingField: 10
   levelRewardItemType: 13
   goldLoafMultiplier: 2
   defaultMultiplier: 0.01

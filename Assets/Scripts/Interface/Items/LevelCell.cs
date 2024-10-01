@@ -27,7 +27,7 @@ public class LevelCell : MonoBehaviour
 
     public LevelCell SetLevelNumber(int num)
     {
-        text.text = "Level " + (num + 1).ToString();
+        text.text = (num + 1).ToString();
         levelNumber = num;
         return this;
     }

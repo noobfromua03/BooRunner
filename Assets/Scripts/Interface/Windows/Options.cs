@@ -17,22 +17,22 @@ public class Options : MonoBehaviour, IWindowUI
 
     private void Start()
     {
-        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
-        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        soundBtn.sprite = Progress.Options.IsSoundOn ? soundON : soundOFF;
+        musicBtn.sprite = Progress.Options.IsMusicOn ? musicON : musicOFF;
     }
 
     public void SoundBtn()
     {
         AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-        Progress.Options.Sound = !Progress.Options.Sound;
-        soundBtn.sprite = Progress.Options.Sound ? soundON : soundOFF;
+        Progress.Options.IsSoundOn = !Progress.Options.IsSoundOn;
+        soundBtn.sprite = Progress.Options.IsSoundOn ? soundON : soundOFF;
         AudioManager.Instance.ChangeSoundVolume();
     }
     public void MusicBtn()
     {
         AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
-        Progress.Options.Music = !Progress.Options.Music;
-        musicBtn.sprite = Progress.Options.Music ? musicON : musicOFF;
+        Progress.Options.IsMusicOn = !Progress.Options.IsMusicOn;
+        musicBtn.sprite = Progress.Options.IsMusicOn ? musicON : musicOFF;
         AudioManager.Instance.ChangeMusicVolume();
     }
     public void ExitBtn()

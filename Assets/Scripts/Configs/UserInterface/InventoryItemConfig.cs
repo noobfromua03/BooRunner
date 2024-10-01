@@ -34,7 +34,6 @@ public static class ItemBuilder
         {
             ItemType.BottledEctoplasm => new BottledEctoplasm(),
             ItemType.BrokenClock => new BrokenClock(),
-            ItemType.GemOfStorm => new GemOfStorm(),
             ItemType.DarkRune => new DarkRune(),
             ItemType.AmuletOfFearAura => new AmuletOfFearAura(),
             ItemType.MysticBook => new MysticBook(),

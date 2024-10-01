@@ -7,7 +7,7 @@ public class ScrollOfCurse : IInventoryItem
     public string Name => "Scroll of curse";
     public bool ActionHandler()
     {
-        PlayerData.Instance.ScrollOfCurse();
+        PlayerData.Instance.ChillingTouchON();
         return true;
     }
 }

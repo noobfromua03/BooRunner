@@ -40,7 +40,7 @@ public class SpinWheelController : MonoBehaviour
         view.Spin += SpinWheel;
         view.RewardSpin += RewardSpinWheel;
         view.StopSpin += StopSpin;
-        view.InitializeWheelRewards(RewardConfig.Instance.GetAllWheelRewards());
+        view.InitializeWheelRewards(RewardConfig.Instance.GetCurrentWheelReward());
 
         UpdateSpins();
     }
@@ -196,6 +196,7 @@ public class SpinWheelController : MonoBehaviour
         {
             SpinService.ReloadSpinsOnNewDay();
             SpinService.SetDate();
+            RewardConfig.Instance.UpdateAllWheelRewards();
         }
 
         if (Progress.Inventory.spins.spins == 0)

@@ -14,21 +14,20 @@ public class SlotItem : MonoBehaviour
 
     public Action<SlotItem> Click;
     public int Amount;
-    private ItemType itemType;
+    public ItemType ItemType;
     private ItemSubType subType;
     public void OnClick()
     {
         if (Amount > 0)
         {
-            Amount -= 1;
-            UpdateAmount();
             Click?.Invoke(this);
+            UpdateAmount();
         }
     }
 
     public void Initialize(IInventoryItem item)
     {
-        itemType = item.Type;
+        ItemType = item.Type;
         subType = item.SubType;
         itemImage.sprite = IconsConfig.Instance.GetByType(item.IconType);
         GetAmount();
@@ -37,7 +36,7 @@ public class SlotItem : MonoBehaviour
 
     public void UpdateAmount()
     {
-        if (itemType == ItemType.None)
+        if (ItemType == ItemType.None)
             amountText.text = string.Empty;
         else
             amountText.text = Amount.ToString();
@@ -46,7 +45,7 @@ public class SlotItem : MonoBehaviour
     private void GetAmount()
     {
         if (subType == ItemSubType.active)
-            Amount = Progress.Inventory.GetItemAmount(itemType) <= 3 ? Progress.Inventory.GetItemAmount(itemType) : 3;
+            Amount = Progress.Inventory.GetItemAmount(ItemType) <= 3 ? Progress.Inventory.GetItemAmount(ItemType) : 3;
         else if (subType == ItemSubType.passive)
             Amount = 1;
 

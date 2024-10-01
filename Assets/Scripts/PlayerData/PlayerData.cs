@@ -49,6 +49,7 @@ public class PlayerData : MonoBehaviour
     public Action<IconType, float> UpdateBoosterIcon;
     public Action GameOver;
     public Action UpdateLevelComplete;
+    public bool GoalsBonus;
 
     private const float COLOR_STEP = 30f;
     private const float INVINCIBLE_TIME = 2f;
@@ -61,6 +62,7 @@ public class PlayerData : MonoBehaviour
     private void Start()
     {
         life = maxLifes;
+        GoalsBonus = false;
 
         IsLevelComplete();
     }
@@ -245,12 +247,6 @@ public class PlayerData : MonoBehaviour
         IsTownLegend.Coroutine = StartCoroutine(BoosterDuration(() => IsTownLegend.Status = false, audioSource));
     }
 
-    public void ScrollOfCurse()
-    {
-        scaredEnemiesStreak *= 2;
-        UpdateStreak(scaredEnemiesStreak);
-    }
-
     public void ScareTotemON()
         => IsScareTotem = true;
 
@@ -340,6 +336,7 @@ public class PlayerData : MonoBehaviour
             goal.CompleteLevel(goal.GoalValue <= currentGoals[goal]);
             if (IsLevelComplete())
             {
+                GoalsBonus = true;
                 effectController.LevelComplete();
                 AudioManager.Instance.PlayAudioByType(AudioType.Salute, AudioSubType.Sound);
                 AudioManager.Instance.PlayAudioByType(AudioType.LevelPassed, AudioSubType.Sound);

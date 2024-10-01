@@ -37,7 +37,11 @@ public class HUDWindow : MonoBehaviour, IWindowUI
 
         bool isActionDone = Click?.Invoke(slots.IndexOf(slot)) ?? false;
         if (isActionDone)
-            StartCoroutine(slot.BlockButton());
+        {
+            if (slot.ItemType != ItemType.HeartOfGhost)
+                StartCoroutine(slot.BlockButton());
+            slot.Amount -= 1;
+        }
         AudioManager.Instance.PlayAudioByType(AudioType.ButtonClick, AudioSubType.Sound);
     }
 

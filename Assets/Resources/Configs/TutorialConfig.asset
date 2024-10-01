@@ -13,24 +13,81 @@ MonoBehaviour:
   m_Name: TutorialConfig
   m_EditorClassIdentifier: 
   <Slides>k__BackingField:
-  - <Sprite>k__BackingField: {fileID: 259136664, guid: 156ec492e516ccb4099add479601d65e,
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: f17d6d1d88c208746bf052f9f8dda4f5,
       type: 3}
-    <Text>k__BackingField: Use swipes for evading obstacles
-  - <Sprite>k__BackingField: {fileID: 374495580, guid: 68f9b16138fce1e45b89fc9e2385c884,
+    <Text>k__BackingField: Use swipes left/right for evading obstacles. Use swipe
+      up for jump
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 95520c17e376a5f47b5172090b19da02,
       type: 3}
     <Text>k__BackingField: Collect fear essence that give you scare power, that displayed
       on ghost color
-  - <Sprite>k__BackingField: {fileID: -606357570, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 1fe52cab7c922d34e83ab5d315e8a7ab,
       type: 3}
-    <Text>k__BackingField: Scare peoples
-  - <Sprite>k__BackingField: {fileID: 2047992146, guid: 68f9b16138fce1e45b89fc9e2385c884,
+    <Text>k__BackingField: Ghosts color show you current power of ghost, where purple
+      cant scare no one, and red can scare anyone
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 62f3e58c708ba2f448e76b0411fc6697,
       type: 3}
-    <Text>k__BackingField: 'Deegrees of power like colors is next: purple -  blue
-      - green - yellow - red'
-  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+    <Text>k__BackingField: Scare peoples by walking through them
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: c7b4a9c42761c6c449c255b9bb375ba7,
       type: 3}
-    <Text>k__BackingField: All peoples have bold level. Simple persons like villagers
-      or patiens so easy to scare,  but police is too hard for scare
-  - <Sprite>k__BackingField: {fileID: 695775810, guid: 080cb6d98b00c2645b2c41df5f69bc78,
+    <Text>k__BackingField: All peoples have bold level. Look at the glow behind every
+      person. If u same color or "highest", than u can scare this person
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 14f4484067a3cd14aa0393ad9f44765f,
       type: 3}
-    <Text>k__BackingField: Collect boosters for overpower by some time
+    <Text>k__BackingField: Collect boosters and use items in bag for overpower for
+      a while
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 963668feb0d1f884fa33e8edda2752e1,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Chilling Touch allow you to use half of much
+      power for scare. Also this can activate item "Scroll Of Curse"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 8591712de6453d44a891f1c0fd7cfaae,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Dark Cloud doubles fear essence, that you collect.
+      Also this can activate item "Dark Rune"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 63dedeb9166b7df489d7c3a32bb17a93,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Full Immateriality allow you to walk through
+      all obstacles and peoples without taking damage. Also this can activate item
+      "Bottled Ectoplasm"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 66b31837b75e7e3439ed9f5ef87dd882,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Town Legend allow you to scare anyone without
+      losing your power. Also this can activate item "Mysctic Book"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 6bea8c93f49119a4eb4f88d94109c0b9,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Slow Motion slows down speed by half. Also this
+      can activate item "Broken Clock"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 984794c1e204b9f4187ba583b3d9f037,
+      type: 3}
+    <Text>k__BackingField: 'Booster: Phantom of The Opera you to scare peoples in
+      booster radius and to use half of much power for scare . Also this can activate
+      item "Amulet of Fear Aura"'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: a581bb1ac44e2d54b908b328a69261f7,
+      type: 3}
+    <Text>k__BackingField: 'Item: Heart of Ghost added one life to current lifes'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 4681d1d08d799ce4b9bb9df1874b3285,
+      type: 3}
+    <Text>k__BackingField: Use choosed items in slots at the bottom of the screen.
+      You can choose items for next run in Bag. On level allows take only 3 copies
+      of one item
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: b1c8067f72226834781801643c70a18f,
+      type: 3}
+    <Text>k__BackingField: In the game present passive items, that just used slots,
+      and give you bonus for one run and destroy in the end
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: 801ad93f86d8b5b47916d46a99dc0f21,
+      type: 3}
+    <Text>k__BackingField: 'Scare Totem (left): gives you triple points for scare
+      peoples
+
+      Old Key (right): change max lifes to 5'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: ebc2440162d6aa94fa8b7cccb679401d,
+      type: 3}
+    <Text>k__BackingField: 'Gold Leaf(left): gives you double cursed monets in end
+      of run
+
+      Totem of Fear Essence (right): every some seconds gives you some
+      of fear essence'
+  - <Sprite>k__BackingField: {fileID: 21300000, guid: e2427cd8df7811645b4ef6a6a00b62b9,
+      type: 3}
+    <Text>k__BackingField: Look at your scare streak (right), when this value rise,
+      the speed and score rise with it

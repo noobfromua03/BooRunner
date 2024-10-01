@@ -3,7 +3,7 @@
     [System.Serializable]
     public class OptionsSave
     {
-        public bool Sound;
-        public bool Music;
+        public bool IsSoundOn = true;
+        public bool IsMusicOn = true;
     }
 }
