@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class WindowsManager : MonoBehaviour
@@ -42,6 +43,7 @@ public class WindowsManager : MonoBehaviour
     {
         DisableWindowsExcept(WindowType.MainMenu);
         lastActiveWindow = GetWindowByType(WindowType.MainMenu);
+        AdvertWrapper.Instance.Init().Forget();
     }
 
     private void InitializeAllWindows()
