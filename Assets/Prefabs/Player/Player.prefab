@@ -88,16 +88,17 @@ MonoBehaviour:
   - {fileID: 1225612138983071739}
   colors:
   - serializedVersion: 2
-    rgba: 16723930
+    rgba: 16714708
   - serializedVersion: 2
-    rgba: 16727357
+    rgba: 16711680
   - serializedVersion: 2
-    rgba: 2810410
+    rgba: 65280
   - serializedVersion: 2
-    rgba: 1371135
+    rgba: 63231
   - serializedVersion: 2
-    rgba: 2500344
+    rgba: 255
   effectController: {fileID: 6448263267185515371}
+  GoalsBonus: 0
 --- !u!54 &4318111142082491549
 Rigidbody:
   m_ObjectHideFlags: 0

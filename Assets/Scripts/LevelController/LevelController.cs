@@ -193,7 +193,6 @@ public class LevelController : MonoBehaviour
         var rewardPopup = WindowsManager.Instance.OpenPopup(WindowType.ClaimRewardPopup) as ClaimRewardPopup;
         CurrencyService.AddCurrency(CurrencyType.Soft, rewardData.Amount);
         rewardPopup.InitializeReward(rewardData);
-
     }
 
     private int GetGoalBonus(EnvironmentType type)
@@ -211,7 +210,6 @@ public class LevelController : MonoBehaviour
             case EnvironmentType.Cemetry:
                 return 750;
         }
-
         return 0;
     }
 }
