@@ -163,6 +163,17 @@
             "dependencyXmlURL": "https://s3.amazonaws.com/ssa.public/Dependencies-xmls/Fyber/${VERSION}/ISFyberAdapterDependencies.xml",
             "dependencyXmlFileName": "ISFyberAdapterDependencies.xml",
             "versions": {
+                "4.3.47.0": {
+                    "ironSourceSdkVersion": "[8.4.0, 9.0[",
+                    "android": {
+                        "adapterVersion": "4.3.33",
+                        "adNetworkVersion": "8.3.1"
+                    },
+                    "ios": {
+                        "adapterVersion": "4.3.37.0",
+                        "adNetworkVersion": "8.3.2"
+                    }
+                },
                 "4.3.46.2": {
                     "ironSourceSdkVersion": "[8.4.0, 9.0[",
                     "android": {
