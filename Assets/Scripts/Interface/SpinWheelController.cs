@@ -40,9 +40,9 @@ public class SpinWheelController : MonoBehaviour
         view.Spin += SpinWheel;
         view.RewardSpin += RewardSpinWheel;
         view.StopSpin += StopSpin;
-        view.InitializeWheelRewards(RewardConfig.Instance.GetCurrentWheelReward());
 
         UpdateSpins();
+        view.InitializeWheelRewards(RewardConfig.Instance.GetCurrentWheelReward());
     }
 
     private void OnDisable()

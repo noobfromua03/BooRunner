@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, IPoolObject
@@ -151,5 +152,15 @@ public class Enemy : MonoBehaviour, IPoolObject
             gradient = new ParticleSystem.MinMaxGradient(colors[4]);
 
         mainModule.startColor = gradient;
+    }
+
+    private IEnumerator ScareRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(2, 7));
+            ScaredJump();
+            scaredEffect.Play();
+        }
     }
 }
