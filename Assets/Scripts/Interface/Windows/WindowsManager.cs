@@ -144,8 +144,13 @@ public class WindowsManager : MonoBehaviour
         }
         Time.timeScale = 1;
         menuCamera.enabled = true;
-        AudioManager.Instance.Reload();
-        AudioManager.Instance.PlayAudioByType(AudioType.MenuMusic, AudioSubType.Music);
+
+        if (AudioManager.Instance.IsSoundPlaying(AudioType.MenuMusic) == false)
+        {
+            Debug.Log(AudioManager.Instance.IsSoundPlaying(AudioType.MenuMusic));
+            AudioManager.Instance.Reload();
+            AudioManager.Instance.PlayAudioByType(AudioType.MenuMusic, AudioSubType.Music);
+        }
     }
 
     public IWindowUI OpenWindow(WindowType type)

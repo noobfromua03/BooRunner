@@ -84,6 +84,23 @@ public class AudioManager : MonoBehaviour
     private AudioClip GetClip(AudioType type)
         => audioClips[type].OrderBy(c => UnityEngine.Random.value).First();
 
+    public bool IsSoundPlaying(AudioType type)
+    {
+        bool exist = false;
+        if (audioClips.ContainsKey(type))
+        {
+            foreach (var clip in audioClips[type])
+            {
+                foreach(var source in audioSources)
+                {
+                    if (clip == source.clip)
+                        exist = true;
+                }
+            }
+        }
+        return exist;
+    }
+
     public void Reload()
     {
         foreach (var source in audioSources)
