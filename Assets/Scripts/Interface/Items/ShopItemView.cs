@@ -45,7 +45,7 @@ public class ShopItemView : MonoBehaviour
     {
         if (shopItemData.Type == ItemType.SoftCurrency)
         {
-            if (CurrencyService.CanBuy(CurrencyType.Soft, shopItemData.Cost))
+            if (CurrencyService.CanBuy(CurrencyType.Hard, shopItemData.Cost))
             {
                 CurrencyService.RemoveCurrency(shopItemData.CurrencyType, shopItemData.Cost);
                 CurrencyService.AddCurrency(CurrencyType.Soft, shopItemData.Amount);

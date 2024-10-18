@@ -53,6 +53,10 @@ MonoBehaviour:
     <CurrencyType>k__BackingField: 0
     <Cost>k__BackingField: 4000
     <Amount>k__BackingField: 1
+  - <Type>k__BackingField: 11
+    <CurrencyType>k__BackingField: 0
+    <Cost>k__BackingField: 3000
+    <Amount>k__BackingField: 1
   - <Type>k__BackingField: 13
     <CurrencyType>k__BackingField: 1
     <Cost>k__BackingField: 10
